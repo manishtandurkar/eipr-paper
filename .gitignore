@@ -1,0 +1,31 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.idx
+*.ilg
+*.ind
+*.bbl
+*.blg
+
+# Output files
+*.pdf
+*.ps
+
+# Backup and editor files
+*~
+*.bak
+*.swp
+.vscode/
+.DS_Store
+
+# Figures (keep source images, but ignore exported build images if any)
+# /figures/*.pdf
