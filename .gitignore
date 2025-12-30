@@ -1,31 +1,97 @@
-# LaTeX build files
+# LaTeX Build Artifacts
 *.aux
 *.log
 *.out
 *.toc
-*.lot
-*.lof
-*.fls
 *.fdb_latexmk
+*.fls
 *.synctex.gz
-*.nav
-*.snm
-*.idx
-*.ilg
-*.ind
 *.bbl
 *.blg
-
-# Output files
-*.pdf
+*.bcf
+*.run.xml
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.nav
+*.snm
+*.vrb
+*.dvi
 *.ps
 
-# Backup and editor files
+# LaTeX Temporary Files
+*.backup
 *~
-*.bak
 *.swp
-.vscode/
-.DS_Store
+*.swo
+*.tmp
+*.bak
 
-# Figures (keep source images, but ignore exported build images if any)
-# /figures/*.pdf
+# Build Directory (if used)
+build/
+output/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Python (if using scripts for processing)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Keep These Directories But Ignore Contents Initially
+# (Remove these lines once you add actual figures/tables)
+# figures/.gitkeep
+# tables/.gitkeep
+
+# PDF Output (Optional - comment out if you want to commit PDFs)
+# main.pdf
+
+# Backup Files from Editors
+*~
+\#*\#
+.\#*
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Latexmk
+*.latexmk
+
+# BibTeX
+*.bib.bak
+*.bib~
+
+# Glossaries
+*.glsdefs
+*.xdy
+
+# Notes and Drafts (Optional)
+notes/
+drafts/
+*.draft.tex
+
+pome_paper.pdf
