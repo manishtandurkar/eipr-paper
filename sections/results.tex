@@ -1,14 +1,30 @@
 \section{Results and Discussion}
 [Present your results:]
+[Describe the main features of your implemented system.]
+[Discuss how you tested your system and the results of those tests.]
+[If applicable, provide performance metrics and analysis.]
+[Discuss challenges encountered during development and how you addressed them.]
+\section{Results}
 
 \subsection{System Features}
-[Describe the main features of your implemented system.]
+The implemented prototype exposes the following features:
+\begin{itemize}
+\item Aggregated time-series dashboards for feature-level demand signals.
+\item Model comparison panels showing point forecasts and confidence intervals across implemented models.
+\item Feature prioritization recommendations derived from forecast trajectories and sentiment signals.
+\item Exportable reports and CSV/JSON export of selected series for offline analysis.
+\end{itemize}
 
 \subsection{Testing and Validation}
-[Discuss how you tested your system and the results of those tests.]
+Testing verified pipeline correctness and API behavior. Unit and integration tests validate data cleaning, feature extraction, model training, and forecast-serving endpoints. End-to-end smoke tests confirmed that a typical data ingestion through to frontend rendering path produces consistent outputs.
 
 \subsection{Performance Analysis}
-[If applicable, provide performance metrics and analysis.]
+Prototype performance was sufficient for exploratory analysis: model inference for single series completes in sub-second to low-second range depending on model complexity and environment. API response times and memory usage were profiled during development; further optimization is required for high-throughput production workloads.
 
 \subsection{Challenges and Solutions}
-[Discuss challenges encountered during development and how you addressed them.]
+Key challenges encountered and mitigations:
+\begin{itemize}
+\item \textbf{Heterogeneous data sources}: Differences in timestamp granularity and missing data were handled via normalization and careful imputation strategies.
+\item \textbf{Model selection trade-offs}: No single model dominated across all series; we addressed this by using an ensemble weighted by historical validation performance.
+\item \textbf{Reproducibility}: To ensure reproducibility, we versioned datasets and serialized model artifacts with metadata describing training windows and parameters.
+\end{itemize}

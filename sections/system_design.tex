@@ -59,6 +59,17 @@ This module interprets forecast outputs and generates actionable design recommen
 
 The framework uses rule-based logic combined with threshold-based triggers to translate quantitative forecasts into qualitative design actions.
 
+\subsubsection{User Interface Module}
+The User Interface (UI) module provides an interactive view of forecasts and recommendations for product designers and stakeholders. It implements:
+\begin{itemize}
+\item \textbf{Dashboard Views}: Aggregated metrics and trend visualizations to surface high-level demand movements.
+\item \textbf{Feature Drill-downs}: Per-feature time series, sentiment overlays, and model comparison widgets to inspect drivers of demand.
+\item \textbf{Actionable Recommendations}: UI elements that present prioritized feature suggestions, estimated effort, and suggested release windows derived from the Design Decision Framework.
+\item \textbf{Export and Reporting}: CSV/JSON export options and printable reports to support offline review and decision-making.
+\end{itemize}
+
+The UI module is intentionally decoupled from the forecasting engine so that improvements to visualization or interaction design do not affect core analytics logic.
+
 \subsection{Technology Stack}
 
 \subsubsection{Programming Languages}

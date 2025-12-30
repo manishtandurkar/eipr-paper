@@ -5,12 +5,48 @@
 
 \subsection{Frontend Implementation}
 [Describe frontend implementation details, UI components, user interactions, etc.]
+The frontend prototype is implemented as a single-page web application that provides an interactive dashboard for exploring demand forecasts and design recommendations.
+
+Key implementation details:
+\begin{itemize}
+\item \textbf{Framework and Libraries:} Implemented using React (functional components and hooks). Visualization components use Chart.js for time-series plots and comparison charts; D3.js was used for custom visualizations where fine-grained control was required.
+\item \textbf{Main Components:} Dashboard (overview metrics and trend charts), Feature Explorer (filter and inspect feature-level time series), Forecast Comparison (model outputs and confidence intervals), and Help/Documentation views.
+\item \textbf{State and Data Flow:} State is managed using React Context and local component state. The frontend fetches data from backend REST endpoints and caches recent responses in memory to improve responsiveness.
+\item \textbf{Interaction \\& UX:} Interactive charts support zoom, pan, and tooltip drill-downs. Users can compare different models, toggle confidence bands, and export selected series as CSV for offline analysis.
+\item \textbf{Testing and Accessibility:} Unit tests for UI logic use Jest with React Testing Library. Basic accessibility checks were performed (semantic HTML, ARIA labels on interactive controls, and keyboard navigation for major views).
+\item \textbf{Build and Deployment:} The frontend is built with npm and a modern bundler (Vite/Webpack) producing a static asset bundle that can be served by the backend or deployed to static hosting.
+\end{itemize}
 
 \subsection{Backend Implementation}
 [Describe backend implementation, APIs, database interactions, business logic, etc.]
+The backend is implemented in Python and provides services for data ingestion, preprocessing, model training, forecasting, and serving results via an API.
+
+Key implementation details:
+\begin{itemize}
+\item \textbf{Framework:} FastAPI is used to implement RESTful endpoints for data ingestion, preprocessing triggers, model training, and forecast retrieval. FastAPI provides automatic OpenAPI documentation which was useful for frontend integration.
+\item \textbf{Data Pipeline:} Ingestion scripts normalize raw data (Google Trends, review datasets, metadata) into a canonical time-series schema. Preprocessing modules handle imputation, outlier handling, NLP-based feature extraction, and normalization.
+\item \textbf{Modeling:} Forecasting models (Exponential Smoothing, ARIMA, Linear Regression) are implemented using statsmodels and scikit-learn. Training scripts version and serialize model artifacts (joblib) with accompanying metadata describing training window and hyperparameters.
+\item \textbf{Persistence:} Intermediate data is stored as CSV/JSON files for reproducibility. A lightweight SQLite database is used for series metadata and indexing; PostgreSQL is recommended for larger deployments.
+\item \textbf{API Contracts:} Endpoints return JSON payloads with the following standardized fields: `series_id`, `timestamps`, `observations`, `forecast`, and `confidence_intervals`. Error responses include clear diagnostics to support debugging.
+\item \textbf{Automation and Scheduling:} Scheduled data refresh and retraining can be executed via cron or a simple task scheduler. For production scale, a task queue (Celery/RQ) is recommended.
+\end{itemize}
 
 \subsection{Integration}
 [Describe how different components were integrated together.]
+Frontend and backend integrate via well-defined REST endpoints and a small set of JSON schemas. Integration highlights:
+\begin{itemize}
+\item JSON schemas ensure predictable payloads for rendering and unit testing on both client and server sides.
+\item CORS and simple API key authentication are configured for development and prototype deployments.
+\item End-to-end smoke tests validate that the backend returns expected series formats and that the frontend is able to render representative charts using sample API responses.
+\end{itemize}
 
 \subsection{Development Workflow}
-[Describe version control, testing procedures, and development practices used.]
+Development used Git with feature branches and pull requests. A basic CI pipeline runs linting, unit tests for core modules, and model validation checks when training artifacts are produced. Documentation includes setup instructions for local development and a checklist for retraining and evaluation.
+
+Common development commands used:
+\begin{itemize}
+\item Install backend dependencies: `pip install -r requirements.txt`
+\item Run backend locally: `uvicorn app.main:app --reload`
+\item Install frontend dependencies and start dev server: `npm install` and `npm run dev`
+\item Run tests: `pytest` (backend) and `npm test` (frontend)
+\end{itemize}

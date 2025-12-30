@@ -5,17 +5,27 @@
 
 \subsection{Analysis of Results}
 [Analyze and interpret the results obtained.]
+[Discuss major challenges faced during the project:]
+[Describe how challenges were addressed.]
+[Reflect on what was learned from the project experience.]
+\subsection{Analysis of Results}
+The evaluation demonstrates that combining multiple data sources and forecasting approaches yields more robust recommendations than relying on a single signal. The ensemble method produces forecasts that better capture different temporal dynamics across features, and the visualization layer helps stakeholders interpret forecast uncertainty.
 
 \subsection{Challenges Encountered}
-[Discuss major challenges faced during the project:]
+Major challenges included:
 \begin{itemize}
-\item Technical challenges
-\item Team coordination challenges
-\item Time management issues
+\item \textbf{Data quality and alignment}: Merging heterogeneous datasets required careful timestamp alignment and missing-data strategies.
+\item \textbf{Model heterogeneity}: Different features exhibited different dynamics (seasonal vs. trend-dominated) making a single-model solution suboptimal.
+\item \textbf{Time constraints}: Limited time restricted deeper hyperparameter tuning and production-grade performance testing.
 \end{itemize}
 
 \subsection{Solutions and Workarounds}
-[Describe how challenges were addressed.]
+To address these issues we:
+\begin{itemize}
+\item Applied robust preprocessing and documented transformation steps to make data assumptions explicit.
+\item Adopted an ensemble strategy and pragmatic model-selection rules based on validation performance.
+\item Focused testing on correctness and reproducibility rather than exhaustive scaling benchmarks.
+\end{itemize}
 
 \subsection{Lessons Learned}
-[Reflect on what was learned from the project experience.]
+Key lessons include the importance of clear data contracts, the value of modular architecture to swap modeling components easily, and the benefit of integrating testing early (unit and integration tests) to catch regressions in both data processing and model behavior.

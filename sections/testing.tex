@@ -5,17 +5,38 @@
 
 \subsection{Testing Strategy}
 [Describe your testing approach:]
+The testing and evaluation strategy ensures the correctness, reliability, and performance of both analytical models and software components.
+
+\subsection{Testing Strategy}
+Testing follows a layered approach:
 \begin{itemize}
-\item Unit testing
-\item Integration testing
-\item User acceptance testing
+\item \textbf{Unit Tests}: Verify individual functions and modules (data cleaning, feature extraction, model wrappers) using `pytest`.
+\item \textbf{Integration Tests}: Validate interactions between modules (preprocessing pipeline, model training, and API endpoints).
+\item \textbf{End-to-End Tests}: Smoke tests that exercise the full pipeline from data ingestion to frontend rendering using representative sample data.
+\item \textbf{Performance and Load Tests}: Basic load tests for API endpoints and model inference paths to ensure acceptable latency under prototype workloads.
+\item \textbf{Regression Tests}: Automated checks to ensure new code changes do not degrade forecasting accuracy or break APIs.
 \end{itemize}
 
 \subsection{Test Cases}
-[Describe key test cases and scenarios.]
+Representative test cases include:
+\begin{itemize}
+\item Data ingestion with malformed records (missing fields, incorrect timestamps) to validate error handling.
+\item NLP feature extraction on sample review texts including edge cases (short text, multilingual snippets).
+\item Model training and serialization cycles to verify that artifacts can be loaded and used for inference.
+\item API contract validation to ensure the frontend receives expected JSON schemas under normal and error conditions.
+\item UI component rendering tests for key dashboard views (chart rendering with no data, large series, and multiple overlays).
+\end{itemize}
 
 \subsection{Evaluation Metrics}
-[Define metrics used to evaluate system performance and success.]
+Evaluation uses both software-quality and model-performance metrics:
+\begin{itemize}
+\item \textbf{Model Metrics}: MAE, RMSE, and MAPE measured on holdout sets and through rolling-origin validation.
+\item \textbf{System Metrics}: API latency (p95), successful request rate, and memory usage for model inference.
+\item \textbf{Quality Metrics}: Test coverage for critical modules and the number of regressions caught by CI.
+\end{itemize}
 
-\subsection{Results}
-[Present testing results and evaluation findings.]
+\subsection{Test Infrastructure and Automation}
+Automated tests are executed in CI (GitHub Actions) on each pull request. Tests include unit/integration suites and model validation steps; failing model validation prevents merging large model changes without reviewer approval.
+
+\subsection{Test Results Summary}
+Unit and integration tests were created for core pipeline modules and API endpoints. End-to-end smoke tests validate typical data flows. The testing effort focused on reproducibility of model outputs and robustness of API contracts rather than exhaustive performance benchmarking at production scale.
