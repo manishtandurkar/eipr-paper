@@ -10,19 +10,19 @@ POME/Paper/
 ├── IEEEtran.cls            # IEEE formatting class
 ├── README.md               # This file
 ├── sections/               # All paper sections
-│   ├── abstract.tex        # Project abstract
-│   ├── introduction.tex    # Introduction and background
-│   ├── related_work.tex    # Literature review
-│   ├── system_design.tex   # System architecture and design
-│   ├── methodology.tex     # Methodology and approach
-│   ├── implementation.tex  # Implementation details
-│   ├── testing.tex         # Testing and evaluation
-│   ├── results.tex         # Results and findings
-│   ├── discussion.tex      # Discussion and analysis
-│   ├── contributions.tex   # Team member contributions
-│   ├── future_work.tex     # Future enhancements
-│   ├── conclusion.tex      # Conclusions
-│   └── references.tex      # Bibliography
+│   ├── abstract.tex        # Member 2
+│   ├── introduction.tex    # Member 1
+│   ├── related_work.tex    # Member 2
+│   ├── system_design.tex   # Member 1
+│   ├── methodology.tex     # Member 1
+│   ├── implementation.tex  # Member 1
+│   ├── testing.tex         # Member 3
+│   ├── results.tex         # Member 1
+│   ├── discussion.tex      # Member 3
+│   ├── contributions.tex   # Member 2
+│   ├── future_work.tex     # Member 3
+│   ├── conclusion.tex      # Member 2
+│   └── references.tex      # Member 3
 └── figures/                # All figures and images
     └── fig1.png           # Example figure
 ```
