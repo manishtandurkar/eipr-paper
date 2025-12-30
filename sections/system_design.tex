@@ -4,16 +4,102 @@
 \section{System Design}
 
 \subsection{System Architecture}
-[Describe the overall architecture of your system, including components and how they interact.]
+The system follows a modular pipeline architecture consisting of four main stages that transform raw public data into actionable design insights. The architecture is designed to be scalable, reproducible, and adaptable to various SaaS platforms beyond Notion.
+
+The system operates as a sequential pipeline where each stage feeds into the next:
+\begin{enumerate}
+\item \textbf{Data Collection Layer}: Aggregates publicly available demand signals from multiple sources including Google Trends API, Kaggle review datasets, and app metadata repositories
+\item \textbf{Data Preprocessing Layer}: Cleans, normalizes, and organizes raw data into feature-specific time series suitable for forecasting models
+\item \textbf{Forecasting Engine}: Applies multiple time-series forecasting techniques (Exponential Smoothing, ARIMA, Linear Regression) to generate demand predictions
+\item \textbf{Design Decision Framework}: Translates forecast outputs into concrete product design recommendations including feature prioritization, UI/UX optimization strategies, and resource allocation guidance
+\end{enumerate}
+
+The architecture emphasizes modularity, allowing each component to be updated or replaced independently. Data flows unidirectionally from collection through decision-making, with feedback loops enabling continuous refinement of forecast models based on validation results.
 
 \subsection{Component Design}
-[Describe individual components and their responsibilities.]
+
+\subsubsection{Data Collection Module}
+This module serves as the entry point for all external data sources. It implements:
+\begin{itemize}
+\item \textbf{Google Trends Scraper}: Collects monthly search interest data for specific Notion features (e.g., "Notion AI", "Notion templates", "Notion automation")
+\item \textbf{Review Dataset Parser}: Processes Kaggle datasets containing user reviews, ratings, and timestamps from app stores
+\item \textbf{Metadata Aggregator}: Gathers app installation counts, version releases, and rating distributions
+\end{itemize}
+
+All collected data is timestamped and stored in a standardized format to ensure consistency across different data sources. The module handles API rate limiting, data validation, and error recovery to maintain data quality.
+
+\subsubsection{Data Preprocessing Module}
+This component transforms raw data into analysis-ready formats:
+\begin{itemize}
+\item \textbf{Data Cleaning}: Removes duplicates, handles missing values, and filters outliers
+\item \textbf{Feature Extraction}: Uses Natural Language Processing (NLP) techniques to extract feature mentions from user reviews and feedback
+\item \textbf{Sentiment Analysis}: Applies sentiment scoring to reviews to gauge user satisfaction with specific features
+\item \textbf{Time Series Construction}: Organizes data into monthly time series for each Notion feature, including search interest, sentiment scores, and mention frequencies
+\item \textbf{Normalization}: Scales data across different metrics to enable cross-feature comparison
+\end{itemize}
+
+\subsubsection{Forecasting Engine}
+The core analytical component that generates demand predictions using three complementary approaches:
+\begin{itemize}
+\item \textbf{Exponential Smoothing Model}: Captures short-term demand shifts and recent trends, particularly useful for identifying sudden interest spikes
+\item \textbf{ARIMA (AutoRegressive Integrated Moving Average)}: Models long-term patterns, seasonality, and cyclical behaviors in feature demand
+\item \textbf{Linear Regression Model}: Analyzes the impact of external factors (e.g., competitor releases, viral events) on demand trajectories
+\end{itemize}
+
+Each model produces independent forecasts that are then ensemble-weighted based on historical accuracy. The engine outputs confidence intervals alongside point predictions to support risk-aware decision-making.
+
+\subsubsection{Design Decision Framework}
+This module interprets forecast outputs and generates actionable design recommendations:
+\begin{itemize}
+\item \textbf{Feature Prioritization Engine}: Ranks features based on predicted demand growth, current sentiment, and strategic importance
+\item \textbf{UI/UX Optimization Advisor}: Recommends interface changes for high-demand features (e.g., improved discoverability, simplified workflows)
+\item \textbf{Resource Allocation Planner}: Suggests engineering effort distribution based on demand forecasts and implementation complexity
+\item \textbf{Release Planning Tool}: Identifies optimal timing for feature launches or updates based on predicted demand peaks
+\end{itemize}
+
+The framework uses rule-based logic combined with threshold-based triggers to translate quantitative forecasts into qualitative design actions.
 
 \subsection{Technology Stack}
-[List and justify your technology choices:]
+
+\subsubsection{Programming Languages}
 \begin{itemize}
-\item Programming languages
-\item Frameworks and libraries
-\item Database systems
-\item Development tools
+\item \textbf{Python 3.x}: Primary language for data processing, statistical analysis, and forecasting model implementation due to its rich ecosystem of data science libraries
+\item \textbf{SQL}: For structured data storage and querying of time-series datasets
+\end{itemize}
+
+\subsubsection{Frameworks and Libraries}
+\begin{itemize}
+\item \textbf{pandas}: Data manipulation and time-series handling
+\item \textbf{NumPy}: Numerical computations and array operations
+\item \textbf{statsmodels}: Implementation of ARIMA and Exponential Smoothing models
+\item \textbf{scikit-learn}: Linear regression, data preprocessing, and model evaluation metrics
+\item \textbf{NLTK / spaCy}: Natural Language Processing for feature extraction from reviews
+\item \textbf{TextBlob / VADER}: Sentiment analysis of user feedback
+\item \textbf{matplotlib / seaborn}: Data visualization and forecast plotting
+\item \textbf{pytrends}: Google Trends API interface for search interest data collection
+\end{itemize}
+
+\subsubsection{Data Sources and Storage}
+\begin{itemize}
+\item \textbf{Google Trends API}: Search interest time-series data
+\item \textbf{Kaggle Datasets}: App review collections and user feedback data
+\item \textbf{CSV/JSON Files}: Lightweight storage for collected and preprocessed data
+\item \textbf{SQLite / PostgreSQL}: Relational database for structured time-series storage (optional for larger deployments)
+\end{itemize}
+
+\subsubsection{Development and Collaboration Tools}
+\begin{itemize}
+\item \textbf{Jupyter Notebooks}: Interactive development, exploratory data analysis, and model prototyping
+\item \textbf{Git / GitHub}: Version control and collaborative development
+\item \textbf{VS Code / PyCharm}: Integrated development environments for code implementation
+\item \textbf{pytest}: Unit testing framework for validation and quality assurance
+\end{itemize}
+
+\subsubsection{Justification of Technology Choices}
+The selected technology stack prioritizes:
+\begin{itemize}
+\item \textbf{Accessibility}: Python and open-source libraries ensure the framework is replicable without expensive proprietary tools
+\item \textbf{Flexibility}: Modular architecture allows easy swapping of forecasting algorithms or data sources
+\item \textbf{Scalability}: The pipeline can handle datasets ranging from small case studies to enterprise-scale deployments
+\item \textbf{Community Support}: Well-documented libraries and active communities facilitate troubleshooting and continuous improvement
 \end{itemize}

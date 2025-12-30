@@ -1,9 +1,28 @@
 \section{Introduction}
-[Introduce your project here. Include:]
+
+Software-as-a-Service (SaaS) products are now crucial for personal productivity, team collaboration, and digital workflows. Among the many tools available, Notion stands out as one of the most flexible platforms. It offers modular databases, templates, workspace organization, and recently, AI-powered features. As the platform grows, product teams face the challenge of deciding which features to design or improve at any time. Relying solely on developer intuition or limited feedback is not enough in today's competitive market. Instead, using data-driven forecasting can provide clear insights into emerging user needs.
+
+Demand forecasting in SaaS means predicting user interest in specific features by examining trends in search behavior, usage patterns, review sentiments, and external events. This is different from forecasting in traditional industries because the demand for SaaS features is nonlinear; it is often swayed by competitor launches, viral content, or sudden shifts in work habits. Recognizing upcoming demand early allows product designers to make better choices regarding UI/UX, workflows, design complexity, and engineering investment.
+
+This study looks at how to adapt forecasting methods to SaaS environments using publicly available datasets. We center on Notion as a case study because of its large user base, active online communities, and open feature discussions. By modeling demand trends for features like Notion AI, templates, and automation workflows, the study shows how forecasting helps guide design decisions. The goal is to demonstrate that forecasting is not just a technical tool; it serves as a strategic foundation for creating products that stay relevant, intuitive, and effective.
+
+\subsection{Background and Motivation}
+SaaS productivity platforms work in a quickly changing environment where user expectations shift often, and new workflow patterns arise regularly. In this setting, creating the right features at the right time is essential for product success. Since internal analytics from SaaS companies are not publicly available, this study develops a forecasting method based on publicly accessible proxy datasets like Google Trends data, app review datasets, and user feedback trends specific to features.
+
+\subsection{Problem Statement}
+Product teams in SaaS companies must decide which features to prioritize, improve, or redesign without always having access to comprehensive internal analytics. Traditional approaches relying on developer intuition or limited user feedback are insufficient in today's competitive and rapidly evolving market. There is a need for a data-driven approach that can predict feature demand and inform design decisions effectively.
+
+\subsection{Research Objectives}
+The objectives of this research are:
 \begin{itemize}
-\item Background and motivation for the project
-\item Problem statement
-\item Objectives and goals
-\item Scope and limitations
-\item Organization of the paper
+\item To understand how interest in different Notion features changes over time by studying publicly available data like Google Trends and user reviews
+\item To use forecasting methods such as Exponential Smoothing, ARIMA, and Regression to predict which Notion features are likely to become more or less popular in the future
+\item To explore how these demand predictions can guide real product decisions, such as which features should be improved, prioritized, or redesigned
+\item To build a practical and easy-to-follow framework that software teams can use to connect demand insights with better UI/UX design and release planning
 \end{itemize}
+
+\subsection{Scope and Significance}
+This study aims to create a simple and replicable forecasting framework that software companies can use, even without access to large internal datasets. The overall goal is to demonstrate that effective demand forecasting not only helps companies create better features but also ensures that product design keeps up with user needs, which can reduce churn and improve product adoption. The research focuses specifically on Notion as a case study but provides a methodology applicable to other SaaS platforms.
+
+\subsection{Organization of the Paper}
+The remainder of this paper is organized as follows: Section II reviews related work in demand forecasting and feature prioritization. Section III presents the system design and architecture. Section IV describes the methodology in detail. Section V discusses the implementation approach. Section VI presents testing procedures and evaluation metrics. Section VII provides results and findings. Section VIII discusses the implications and limitations. Section IX outlines team contributions. Section X suggests future work, and Section XI concludes the paper.
