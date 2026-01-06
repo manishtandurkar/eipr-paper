@@ -1,30 +1,56 @@
-\section{Results and Discussion}
-[Present your results:]
-[Describe the main features of your implemented system.]
-[Discuss how you tested your system and the results of those tests.]
-[If applicable, provide performance metrics and analysis.]
-[Discuss challenges encountered during development and how you addressed them.]
 \section{Results}
 
-\subsection{System Features}
-The implemented prototype exposes the following features:
+\subsection{What the Prototype Can Do}
+After putting everything together, we ended up with a working system that offers a few key capabilities:
 \begin{itemize}
-\item Aggregated time-series dashboards for feature-level demand signals.
-\item Model comparison panels showing point forecasts and confidence intervals across implemented models.
-\item Feature prioritization recommendations derived from forecast trajectories and sentiment signals.
-\item Exportable reports and CSV/JSON export of selected series for offline analysis.
+\item A dashboard that pulls together time-series data for different Notion features, showing how interest has shifted over the months.
+\item Side-by-side comparisons of our three forecasting models, complete with confidence bands so you can see how certain each prediction is.
+\item A recommendation engine that takes the forecast numbers and turns them into prioritized suggestions—which features deserve more attention, which ones might need rethinking.
+\item Export options so users can download the data as CSV or JSON and do their own analysis offline.
+\end{itemize}
+
+\subsection{What the Forecasts Revealed}
+When we ran the models on Notion's feature data, a few patterns jumped out:
+\begin{itemize}
+\item \textbf{Notion AI} is on a clear upward trajectory. People are searching for it more and more, and the sentiment in reviews reflects genuine excitement. Exponential Smoothing caught recent spikes quickly, while ARIMA confirmed that this isn't just a blip—there's sustained momentum.
+
+\item \textbf{Templates} remain a steady favorite. Interest doesn't swing wildly, but it stays consistently high with some predictable seasonal bumps. Users seem to rely on templates as a core part of how they use Notion.
+
+\item \textbf{Automation features} are growing, though more gradually. Linear Regression helped us see that automation interest tends to rise alongside broader trends in the productivity software space—when people talk more about workflow automation in general, Notion's automation features get more attention too.
+\end{itemize}
+
+Blending all three models together gave us more dependable predictions than relying on any single one. The ensemble approach smoothed out the quirks each model brought to the table.
+
+\subsection{Did the Hypothesis Hold Up?}
+We went into this study believing that forecasted demand patterns can meaningfully shape product design choices. After running the analysis, we're confident that's true. Here's what we observed:
+\begin{itemize}
+\item Features with rising demand signals—like Notion AI—got flagged by our system as high priority for design improvements. The framework naturally pushed them to the top.
+\item The time-series models did a respectable job predicting trends, which means product teams could actually use these forecasts for planning rather than just looking backward.
+\item Most importantly, the system didn't just spit out numbers. It translated those numbers into actionable advice, closing the gap between "here's what the data says" and "here's what we should do about it."
 \end{itemize}
 
 \subsection{Testing and Validation}
-Testing verified pipeline correctness and API behavior. Unit and integration tests validate data cleaning, feature extraction, model training, and forecast-serving endpoints. End-to-end smoke tests confirmed that a typical data ingestion through to frontend rendering path produces consistent outputs.
+We didn't just build it and hope for the best. Unit tests verified that each piece of the pipeline—data cleaning, feature extraction, model training, API responses—did what it was supposed to do. Integration tests checked that the pieces worked together. End-to-end smoke tests walked through the whole flow from data ingestion to rendering charts in the frontend, making sure nothing broke along the way.
 
-\subsection{Performance Analysis}
-Prototype performance was sufficient for exploratory analysis: model inference for single series completes in sub-second to low-second range depending on model complexity and environment. API response times and memory usage were profiled during development; further optimization is required for high-throughput production workloads.
+\subsection{How Fast Does It Run?}
+Performance was solid enough for the kind of exploratory analysis we had in mind. Generating a forecast for a single feature takes less than a second in most cases, maybe a few seconds for more complex ARIMA fits. API response times stayed reasonable during development. That said, if you wanted to scale this up to handle thousands of concurrent users or much larger datasets, you'd need to invest in optimization—caching, async processing, maybe a beefier database.
 
-\subsection{Challenges and Solutions}
-Key challenges encountered and mitigations:
+\subsection{Bumps in the Road}
+A few challenges came up during development:
 \begin{itemize}
-\item \textbf{Heterogeneous data sources}: Differences in timestamp granularity and missing data were handled via normalization and careful imputation strategies.
-\item \textbf{Model selection trade-offs}: No single model dominated across all series; we addressed this by using an ensemble weighted by historical validation performance.
-\item \textbf{Reproducibility}: To ensure reproducibility, we versioned datasets and serialized model artifacts with metadata describing training windows and parameters.
+\item \textbf{Data from different sources didn't always play nice.} Google Trends gives monthly snapshots, reviews come with timestamps down to the day, and some metadata was patchy. We spent real effort normalizing timestamps and filling gaps sensibly.
+
+\item \textbf{No single model won everywhere.} Exponential Smoothing crushed it for some features, ARIMA for others. Rather than pick one and hope, we leaned into the ensemble approach and weighted models by how well they'd performed historically.
+
+\item \textbf{Reproducibility matters.} If someone else couldn't replicate our results, the whole analysis would be suspect. So we versioned datasets, saved model artifacts with full metadata, and documented every transformation step.
 \end{itemize}
+
+\subsection{Recommendations the System Produced}
+Based on everything the models told us, here's the kind of guidance our framework generated:
+\begin{itemize}
+\item \textbf{Put AI features front and center.} Demand is surging, so invest in making these features more discoverable and polished.
+\item \textbf{Keep templates solid.} They're already popular and stable—focus on maintaining quality and maybe introduce complementary additions.
+\item \textbf{Watch automation closely.} Interest is growing but not exploding. It's worth investing in, but perhaps not at the expense of hotter areas.
+\end{itemize}
+
+These recommendations show that the framework does what we set out to do: connect raw demand signals to concrete product decisions.

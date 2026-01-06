@@ -1,116 +1,113 @@
-% System Design and Architecture Section
-% Describe the overall system design and architecture
-
 \section{System Design}
 
-\subsection{System Architecture}
-The system follows a modular pipeline architecture consisting of four main stages that transform raw public data into actionable design insights. The architecture is designed to be scalable, reproducible, and adaptable to various SaaS platforms beyond Notion.
+\subsection{How It All Fits Together}
+We designed the system as a pipeline that moves data through four main stages. Raw public information goes in, and actionable design recommendations come out. Each stage hands off to the next, and the whole thing is built to be modular—meaning you can swap out pieces without rebuilding everything from scratch.
 
-The system operates as a sequential pipeline where each stage feeds into the next:
+Here's the flow:
 \begin{enumerate}
-\item \textbf{Data Collection Layer}: Aggregates publicly available demand signals from multiple sources including Google Trends API, Kaggle review datasets, and app metadata repositories
-\item \textbf{Data Preprocessing Layer}: Cleans, normalizes, and organizes raw data into feature-specific time series suitable for forecasting models
-\item \textbf{Forecasting Engine}: Applies multiple time-series forecasting techniques (Exponential Smoothing, ARIMA, Linear Regression) to generate demand predictions
-\item \textbf{Design Decision Framework}: Translates forecast outputs into concrete product design recommendations including feature prioritization, UI/UX optimization strategies, and resource allocation guidance
+\item \textbf{Data Collection}: We pull in demand signals from several public sources—Google Trends for search interest, Kaggle datasets for user reviews, and app metadata from various repositories.
+\item \textbf{Preprocessing}: The raw data gets cleaned up, normalized, and organized into tidy time-series formats that the forecasting models can actually work with.
+\item \textbf{Forecasting}: We run multiple models (Exponential Smoothing, ARIMA, Linear Regression) to generate predictions about future demand for specific features.
+\item \textbf{Decision Framework}: The forecasts get translated into concrete suggestions—which features to prioritize, how to allocate resources, when to launch updates.
 \end{enumerate}
 
-The architecture emphasizes modularity, allowing each component to be updated or replaced independently. Data flows unidirectionally from collection through decision-making, with feedback loops enabling continuous refinement of forecast models based on validation results.
+Data flows one way through the pipeline, from collection to recommendations. We also built in feedback loops so we can refine the models over time based on how well their predictions hold up.
 
-\subsection{Component Design}
+\subsection{Breaking Down the Components}
 
 \subsubsection{Data Collection Module}
-This module serves as the entry point for all external data sources. It implements:
+This is where everything starts. The module handles three main data sources:
 \begin{itemize}
-\item \textbf{Google Trends Scraper}: Collects monthly search interest data for specific Notion features (e.g., "Notion AI", "Notion templates", "Notion automation")
-\item \textbf{Review Dataset Parser}: Processes Kaggle datasets containing user reviews, ratings, and timestamps from app stores
-\item \textbf{Metadata Aggregator}: Gathers app installation counts, version releases, and rating distributions
+\item \textbf{Google Trends Scraper}: Grabs monthly search interest data for specific Notion features. Want to know how often people searched for "Notion AI" last month? This is where that comes from.
+\item \textbf{Review Dataset Parser}: Processes user reviews from Kaggle datasets, extracting ratings, timestamps, and the actual text of what people wrote.
+\item \textbf{Metadata Aggregator}: Collects supplementary info like app installation counts, version release histories, and rating distributions.
 \end{itemize}
 
-All collected data is timestamped and stored in a standardized format to ensure consistency across different data sources. The module handles API rate limiting, data validation, and error recovery to maintain data quality.
+Everything gets timestamped and stored in a consistent format. The module also handles the annoying realities of working with external APIs—rate limits, random failures, retries—so the data collection stays reliable.
 
-\subsubsection{Data Preprocessing Module}
-This component transforms raw data into analysis-ready formats:
+\subsubsection{Preprocessing Module}
+Raw data is messy, so this module cleans it up before anything else happens:
 \begin{itemize}
-\item \textbf{Data Cleaning}: Removes duplicates, handles missing values, and filters outliers
-\item \textbf{Feature Extraction}: Uses Natural Language Processing (NLP) techniques to extract feature mentions from user reviews and feedback
-\item \textbf{Sentiment Analysis}: Applies sentiment scoring to reviews to gauge user satisfaction with specific features
-\item \textbf{Time Series Construction}: Organizes data into monthly time series for each Notion feature, including search interest, sentiment scores, and mention frequencies
-\item \textbf{Normalization}: Scales data across different metrics to enable cross-feature comparison
+\item \textbf{Cleaning}: Duplicate entries get removed, missing values get handled (usually through interpolation or carrying forward the last known value), and statistical outliers get flagged.
+\item \textbf{Feature Extraction}: We use natural language processing to scan review text and pull out mentions of specific features. How many times did people mention "templates" this month? This tells us.
+\item \textbf{Sentiment Scoring}: Reviews get sentiment scores so we know whether users sound happy, frustrated, or neutral about particular features.
+\item \textbf{Time-Series Construction}: Everything gets organized into monthly series for each feature—search interest, sentiment, mention counts.
+\item \textbf{Normalization}: Since different metrics are on different scales, we normalize values so we can compare apples to apples across features.
 \end{itemize}
 
 \subsubsection{Forecasting Engine}
-The core analytical component that generates demand predictions using three complementary approaches:
+This is the analytical core. We don't rely on a single model because different models have different strengths:
 \begin{itemize}
-\item \textbf{Exponential Smoothing Model}: Captures short-term demand shifts and recent trends, particularly useful for identifying sudden interest spikes
-\item \textbf{ARIMA (AutoRegressive Integrated Moving Average)}: Models long-term patterns, seasonality, and cyclical behaviors in feature demand
-\item \textbf{Linear Regression Model}: Analyzes the impact of external factors (e.g., competitor releases, viral events) on demand trajectories
+\item \textbf{Exponential Smoothing}: Great for catching short-term shifts. If something spiked last month, this model notices quickly.
+\item \textbf{ARIMA}: Better for long-term patterns—seasonality, cycles, trends that unfold over many months.
+\item \textbf{Linear Regression}: Helps us incorporate outside factors. Did a competitor just launch something similar? Is there buzz in the news? Regression can factor that in.
 \end{itemize}
 
-Each model produces independent forecasts that are then ensemble-weighted based on historical accuracy. The engine outputs confidence intervals alongside point predictions to support risk-aware decision-making.
+Each model produces its own forecast, and then we blend them using an ensemble approach. Models that have been more accurate historically get more weight in the final prediction. We also generate confidence intervals so decision-makers know how certain (or uncertain) each forecast is.
 
 \subsubsection{Design Decision Framework}
-This module interprets forecast outputs and generates actionable design recommendations:
+Forecasts are just numbers until you do something with them. This module takes the predictions and generates practical recommendations:
 \begin{itemize}
-\item \textbf{Feature Prioritization Engine}: Ranks features based on predicted demand growth, current sentiment, and strategic importance
-\item \textbf{UI/UX Optimization Advisor}: Recommends interface changes for high-demand features (e.g., improved discoverability, simplified workflows)
-\item \textbf{Resource Allocation Planner}: Suggests engineering effort distribution based on demand forecasts and implementation complexity
-\item \textbf{Release Planning Tool}: Identifies optimal timing for feature launches or updates based on predicted demand peaks
+\item \textbf{Feature Prioritization}: Ranks features based on predicted demand growth, current user sentiment, and strategic importance.
+\item \textbf{UI/UX Suggestions}: For high-demand features, recommends improvements like better discoverability or simplified workflows.
+\item \textbf{Resource Planning}: Suggests how to distribute engineering effort based on where demand is heading.
+\item \textbf{Release Timing}: Identifies when demand peaks are expected so launches can be timed accordingly.
 \end{itemize}
 
-The framework uses rule-based logic combined with threshold-based triggers to translate quantitative forecasts into qualitative design actions.
+The logic is rule-based with threshold triggers. If predicted demand growth exceeds a certain level and sentiment is positive, the feature gets flagged as high priority. It's not magic, but it's systematic.
 
 \subsubsection{User Interface Module}
-The User Interface (UI) module provides an interactive view of forecasts and recommendations for product designers and stakeholders. It implements:
+All of this needs to be usable by actual humans—not just data scientists staring at terminal output. The UI provides:
 \begin{itemize}
-\item \textbf{Dashboard Views}: Aggregated metrics and trend visualizations to surface high-level demand movements.
-\item \textbf{Feature Drill-downs}: Per-feature time series, sentiment overlays, and model comparison widgets to inspect drivers of demand.
-\item \textbf{Actionable Recommendations}: UI elements that present prioritized feature suggestions, estimated effort, and suggested release windows derived from the Design Decision Framework.
-\item \textbf{Export and Reporting}: CSV/JSON export options and printable reports to support offline review and decision-making.
+\item \textbf{Dashboard Views}: High-level metrics and trend visualizations so stakeholders can see what's happening at a glance.
+\item \textbf{Feature Drill-downs}: Detailed time-series charts for individual features, with sentiment overlays and model comparison widgets.
+\item \textbf{Recommendations Panel}: Prioritized suggestions, estimated effort, and suggested launch windows—all derived from the forecasting pipeline.
+\item \textbf{Export Options}: CSV and JSON exports plus printable reports for offline review or sharing with people who prefer spreadsheets.
 \end{itemize}
 
-The UI module is intentionally decoupled from the forecasting engine so that improvements to visualization or interaction design do not affect core analytics logic.
+We intentionally kept the UI decoupled from the forecasting engine. That way, we can redesign the interface without touching the analytics logic, and vice versa.
 
-\subsection{Technology Stack}
+\subsection{Technology Choices}
 
-\subsubsection{Programming Languages}
+\subsubsection{Languages}
 \begin{itemize}
-\item \textbf{Python 3.x}: Primary language for data processing, statistical analysis, and forecasting model implementation due to its rich ecosystem of data science libraries
-\item \textbf{SQL}: For structured data storage and querying of time-series datasets
+\item \textbf{Python}: The workhorse for data processing, statistical modeling, and forecasting. Python's ecosystem of data science libraries made it the obvious choice.
+\item \textbf{SQL}: For structured storage and querying of time-series data when needed.
 \end{itemize}
 
-\subsubsection{Frameworks and Libraries}
+\subsubsection{Libraries and Frameworks}
 \begin{itemize}
-\item \textbf{pandas}: Data manipulation and time-series handling
-\item \textbf{NumPy}: Numerical computations and array operations
-\item \textbf{statsmodels}: Implementation of ARIMA and Exponential Smoothing models
-\item \textbf{scikit-learn}: Linear regression, data preprocessing, and model evaluation metrics
-\item \textbf{NLTK / spaCy}: Natural Language Processing for feature extraction from reviews
-\item \textbf{TextBlob / VADER}: Sentiment analysis of user feedback
-\item \textbf{matplotlib / seaborn}: Data visualization and forecast plotting
-\item \textbf{pytrends}: Google Trends API interface for search interest data collection
+\item \textbf{pandas}: Data manipulation and time-series handling.
+\item \textbf{NumPy}: Number crunching and array operations.
+\item \textbf{statsmodels}: Our go-to for ARIMA and Exponential Smoothing implementations.
+\item \textbf{scikit-learn}: Linear regression, preprocessing utilities, and evaluation metrics.
+\item \textbf{NLTK and spaCy}: Natural language processing for extracting feature mentions from review text.
+\item \textbf{TextBlob and VADER}: Sentiment analysis—quick and practical for scoring how positive or negative reviews sound.
+\item \textbf{matplotlib and seaborn}: Plotting and visualization.
+\item \textbf{pytrends}: Python wrapper for the Google Trends API.
 \end{itemize}
 
 \subsubsection{Data Sources and Storage}
 \begin{itemize}
-\item \textbf{Google Trends API}: Search interest time-series data
-\item \textbf{Kaggle Datasets}: App review collections and user feedback data
-\item \textbf{CSV/JSON Files}: Lightweight storage for collected and preprocessed data
-\item \textbf{SQLite / PostgreSQL}: Relational database for structured time-series storage (optional for larger deployments)
+\item \textbf{Google Trends API}: Search interest time-series.
+\item \textbf{Kaggle Datasets}: User reviews and feedback collections.
+\item \textbf{CSV/JSON Files}: Lightweight storage for collected and processed data—easy to version and inspect.
+\item \textbf{SQLite / PostgreSQL}: Relational database options for larger or more structured deployments.
 \end{itemize}
 
-\subsubsection{Development and Collaboration Tools}
+\subsubsection{Development Tools}
 \begin{itemize}
-\item \textbf{Jupyter Notebooks}: Interactive development, exploratory data analysis, and model prototyping
-\item \textbf{Git / GitHub}: Version control and collaborative development
-\item \textbf{VS Code / PyCharm}: Integrated development environments for code implementation
-\item \textbf{pytest}: Unit testing framework for validation and quality assurance
+\item \textbf{Jupyter Notebooks}: Interactive exploration and prototyping.
+\item \textbf{Git / GitHub}: Version control and collaboration.
+\item \textbf{VS Code / PyCharm}: Code editing.
+\item \textbf{pytest}: Testing framework for validation.
 \end{itemize}
 
-\subsubsection{Justification of Technology Choices}
-The selected technology stack prioritizes:
+\subsubsection{Why These Choices?}
+We picked this stack because it's accessible, flexible, and well-supported:
 \begin{itemize}
-\item \textbf{Accessibility}: Python and open-source libraries ensure the framework is replicable without expensive proprietary tools
-\item \textbf{Flexibility}: Modular architecture allows easy swapping of forecasting algorithms or data sources
-\item \textbf{Scalability}: The pipeline can handle datasets ranging from small case studies to enterprise-scale deployments
-\item \textbf{Community Support}: Well-documented libraries and active communities facilitate troubleshooting and continuous improvement
+\item \textbf{Accessible}: Everything is open-source. No expensive licenses required.
+\item \textbf{Flexible}: The modular design means you can swap in different forecasting algorithms or data sources without rewriting the whole system.
+\item \textbf{Scalable}: The pipeline can handle small case studies or scale up to larger datasets if needed.
+\item \textbf{Community Support}: These are widely-used tools with active communities, plenty of documentation, and easy-to-find help when things go wrong.
 \end{itemize}

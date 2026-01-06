@@ -1,26 +1,44 @@
 \section{Methodology}
-This section describes the methods used for data collection, preprocessing, modeling, and evaluation.
+Our approach unfolds across four connected stages, each building on the previous one. We start by gathering publicly available signals that hint at what users want, then clean and organize this information, run it through forecasting models, and finally turn the numbers into practical suggestions for product teams. Here's how each part works.
 
-\subsection{Data Collection}
-Data sources include Google Trends time-series, curated review datasets from Kaggle, and app metadata. Collection scripts normalize timestamps and align signals to a monthly cadence. Data collection handles rate limits, retries, and logging to ensure reproducibility.
+\subsection{Gathering the Data}
+Since we can't peek inside Notion's private analytics, we rely on what's openly available online. We pull search interest numbers from Google Trends to see how often people look up things like "Notion AI" or "Notion templates." We also grab user review datasets from Kaggle, where thousands of app store reviews give us a window into what people love or complain about. On top of that, we collect basic app metadata—ratings, download counts, version history—to round out the picture.
 
-\subsection{Preprocessing}
-Preprocessing includes:
+All of this data gets timestamped and organized so that everything lines up by month. Our collection scripts handle the usual headaches: rate limits from APIs, occasional network hiccups, and logging everything so we can trace back any oddities later.
+
+\subsection{Cleaning Things Up}
+Raw data is messy. Duplicate entries sneak in, some months have gaps, and outliers can throw off our analysis. So we spend time tidying up:
 \begin{itemize}
-\item Cleaning and deduplication of records.
-\item Missing value handling via interpolation or forward-filling where appropriate.
-\item Outlier detection and filtering using statistical thresholds.
-\item NLP-based feature extraction from review text to produce mention counts and sentiment scores.
+\item We hunt down and remove duplicate records that would skew our counts.
+\item When a month has missing values, we fill in reasonable estimates using interpolation or by carrying forward the last known value.
+\item We flag and filter out extreme outliers that don't fit the normal pattern.
+\item Using natural language processing, we scan through review text to count how often specific features get mentioned and score the overall sentiment—whether people sound happy, frustrated, or somewhere in between.
 \end{itemize}
 
-\subsection{Modeling Approach}
-We implement three complementary forecasting approaches: Exponential Smoothing for short-term responsiveness, ARIMA for modeling seasonality and autoregressive structure, and Linear Regression to incorporate external covariates. Models are trained on historical windows with a holdout period for evaluation. An ensemble approach combines model forecasts using weights derived from historical validation performance.
+\subsection{Building the Forecasts}
+We don't bet everything on a single forecasting method. Instead, we run three different approaches and see what story they tell together:
+\begin{itemize}
+\item \textbf{Exponential Smoothing} pays close attention to recent trends. If interest in a feature spiked last month, this model picks up on it quickly.
+\item \textbf{ARIMA} looks at the bigger picture—seasonal patterns, longer cycles, and how past values tend to predict future ones.
+\item \textbf{Linear Regression} helps us factor in outside influences, like whether a competitor launched something similar or if there's buzz in the tech news.
+\end{itemize}
 
-\subsection{Evaluation Protocol}
-Model evaluation uses a train/validation/test split with rolling-origin evaluation where feasible for time-series validation. Standard forecasting metrics used include Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE). Confidence intervals are estimated where supported by the model to provide uncertainty quantification.
+We train each model on historical data, hold out a chunk to test predictions, and then blend their outputs. The blend weighs each model based on how accurate it's been in the past—if one model nails the predictions consistently, it gets more say in the final forecast.
 
-\subsection{Backend Implementation Details}
-Backend implementation choices were driven by reproducibility and ease of integration. Scripts are organized into modules for ingestion, preprocessing, training, and serving. Artifacts are versioned with metadata describing data windows and hyperparameters. API design favors small, well-documented endpoints returning immutable forecast artifacts.
+\subsection{Turning Predictions into Actions}
+Numbers alone don't help a product team decide what to build next. So we translate the forecast curves into straightforward guidance:
+\begin{itemize}
+\item If a feature shows climbing interest, we flag it for UI improvements and extra engineering attention.
+\item If demand stays steady and strong, we suggest keeping things polished and maybe exploring add-on features that complement what's already popular.
+\item If interest is fading, we recommend rethinking how the feature is positioned—or whether it needs a major refresh.
+\end{itemize}
 
-\subsection{Reproducibility}
-All data transformation steps and model training scripts are documented and included in the repository. Example notebooks demonstrate how to reproduce key experiments, retrain models on updated data, and regenerate the figures used in the paper.
+This creates a direct line from "the data says X is trending up" to "here's what the design team should consider doing about it."
+
+\subsection{Checking Our Work}
+We evaluate the models using a train-validation-test split. For time-series data, we also use rolling-origin testing, where we slide the prediction window forward and check how well the model performs each time. We track standard metrics: Mean Absolute Error tells us how far off predictions typically land, Root Mean Squared Error penalizes bigger mistakes more heavily, and Mean Absolute Percentage Error puts things in relative terms so we can compare across different features.
+
+Where possible, we also generate confidence intervals—ranges that say "we're fairly sure the true value falls somewhere in here." This helps decision-makers understand how certain (or uncertain) a prediction really is.
+
+\subsection{Keeping Everything Reproducible}
+We've documented every step. The data transformation scripts, model training notebooks, and even the code that produces the figures in this paper are all available in the repository. Anyone who wants to replicate our analysis—or adapt it for a different SaaS product—can follow along and get the same results we did.

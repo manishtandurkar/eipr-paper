@@ -6,7 +6,7 @@ This paper is organized using a topic-wise modular structure for better organiza
 
 ```
 POME/Paper/
-├── pome_paper.tex          # Main document (compile this)
+├── main.tex                # Main document (compile this)
 ├── IEEEtran.cls            # IEEE formatting class
 ├── README.md               # This file
 ├── sections/               # All paper sections
@@ -63,13 +63,13 @@ POME/Paper/
 1. Make sure all files are in the correct folders
 2. Compile the main file: 
    ```bash
-   pdflatex pome_paper.tex
+   pdflatex main.tex
    ```
 3. If you have bibliography issues:
    ```bash
-   bibtex pome_paper
-   pdflatex pome_paper.tex
-   pdflatex pome_paper.tex
+   bibtex main
+   pdflatex main.tex
+   pdflatex main.tex
    ```
 
 ## Adding Figures
