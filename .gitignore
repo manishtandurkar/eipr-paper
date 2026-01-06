@@ -94,7 +94,4 @@ notes/
 drafts/
 *.draft.tex
 
-pome_paper.pdf
-Master reference.pdf
-pdf_content.txt
-POME Phase 1 Final.pdf
+*.pdf

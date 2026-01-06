@@ -1,57 +1,62 @@
-% Team Contributions Section
-% Document individual contributions of each team member
-
 \section{Team Contributions}
 
-\subsection{Member 1 (Frontend Developer)}
-	extbf{Role:} Frontend Developer
+Building this project required different skill sets working together. Here's who did what and how the pieces came together.
 
-	extbf{Responsibilities:}
+\subsection{Manish Tandurkar: Frontend Development}
+Manish Tandurkar owned the user-facing side of things—the dashboard where all those forecasts and recommendations actually become visible and usable.
+
+What they focused on:
 \begin{itemize}
-\item Implement the single-page application UI and visualization components.
-\item Integrate frontend with backend APIs and ensure data contracts are honored.
-\item Write unit and component tests for UI logic and perform basic accessibility checks.
+\item Building out the single-page app that lets users explore feature forecasts, compare models, and drill into specific trends.
+\item Wiring up the frontend to talk to the backend APIs, making sure data flows smoothly and the charts render correctly.
+\item Writing tests for UI components and making sure the interface doesn't fall apart when data looks weird or is missing.
 \end{itemize}
 
-	extbf{Key Contributions:}
+Key things they delivered:
 \begin{itemize}
-\item Implemented the Dashboard, Feature Explorer, and Forecast Comparison components used for exploratory analysis.
-\item Added interactive visualizations with Chart.js and supported CSV/JSON export functionality.
-\item Wrote frontend unit tests and participated in end-to-end smoke testing to validate UI rendering and API integration.
+\item The Dashboard view with its overview metrics and trend charts.
+\item The Feature Explorer where you can filter and inspect individual feature time series.
+\item The Forecast Comparison panel that shows different models side by side.
+\item Interactive Chart.js visualizations with zoom, pan, and export-to-CSV functionality.
+\item Frontend unit tests using Jest and React Testing Library.
 \end{itemize}
 
-\subsection{Member 2 (Backend Developer)}
-	extbf{Role:} Backend Developer
+\subsection{Manish H Parashar: Backend Development}
+Manish H Parashar handled everything that happens behind the scenes—collecting data, preprocessing it, training models, and serving results through the API.
 
-	extbf{Responsibilities:}
+What they focused on:
 \begin{itemize}
-\item Implement data ingestion, preprocessing, and model training pipelines.
-\item Design and maintain RESTful APIs for serving preprocessed data and forecasts.
-\item Create unit and integration tests for backend components and validate model serialization.
+\item Building the data ingestion pipeline that pulls from Google Trends, review datasets, and app metadata.
+\item Implementing the preprocessing logic that cleans messy data and extracts useful signals.
+\item Training the forecasting models and packaging them so they can be loaded and used on demand.
+\item Designing the REST API that the frontend calls to get forecasts and recommendations.
 \end{itemize}
 
-	extbf{Key Contributions:}
+Key things they delivered:
 \begin{itemize}
-\item Implemented ingestion and preprocessing scripts to normalize heterogeneous data sources.
-\item Built model training and inference endpoints using FastAPI and produced serialized model artifacts.
-\item Developed backend unit and integration tests; assisted with basic load testing and profiling of inference latency.
+\item Ingestion and preprocessing scripts that normalize timestamps and handle missing data.
+\item Model training pipelines for Exponential Smoothing, ARIMA, and Linear Regression.
+\item FastAPI endpoints for data retrieval, model inference, and forecast serving.
+\item Serialized model artifacts with metadata so we can track what was trained and when.
+\item Backend unit and integration tests, plus basic profiling of API response times.
 \end{itemize}
 
-\subsection{Member 3 (QA Engineer and Documentation Lead)}
-	extbf{Role:} QA Engineer and Documentation Lead
+\subsection{Nikhil N Bharadwaj: QA and Documentation}
+Nikhil N Bharadwaj made sure everything actually worked as expected and that anyone picking up the project could understand how to use and extend it.
 
-	extbf{Responsibilities:}
+What they focused on:
 \begin{itemize}
-\item Design and execute the test plan for unit, integration, system, and acceptance testing.
-\item Develop and maintain automated test cases and CI-friendly test harnesses.
-\item Perform regression testing after feature changes and verify fixes.
-\item Produce and maintain user and developer documentation, including setup guides and test reports.
+\item Designing and running the test plan—unit tests, integration tests, end-to-end validation.
+\item Setting up automated testing in CI so we catch problems early.
+\item Writing documentation that explains how to set up the project, run experiments, and interpret results.
+\item Coordinating testing efforts and making sure bugs got reported, tracked, and fixed.
 \end{itemize}
 
-	extbf{Key Contributions:}
+Key things they delivered:
 \begin{itemize}
-\item Authored the comprehensive test plan and created representative test datasets for reproducible validation.
-\item Implemented automated test suites and integrated tests into CI to catch regressions early.
-\item Produced testing and deployment documentation, test procedures, and troubleshooting notes used during evaluations.
-\item Coordinated testing sessions, reported reproducible bug reports, and verified fixes across frontend and backend components.
+\item A comprehensive test plan covering data processing, model training, and API behavior.
+\item Automated test suites integrated into GitHub Actions.
+\item Sample test datasets for reproducible validation.
+\item Setup guides, troubleshooting notes, and documentation for developers and users.
+\item Bug reports with reproduction steps, and verification that fixes actually worked.
 \end{itemize}

@@ -19,7 +19,31 @@ When we ran the models on Notion's feature data, a few patterns jumped out:
 \item \textbf{Automation features} are growing, though more gradually. Linear Regression helped us see that automation interest tends to rise alongside broader trends in the productivity software space—when people talk more about workflow automation in general, Notion's automation features get more attention too.
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1a_notion_ai_trend.png}
+\caption{Notion AI feature demand trend showing exponential growth from January 2021 to December 2024, with demand increasing from ~100 to over 8000. This represents the most dramatic growth pattern among all analyzed features.}
+\label{fig:ai_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig2_comparative_feature_trends.png}
+\caption{Comparative analysis of all feature demands on a single plot. Notion AI dominates growth potential while Templates show steady demand, Automation exhibits moderate growth, and Databases/Widgets remain stable. This visualization provides crucial insights for resource allocation decisions.}
+\label{fig:comparative_trends}
+\end{figure}
+
 Blending all three models together gave us more dependable predictions than relying on any single one. The ensemble approach smoothed out the quirks each model brought to the table.
+
+Figure \ref{fig:ai_trend} highlights the explosive growth in Notion AI demand, while Figure \ref{fig:comparative_trends} overlays all features on a single chart, making the relative performance immediately clear. As illustrated in Figure \ref{fig:forecast_comparison}, each forecasting method produces slightly different predictions, but all three agree on the fundamental trend: Notion AI demand will continue its strong upward trajectory.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig6_forecast_comparison_all_methods.png}
+\caption{Comparison of all three forecasting methods (Exponential Smoothing, ARIMA, and Linear Regression) for Notion AI. While each model produces slightly different predictions, they converge on the same fundamental insight: robust continued growth. This consensus strengthens confidence in resource allocation decisions.}
+\label{fig:forecast_comparison}
+\end{figure}
+
 
 \subsection{Did the Hypothesis Hold Up?}
 We went into this study believing that forecasted demand patterns can meaningfully shape product design choices. After running the analysis, we're confident that's true. Here's what we observed:
@@ -28,6 +52,15 @@ We went into this study believing that forecasted demand patterns can meaningful
 \item The time-series models did a respectable job predicting trends, which means product teams could actually use these forecasts for planning rather than just looking backward.
 \item Most importantly, the system didn't just spit out numbers. It translated those numbers into actionable advice, closing the gap between "here's what the data says" and "here's what we should do about it."
 \end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig7_model_evaluation.png}
+\caption{Model evaluation on test set (last 6 months of historical data). All three models achieve reasonable accuracy, with predictions closely tracking actual values. This validation confirms that the models can be reliably used for forward-looking forecasts.}
+\label{fig:model_eval}
+\end{figure}
+
+Figure \ref{fig:model_eval} demonstrates that our models perform well when evaluated against held-out test data, lending credibility to their forward-looking predictions.
 
 \subsection{Testing and Validation}
 We didn't just build it and hope for the best. Unit tests verified that each piece of the pipeline—data cleaning, feature extraction, model training, API responses—did what it was supposed to do. Integration tests checked that the pieces worked together. End-to-end smoke tests walked through the whole flow from data ingestion to rendering charts in the frontend, making sure nothing broke along the way.
@@ -52,5 +85,21 @@ Based on everything the models told us, here's the kind of guidance our framewor
 \item \textbf{Keep templates solid.} They're already popular and stable—focus on maintaining quality and maybe introduce complementary additions.
 \item \textbf{Watch automation closely.} Interest is growing but not exploding. It's worth investing in, but perhaps not at the expense of hotter areas.
 \end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8a_resource_allocation.png}
+\caption{Recommended R\&D budget allocation across features. The distribution prioritizes high-growth features with Notion AI receiving 40\% based on extraordinary growth potential.}
+\label{fig:budget_allocation}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8b_growth_rates.png}
+\caption{Historical growth rates by feature from 2021–2024. Notion AI shows 6940\% growth, justifying its prioritization in resource allocation, while Databases shows only 29\% growth as a mature feature.}
+\label{fig:growth_rates}
+\end{figure}
+
+Figures \ref{fig:budget_allocation} and \ref{fig:growth_rates} translate the forecasting insights into concrete strategic recommendations. The pie chart shows how R\&D resources should be allocated, while the bar chart provides the growth rate justification for these decisions. Notion AI receives 40\% of resources based on its extraordinary 6940\% growth, while mature features like Databases receive 15\% to maintain stability.
 
 These recommendations show that the framework does what we set out to do: connect raw demand signals to concrete product decisions.

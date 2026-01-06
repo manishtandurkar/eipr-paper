@@ -16,10 +16,10 @@ Raw data is messy. Duplicate entries sneak in, some months have gaps, and outlie
 \end{itemize}
 
 \subsection{Building the Forecasts}
-We don't bet everything on a single forecasting method. Instead, we run three different approaches and see what story they tell together:
+We don't bet everything on a single forecasting method. Instead, we run three different approaches and see what story they tell together \cite{makridakis2018statistical}:
 \begin{itemize}
-\item \textbf{Exponential Smoothing} pays close attention to recent trends. If interest in a feature spiked last month, this model picks up on it quickly.
-\item \textbf{ARIMA} looks at the bigger picture—seasonal patterns, longer cycles, and how past values tend to predict future ones.
+\item \textbf{Exponential Smoothing} pays close attention to recent trends \cite{hyndman2008forecasting}. If interest in a feature spiked last month, this model picks up on it quickly.
+\item \textbf{ARIMA} looks at the bigger picture—seasonal patterns, longer cycles, and how past values tend to predict future ones \cite{box2015time}.
 \item \textbf{Linear Regression} helps us factor in outside influences, like whether a competitor launched something similar or if there's buzz in the tech news.
 \end{itemize}
 
@@ -34,6 +34,8 @@ Numbers alone don't help a product team decide what to build next. So we transla
 \end{itemize}
 
 This creates a direct line from "the data says X is trending up" to "here's what the design team should consider doing about it."
+
+The visualization layer plays a crucial role here. We generate comprehensive plots comparing individual feature trajectories, overlay multiple forecasting methods to show consensus and divergence, and produce resource allocation charts that directly tie growth rates to budget recommendations. These visualizations are saved as high-resolution figures (300 DPI) for inclusion in reports and presentations, ensuring that stakeholders can quickly grasp key insights without parsing raw numbers.
 
 \subsection{Checking Our Work}
 We evaluate the models using a train-validation-test split. For time-series data, we also use rolling-origin testing, where we slide the prediction window forward and check how well the model performs each time. We track standard metrics: Mean Absolute Error tells us how far off predictions typically land, Root Mean Squared Error penalizes bigger mistakes more heavily, and Mean Absolute Percentage Error puts things in relative terms so we can compare across different features.

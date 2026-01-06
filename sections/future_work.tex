@@ -1,8 +1,43 @@
 \section{Future Work and Improvements}
-[Discuss potential enhancements and future directions:]
+
+Our prototype proves the concept works, but there's plenty of room to make it more robust and practical for real-world use.
+
+\subsection{Pulling in More Data Sources}
+Right now we're working with Google Trends, app store reviews, and some basic metadata. That's a decent starting point, but richer data would mean sharper predictions. Down the road, we'd love to tap into:
 \begin{itemize}
-\item Features to be added
-\item Known limitations to address
-\item Scalability improvements
-\item Alternative approaches to explore
+\item Conversations happening on Twitter, Reddit, and LinkedIn where people actually discuss productivity tools and workflow pain points.
+\item Activity in community forums—places like Notion's official community boards or Product Hunt threads where early adopters share unfiltered opinions.
+\item Competitor monitoring systems that track when rival products launch features and how that shifts public interest.
+\end{itemize}
+
+\subsection{Smarter Modeling Approaches}
+The statistical methods we used have been around for decades and they're solid workhorses. But newer techniques could push accuracy further:
+\begin{itemize}
+\item Neural network architectures like LSTMs or Transformers that excel at learning complex patterns across time.
+\item Causal inference frameworks that help distinguish genuine cause-and-effect from mere correlation.
+\item Streaming prediction systems that update forecasts continuously rather than waiting for batch processing cycles.
+\end{itemize}
+
+\subsection{Getting Production-Ready}
+What works in a research notebook won't necessarily survive contact with real users. Serious deployment would need:
+\begin{itemize}
+\item Infrastructure that can handle traffic spikes—proper caching, load distribution, and database tuning.
+\item Automated pipelines that notice when models start drifting from reality and trigger retraining before predictions go stale.
+\item Enterprise-grade security features like role-based permissions and detailed audit trails.
+\end{itemize}
+
+\subsection{Making the Dashboard More Useful}
+The current interface gets the job done, but product managers could benefit from:
+\begin{itemize}
+\item Custom alert systems that ping the team when key metrics cross thresholds worth paying attention to.
+\item Scenario planning tools where teams can ask "what if" questions and see how different choices might play out.
+\item Direct hookups to project management platforms like Jira or Linear so insights flow straight into sprint planning.
+\end{itemize}
+
+\subsection{Testing Beyond Notion}
+We only looked at one product in depth. To really trust the framework, future work should:
+\begin{itemize}
+\item Run the same analysis on several different SaaS products and see whether the patterns hold up.
+\item Find cases where we can compare our predictions against actual adoption numbers to measure real accuracy.
+\item Put the tool in front of actual product managers and study whether it genuinely improves their decisions.
 \end{itemize}

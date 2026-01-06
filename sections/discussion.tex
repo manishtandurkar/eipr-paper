@@ -1,31 +1,27 @@
 % Discussion Section
-% Analyze results, discuss challenges, and lessons learned
 
 \section{Discussion}
 
-\subsection{Analysis of Results}
-[Analyze and interpret the results obtained.]
-[Discuss major challenges faced during the project:]
-[Describe how challenges were addressed.]
-[Reflect on what was learned from the project experience.]
-\subsection{Analysis of Results}
-The evaluation demonstrates that combining multiple data sources and forecasting approaches yields more robust recommendations than relying on a single signal. The ensemble method produces forecasts that better capture different temporal dynamics across features, and the visualization layer helps stakeholders interpret forecast uncertainty.
+\subsection{What the Results Tell Us}
+Looking back at everything we tested, the main takeaway is pretty clear: mixing multiple data sources and forecasting methods produces more reliable guidance than betting on any single approach. When we combined signals from search trends, review sentiment, and usage patterns, the predictions held up better across different types of features. Some features respond to short-term hype cycles while others follow steadier long-term trajectories—and our ensemble method handled both reasonably well.
 
-\subsection{Challenges Encountered}
-Major challenges included:
+The visualization layer also proved its worth. Showing stakeholders where the predictions come from and how confident we are in each one made the whole thing feel less like a black box. People are more willing to act on forecasts when they can see the reasoning behind them.
+
+\subsection{Where We Hit Walls}
+We ran into our fair share of headaches along the way:
 \begin{itemize}
-\item \textbf{Data quality and alignment}: Merging heterogeneous datasets required careful timestamp alignment and missing-data strategies.
-\item \textbf{Model heterogeneity}: Different features exhibited different dynamics (seasonal vs. trend-dominated) making a single-model solution suboptimal.
-\item \textbf{Time constraints}: Limited time restricted deeper hyperparameter tuning and production-grade performance testing.
+\item \textbf{Messy data from different sources}: Google Trends spits out monthly numbers, app reviews come with precise timestamps, and some of the metadata had gaps all over the place. Getting everything lined up by month took more effort than we expected.
+\item \textbf{Features that behave differently}: Some features showed clear seasonal patterns while others just trended steadily upward. There was no magic one-size-fits-all model—we had to accept that different features needed different treatment.
+\item \textbf{Running out of time}: We would have loved to spend more cycles tuning hyperparameters and stress-testing the system under heavy load, but project deadlines had other plans.
 \end{itemize}
 
-\subsection{Solutions and Workarounds}
-To address these issues we:
+\subsection{How We Worked Around the Problems}
+When challenges came up, we adapted:
 \begin{itemize}
-\item Applied robust preprocessing and documented transformation steps to make data assumptions explicit.
-\item Adopted an ensemble strategy and pragmatic model-selection rules based on validation performance.
-\item Focused testing on correctness and reproducibility rather than exhaustive scaling benchmarks.
+\item For the data alignment issues, we built careful preprocessing steps and documented every assumption so anyone reading the code would know exactly what we did and why.
+\item Instead of trying to find one perfect model, we leaned into the ensemble approach and let validation performance guide which models got more weight in the final predictions.
+\item With limited time for testing, we prioritized correctness and reproducibility over exhaustive performance benchmarks. Better to have a system that reliably gives the right answers than one that's fast but wrong.
 \end{itemize}
 
-\subsection{Lessons Learned}
-Key lessons include the importance of clear data contracts, the value of modular architecture to swap modeling components easily, and the benefit of integrating testing early (unit and integration tests) to catch regressions in both data processing and model behavior.
+\subsection{What We'd Do Differently Next Time}
+A few lessons stuck with us. First, nailing down clear data contracts early saves massive headaches later—when everyone agrees on what the inputs and outputs look like, integration gets way smoother. Second, building the system in modular chunks made it easy to swap out models without rewriting everything around them. Third, writing tests from the start rather than bolting them on at the end caught problems before they snowballed into bigger messes.
