@@ -1,30 +1,39 @@
 \section{Methodology}
-The proposed methodology proceeds through four interconnected stages, each building upon the preceding phase. The process begins with collection of publicly available demand signals, continues through data preprocessing and organization, applies forecasting models to generate predictions, and concludes with translation of numerical outputs into actionable product recommendations.
 
-\subsection{Data Collection}
-Given the inaccessibility of proprietary Notion analytics, this research relies exclusively on publicly available data sources. Search interest data is obtained from Google Trends to quantify the frequency of queries related to specific Notion features such as ``Notion AI'' and ``Notion templates.'' User review datasets are obtained from Kaggle repositories, providing access to thousands of app store reviews that reflect user satisfaction and feature preferences. Additionally, basic app metadata including ratings, download counts, and version histories are collected to supplement the primary data sources.
+The methodological framework employed in this study is structured into four distinct, sequential phases: data acquisition, preprocessing and transformation, predictive model development, and the derivation of actionable design recommendations. This multi-stage approach ensures that raw, unstructured public data is systematically converted into reliable, quantitative insights suitable for guiding product strategy.
 
-All collected data is timestamped and organized to ensure temporal alignment at monthly intervals. The collection infrastructure addresses common technical challenges including API rate limits, network reliability issues, and comprehensive logging to enable traceability of data provenance.
+\subsection{Data Acquisition}
+Due to the proprietary nature of internal application analytics, this research necessitates the utilization of public proxy metrics to estimate feature demand. The data acquisition strategy encompasses three primary channels. First, search interest indices are harvested from Google Trends, serving as a proxy for user intent and feature awareness. Specific query terms (e.g., ``Notion AI'', ``Notion templates'') were monitored to quantify temporal fluctuations in interest. Second, user feedback is aggregated from Kaggle-hosted datasets containing app store reviews, providing a rich corpus for qualitative sentiment extraction. Third, application metadata—including version history, cumulative download statistics, and rating distributions—is collected to provide contextual baselines for observing demand shifts.
 
-\subsection{Data Preprocessing}
-Raw data requires substantial preprocessing before analysis. Duplicate entries are identified and removed to prevent distortion of frequency counts. Missing values are addressed through interpolation or forward-filling techniques using the most recent available value. Statistical outliers that deviate substantially from expected patterns are flagged and filtered. Natural language processing techniques are applied to review text to quantify feature mention frequency and compute sentiment scores indicating whether user affect is positive, negative, or neutral regarding specific features.
+The acquisition infrastructure includes robust mechanisms for rate-limiting mitigation and error handling to ensure data completeness. All acquired datasets are timestamped and harmonized to a monthly temporal resolution to facilitate cross-channel correlation.
 
-\subsection{Forecasting Model Development}
-Rather than relying on a single forecasting method, this framework applies three complementary approaches to capture different aspects of demand patterns \cite{makridakis2018statistical}. Exponential Smoothing is particularly responsive to recent trends \cite{hyndman2008forecasting}—if interest in a feature increased substantially in the preceding period, this model captures the shift rapidly. ARIMA analysis provides perspective on longer-term patterns including seasonality, cyclical behavior, and autocorrelation structures \cite{box2015time}. Linear Regression enables incorporation of exogenous factors such as competitive product launches or general industry trends.
+\subsection{Data Preprocessing and Transformation}
+Raw data artifacts undergo accurate preprocessing to ensure analytical validity. The cleaning process standardizes the dataset by identifying and removing duplicate records to prevent frequency distortion. Missing values are addressed through forward-fill imputation, prioritizing temporal continuity. Statistical outliers, defined as deviations exceeding three standard deviations from the rolling mean, are flagged for review.
 
-Each model is trained on historical data with a held-out portion reserved for validation. Model outputs are then combined using an ensemble approach where individual model weights are determined by historical prediction accuracy—models demonstrating superior predictive performance receive proportionally greater influence in the final forecast.
+To extract quantitative signals from unstructured text, Natural Language Processing (NLP) techniques are applied to the user review corpus. This process involves tokenization and sentiment polarity scoring, classifying user affect regarding specific features as positive, negative, or neutral. These sentiment scores are subsequently aggregated into monthly time-series indices.
 
-\subsection{Actionable Recommendation Generation}
-Numerical forecasts require translation into practical guidance for product teams. The framework converts forecast trajectories into categorical recommendations. Features exhibiting increasing demand trajectories are designated for user interface improvements and increased development resource allocation. Features demonstrating stable, consistent demand are recommended for maintenance and potential complementary additions. Features showing declining interest are flagged for strategic repositioning or redesign consideration.
+\subsection{Predictive Modeling Framework}
+To mitigate the risk of single-model bias, this study employs a composite forecasting strategy utilizing three complementary statistical approaches \cite{makridakis2018statistical}:
 
-This translation creates a direct connection from quantitative analysis to qualitative design decisions.
+\subsubsection{Exponential Smoothing (ETS)}
+Selected for its responsiveness to recent data, Exponential Smoothing applies weighted averages where weights decay exponentially over time. This method is particularly effective for capturing immediate trend shifts \cite{hyndman2008forecasting}.
 
-The visualization component serves a critical role in this process. Comprehensive plots comparing individual feature trajectories are generated, multiple forecasting methods are overlaid to illustrate areas of consensus and divergence, and resource allocation charts directly relate growth rates to budget recommendations. Visualizations are saved at publication quality (300 DPI) for inclusion in reports and presentations, ensuring stakeholders can interpret key insights without requiring analysis of raw numerical data.
+\subsubsection{Auto-Regressive Integrated Moving Average (ARIMA)}
+The ARIMA methodology is utilized to model temporal dependencies, identifying stationarity, seasonality, and autocorrelation structures within the data. This model provides robust forecasting capability for longer-term cyclical patterns \cite{box2015time}.
 
-\subsection{Model Evaluation}
-Model performance is evaluated using a train-validation-test split methodology. For time-series data, rolling-origin testing is additionally employed, sliding the prediction window forward and assessing model performance at each step. Standard evaluation metrics are tracked: Mean Absolute Error quantifies typical prediction deviation, Root Mean Squared Error applies greater penalty to larger errors, and Mean Absolute Percentage Error enables comparison across features with different scales.
+\subsubsection{Linear Regression with Exogenous Variables}
+Linear regression is employed to quantify the impact of external factors. This approach models the relationship between feature demand and independent variables such as competitive product launches and industry-wide trends.
 
-Where computationally feasible, confidence intervals are generated to communicate prediction uncertainty. These intervals indicate the range within which true values are expected to fall with specified probability, enabling decision-makers to assess the reliability of individual forecasts.
+\subsubsection{Ensemble Aggregation}
+The outputs of these individual models are synthesized using a performance-weighted ensemble technique. Weights are dynamically assigned based on the inverse of the historical Mean Absolute Error (MAE) of each model, ensuring that the final forecast prioritizes the most accurate predictor for each specific time horizon.
 
-\subsection{Reproducibility}
-All processing steps are documented comprehensively. Data transformation scripts, model training notebooks, and visualization generation code are available in the associated repository. Researchers seeking to replicate this analysis or adapt the methodology for different SaaS products can follow the documented procedures to obtain equivalent results.
+\subsection{Decision Support and Recommendation Logic}
+The quantitative forecasts are translated into qualitative strategic recommendations through a rule-based decision logic. Features exhibiting a statistically significant upward trend are prioritized for immediate development resource allocation and user interface optimization. Stable features are designated for maintenance and incremental improvement. Conversely, features demonstrating a consistent negative trajectory trigger a recommendation for strategic re-evaluation or deprecation. This translation layer ensures that statistical findings result in concrete, actionable product decisions.
+
+\subsection{Performance Evaluation Protocol}
+Model performance is rigorously assessed using a temporal train-test split strategy. To simulate real-world forecasting conditions, a rolling-origin cross-validation approach is employed. The accuracy of predictions is quantified using standard metrics: Mean Absolute Error (MAE) to measure average magnitude of errors, Root Mean Squared Error (RMSE) to penalize large deviations, and Mean Absolute Percentage Error (MAPE) to facilitate comparison across variable scales.
+
+Where analytically feasible, 95\% confidence intervals are computed for all forecasts. These intervals provide decision-makers with a quantification of uncertainty, delineating the probabilistic bounds within which true future values are expected to lie.
+
+\subsection{Reproducibility Summary}
+To facilitate peer verification and future extension of this work, a comprehensive reproducibility package has been developed. This includes all data acquisition scripts, preprocessing pipelines, model specifications, and visualization code, made available in the project repository. The documentation ensures that the methodology can be replicated on equivalent datasets or adapted for alternative SaaS product contexts.

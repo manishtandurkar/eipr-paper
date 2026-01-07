@@ -1,16 +1,20 @@
 \section{Results}
 
-\subsection{Prototype Capabilities}
-The completed system provides several key capabilities. A dashboard aggregates time-series data for different Notion features, displaying interest trajectories over the analysis period. Side-by-side comparisons of the three forecasting models are presented with confidence bands indicating prediction certainty. A recommendation engine translates forecast values into prioritized suggestions regarding which features warrant increased attention and which may require strategic reconsideration. Export functionality enables users to download data in CSV or JSON formats for independent analysis.
+\subsection{Empirical Findings}
+The analytical framework generated comprehensive insights regarding feature-specific demand trajectories and predictive model performance across the 48-month observation period from January 2021 through December 2024.
 
-\subsection{Forecasting Findings}
-Application of the models to Notion feature data revealed several notable patterns.
+\subsection{Individual Feature Demand Patterns}
+Analysis of temporal demand patterns revealed distinct growth typologies across the five examined product features, as illustrated in Figures \ref{fig:ai_trend} through \ref{fig:widgets_trend}.
 
-\textbf{Notion AI} exhibits a clear upward trajectory. Search frequency continues to increase, and review sentiment reflects substantial user interest. Exponential Smoothing captured recent accelerations rapidly, while ARIMA confirmed sustained momentum rather than temporary fluctuation.
+AI-Powered Features demonstrated pronounced exponential growth characteristics throughout the observation period. As depicted in Figure \ref{fig:ai_trend}, demand escalated from baseline values of approximately 120 monthly observations in January 2021 to 8,540 observations by December 2024, representing a 7,017\% cumulative growth rate. The trajectory exhibits consistent acceleration without evidence of saturation, indicating sustained market expansion for artificial intelligence capabilities within productivity platforms.
 
-\textbf{Templates} demonstrate consistent baseline demand. Interest remains stable without substantial volatility, showing predictable seasonal patterns. Users appear to rely on template functionality as a core platform component.
+Template Functionality exhibited stable linear growth patterns, as illustrated in Figure \ref{fig:templates_trend}. Demand increased from 450 to 960 monthly observations across the observation period, yielding a 113\% growth rate. The trajectory demonstrates minimal volatility and predictable progression, suggesting maturation of template-based workflows as established platform components.
 
-\textbf{Automation features} exhibit gradual growth. Linear Regression analysis indicated that automation interest correlates with broader trends in the productivity software industry—increased general discussion of workflow automation corresponds to increased Notion automation interest.
+Automation Capabilities manifested substantial growth momentum, depicted in Figure \ref{fig:automation_trend}. Monthly demand escalated from 280 to 7,308 observations, constituting a 2,510\% growth rate. The pattern reflects accelerating adoption of workflow automation functionality, indicating emerging market opportunities in productivity enhancement tools.
+
+Database Features presented plateau characteristics following initial growth phases, as shown in Figure \ref{fig:databases_trend}. Demand increased modestly from 820 to 1,055 monthly observations, representing 29\% growth. The stabilization pattern suggests market saturation for core database functionality.
+
+Widget Components displayed gradual linear growth trajectories, illustrated in Figure \ref{fig:widgets_trend}. Monthly demand progressed from 95 to 545 observations, yielding a 474\% growth rate. The moderate expansion indicates sustained but limited adoption of customization features.
 
 \begin{figure}[htbp]
 \centering
@@ -21,73 +25,119 @@ Application of the models to Notion feature data revealed several notable patter
 
 \begin{figure}[htbp]
 \centering
+\includegraphics[width=\columnwidth]{figures/fig1b_notion_templates_trend.png}
+\caption{Temporal demand trajectory for template functionality exhibiting stable linear growth. Monthly observations increased from 450 to 960 across the analysis period, demonstrating 113\% growth with minimal volatility.}
+\label{fig:templates_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1c_notion_automation_trend.png}
+\caption{Temporal demand trajectory for automation capabilities manifesting substantial growth momentum. Monthly demand escalated from 280 to 7,308 observations, representing 2,510\% growth and indicating accelerating market adoption.}
+\label{fig:automation_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1d_notion_databases_trend.png}
+\caption{Temporal demand trajectory for database features presenting plateau characteristics. Monthly demand increased modestly from 820 to 1,055 observations (29\% growth), suggesting market saturation for core database functionality.}
+\label{fig:databases_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1e_notion_widgets_trend.png}
+\caption{Temporal demand trajectory for widget components displaying gradual linear growth. Monthly observations progressed from 95 to 545, yielding 474\% growth and indicating sustained but measured adoption of customization features.}
+\label{fig:widgets_trend}
+\end{figure}
+
+\subsection{Comparative Demand Analysis}
+Figure \ref{fig:comparative_trends} presents synthesized temporal trajectories for all five product features, facilitating direct comparison of relative growth dynamics and market positioning.
+
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=\columnwidth]{figures/fig2_comparative_feature_trends.png}
-\caption{Comparative analysis of all feature demands. Notion AI demonstrates dominant growth potential, Templates exhibit steady demand, Automation shows moderate growth, and Databases/Widgets remain stable. This visualization provides insights for resource allocation decisions.}
+\caption{Comparative temporal analysis synthesizing demand trajectories for all examined features. AI-powered features demonstrate dominant exponential growth, automation capabilities exhibit substantial acceleration, template functionality manifests stable linear progression, while database and widget features present modest expansion patterns. This integrated visualization elucidates relative growth dynamics and informs evidence-based resource allocation frameworks.}
 \label{fig:comparative_trends}
 \end{figure}
 
-The ensemble approach combining all three models yielded more reliable predictions than any individual method. The ensemble methodology attenuated the idiosyncrasies of each model.
+The comparative analysis reveals pronounced divergence in growth trajectories, with AI-powered features demonstrating substantially superior market expansion relative to all other examined capabilities. This empirical evidence establishes a quantitative foundation for strategic prioritization frameworks.
 
-Figure \ref{fig:ai_trend} illustrates the substantial growth in Notion AI demand, while Figure \ref{fig:comparative_trends} overlays all features on a single chart for relative performance comparison. As shown in Figure \ref{fig:forecast_comparison}, each forecasting method produces slightly different predictions, but all three converge on the fundamental trend: continued strong growth in Notion AI demand.
+\subsection{Forecasting Model Performance}
+Three distinct forecasting methodologies were applied to generate six-month forward projections, with primary focus on AI-powered features given their demonstrated growth significance. Exponential Smoothing effectively captured momentum characteristics inherent in exponential growth patterns, producing projections that extend observed acceleration trends into the forecast horizon. The ARIMA methodology balanced trend components with stochastic fluctuation modeling, incorporating both systematic growth patterns and temporal variability characteristics. Linear Regression provided baseline trend projections, establishing conservative estimates and lower-bound projections while achieving coefficient of determination values exceeding 0.95 for features exhibiting predominantly linear trajectories.
+
+Figure \ref{fig:forecast_comparison} synthesizes projections from all three forecasting methodologies, facilitating comparative assessment of prediction convergence and divergence patterns.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig6_forecast_comparison_all_methods.png}
-\caption{Comparison of all three forecasting methods (Exponential Smoothing, ARIMA, and Linear Regression) for Notion AI. While each model produces different predictions, they converge on the same fundamental insight: robust continued growth. This consensus strengthens confidence in resource allocation decisions.}
+\caption{Comparative synthesis of six-month forward projections employing Exponential Smoothing, ARIMA, and Linear Regression methodologies for AI-powered features. While individual methodologies produce varying quantitative projections, all three approaches converge on fundamental directional insights: sustained robust growth throughout the forecast horizon. This methodological consensus strengthens confidence in strategic resource allocation decisions derived from forecasting outputs.}
 \label{fig:forecast_comparison}
 \end{figure}
 
+Analysis of methodological convergence reveals that while absolute projection values vary across approaches, all three methodologies unanimously predict continued substantial growth in AI-powered feature demand. This consensus across diverse forecasting paradigms strengthens the reliability of strategic recommendations derived from these projections. The integration of multiple methodological perspectives mitigates individual model limitations and provides robust predictive foundations for decision-making frameworks.
 
-\subsection{Hypothesis Validation}
-This study hypothesized that forecasted demand patterns can meaningfully inform product design decisions. The analysis provides support for this hypothesis. Features with increasing demand signals—particularly Notion AI—were designated as high priority by the system. The time-series models demonstrated acceptable prediction accuracy, indicating their utility for planning purposes. Most significantly, the system translated numerical outputs into actionable recommendations, bridging the gap between analytical results and design decisions.
+\subsection{Model Validation Results}
+Rigorous validation procedures were implemented to assess predictive accuracy and establish confidence in forward-looking projections. Figure \ref{fig:model_eval} presents validation results comparing model predictions against actual observations in the holdout test period.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig7_model_evaluation.png}
-\caption{Model evaluation on test set (final 6 months of historical data). All three models achieve acceptable accuracy, with predictions closely tracking actual values. This validation confirms model reliability for forward-looking forecasts.}
+\caption{Model validation results comparing predictions against actual observations for the final six months of historical data. All three forecasting methodologies demonstrate acceptable predictive accuracy, with projections closely tracking realized values. This validation confirms model reliability and establishes credibility for forward-looking forecasts employed in strategic decision frameworks.}
 \label{fig:model_eval}
 \end{figure}
 
-Figure \ref{fig:model_eval} demonstrates satisfactory model performance when evaluated against held-out test data, supporting the credibility of forward-looking predictions.
+Quantitative evaluation metrics revealed satisfactory performance across all forecasting methodologies. Root mean square error measurements indicated prediction deviations within acceptable tolerances relative to the magnitude of observed values. Mean absolute percentage error metrics demonstrated consistent accuracy across the validation period. The convergence between predicted and realized values in the holdout period substantiates the credibility of forward-looking projections utilized for strategic planning purposes.
 
-\subsection{Testing and Validation}
-Comprehensive testing was conducted rather than relying on informal verification. Unit tests verified that each pipeline component—data cleaning, feature extraction, model training, API responses—functioned as specified. Integration tests confirmed component interoperability. End-to-end smoke tests traversed the complete workflow from data ingestion to chart rendering.
-
-\subsection{Performance Characteristics}
-Performance proved sufficient for the intended exploratory analysis. Forecast generation for a single feature typically completes in less than one second, with more complex ARIMA fits requiring several seconds. API response times remained acceptable during development. Scaling to thousands of concurrent users or substantially larger datasets would require optimization investment including caching, asynchronous processing, and database scaling.
-
-\subsection{Challenges Encountered}
-Several challenges arose during development.
-
-\textbf{Data source heterogeneity.} Google Trends provides monthly snapshots, reviews include daily timestamps, and some metadata contained gaps. Substantial effort was required to normalize timestamps and address missing data appropriately.
-
-\textbf{Model variability.} Exponential Smoothing performed optimally for some features, ARIMA for others. Rather than selecting a single model, the ensemble approach was adopted with model weights determined by historical performance.
-
-\textbf{Reproducibility requirements.} The analysis would lack credibility without replicability. Datasets were versioned, model artifacts were saved with complete metadata, and all transformation steps were documented.
-
-\subsection{Generated Recommendations}
-Based on model outputs, the framework generated the following guidance.
-
-\textbf{Prioritize AI features.} Demand is increasing substantially, warranting investment in discoverability and polish.
-
-\textbf{Maintain template quality.} Templates demonstrate stable popularity—focus on quality maintenance and consider complementary additions.
-
-\textbf{Monitor automation.} Interest is growing but not accelerating rapidly. Investment is warranted but should not divert resources from higher-growth areas.
+\subsection{Strategic Resource Allocation Framework}
+The analytical framework translated quantitative forecasting outputs into strategic resource allocation recommendations through systematic prioritization protocols. Figures \ref{fig:budget_allocation}, \ref{fig:growth_rates}, and \ref{fig:growth_demand_bubble} present the empirical foundations and resulting allocation framework.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig8a_resource_allocation.png}
-\caption{Recommended R\&D budget allocation across features. The distribution prioritizes high-growth features, with Notion AI receiving 40\% based on extraordinary growth potential.}
+\caption{Recommended research and development budget allocation framework derived from forecast-based prioritization analysis. The horizontal stacked visualization illustrates proportional resource distribution, with AI-powered features receiving 40\% allocation commensurate with demonstrated exponential expansion, automation capabilities allocated 25\% reflecting substantial growth momentum, template functionality receiving 15\% for stable demand maintenance, database features allocated 15\% for mature feature support, and widget components receiving 5\% reflecting measured growth patterns.}
 \label{fig:budget_allocation}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig8b_growth_rates.png}
-\caption{Historical growth rates by feature from 2021–2024. Notion AI demonstrates 6940\% growth, justifying prioritization in resource allocation, while Databases shows only 29\% growth as a mature feature.}
+\caption{Historical growth rate quantification by feature across the complete observation period (2021–2024). The horizontal visualization facilitates direct comparison across features. AI-powered features demonstrate 7,017\% cumulative growth, substantiating prioritization in resource allocation frameworks. Automation capabilities exhibit 2,510\% growth, warranting substantial investment. Template functionality manifests 113\% stable growth, database features show 29\% modest expansion indicating maturation, and widget components demonstrate 474\% gradual growth. This empirical hierarchy establishes quantitative foundations for strategic resource distribution.}
 \label{fig:growth_rates}
 \end{figure}
 
-Figures \ref{fig:budget_allocation} and \ref{fig:growth_rates} translate forecasting insights into strategic recommendations. The allocation chart illustrates recommended R\&D resource distribution, while the bar chart provides growth rate justification. Notion AI receives 40\% of resources based on its 6940\% growth, while mature features such as Databases receive 15\% to maintain stability.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8c_growth_demand_bubble.png}
+\caption{Multidimensional visualization synthesizing growth trajectories, current demand levels, and average demand patterns across all examined features. Bubble positioning reflects growth rate (horizontal axis) and current demand magnitude (vertical axis), while bubble size represents average demand throughout the observation period. This integrated visualization reveals AI-powered features as simultaneously exhibiting highest growth rate, maximum current demand, and substantial average utilization—establishing comprehensive empirical justification for resource prioritization. Automation capabilities demonstrate strong growth with moderate current demand, indicating emerging opportunity. Database and template features exhibit modest growth with stable demand patterns, while widget components show measured adoption across all metrics.}
+\label{fig:growth_demand_bubble}
+\end{figure}
 
-These recommendations demonstrate that the framework achieves its intended objective: connecting demand signals to product decisions.
+The allocation framework operationalizes forecasting insights through proportional resource distribution aligned with growth trajectories and strategic potential. As illustrated in Figure \ref{fig:budget_allocation}, AI-powered features receive 40\% of development resources, commensurate with their 7,017\% historical growth (Figure \ref{fig:growth_rates}) and projected continued expansion. The multidimensional analysis presented in Figure \ref{fig:growth_demand_bubble} further substantiates this prioritization by demonstrating that AI features simultaneously exhibit the highest growth rate, maximum current demand, and substantial average utilization across the observation period. Automation capabilities warrant 25\% allocation given 2,510\% growth and accelerating adoption patterns, with the bubble visualization revealing strong growth momentum coupled with moderate current demand. Template functionality receives 15\% for quality maintenance and incremental enhancement. Database features obtain 15\% for stability preservation and iterative refinement. Widget components receive 5\% reflecting their measured adoption trajectory across all analytical dimensions.
+
+\subsection{Hypothesis Validation}
+The central hypothesis of this research posited that demand forecasting methodologies can provide actionable intelligence for product design decision-making processes. The empirical analysis provides substantive support for this proposition through multiple converging lines of evidence.
+
+First, features demonstrating pronounced demand growth trajectories—particularly AI-powered capabilities—received systematic prioritization within the analytical framework, establishing direct linkage between quantitative demand signals and strategic categorization. Second, temporal forecasting models achieved acceptable predictive accuracy on validation datasets, confirming their utility for forward-looking planning purposes rather than merely descriptive historical analysis. Third, and most significantly, the framework successfully translated numerical forecast outputs into concrete, actionable strategic recommendations, thereby bridging the conceptual gap between statistical analysis and operational decision-making.
+
+The systematic correspondence between empirical demand patterns, forecast trajectories, and resulting prioritization frameworks demonstrates that quantitative forecasting methodologies can indeed inform and structure product development decisions in a rigorous, evidence-based manner. This validates the fundamental premise that demand forecasting constitutes a valuable strategic tool for software product management rather than merely an analytical exercise.
+
+\subsection{Methodological Insights}
+Analysis of comparative model performance revealed that ensemble approaches integrating multiple forecasting methodologies provide superior reliability compared to singular model dependencies. While individual models exhibited varying strengths—Exponential Smoothing capturing acceleration dynamics, ARIMA modeling temporal dependencies, and Linear Regression establishing baseline trends—the integration of diverse methodological perspectives attenuated individual model limitations and enhanced overall predictive robustness.
+
+The convergence of predictions across methodologically distinct approaches strengthened confidence in strategic recommendations, as unanimous directional consensus emerged despite quantitative variation in absolute projections. This methodological triangulation proved particularly valuable for high-stakes strategic decisions where forecast uncertainty warranted conservative risk management.
+
+\subsection{Practical Implications}
+The analytical framework generates specific actionable guidance for product development prioritization:
+
+AI-Powered Features: Exponential demand growth necessitates immediate resource escalation. Strategic priorities include accelerated feature development, enhanced user interface optimization, performance refinement, and prominent positioning within product architecture. The 40\% resource allocation reflects both demonstrated historical growth and projected continued expansion.
+
+Automation Capabilities: Substantial growth momentum warrants significant investment focus. Development priorities encompass workflow automation expansion, integration ecosystem development, and user experience simplification. The 25\% allocation balances current growth evidence with strategic positioning opportunities.
+
+Template Functionality: Stable demand patterns indicate mature feature status. Strategic approach emphasizes quality maintenance, incremental enhancement, and ecosystem expansion rather than fundamental redesign. The 15\% allocation supports sustained excellence in established functionality.
+
+Database Features: Plateau characteristics suggest market saturation for core functionality. Strategic focus transitions to stability assurance, performance optimization, and maintenance operations rather than major feature expansion. The 15\% allocation maintains competitive parity without diverting resources from higher-growth opportunities.
+
+Widget Components: Moderate growth patterns warrant monitoring without substantial resource commitment. Strategic approach maintains existing functionality while evaluating niche use case opportunities and potential ecosystem partnerships. The 5\% allocation reflects measured adoption trajectory and strategic uncertainty.
+
+These differentiated strategic recommendations demonstrate the framework's capacity to translate quantitative demand analysis into nuanced, context-appropriate product development guidance, thereby fulfilling the research objective of connecting forecasting methodologies to design decisions.
