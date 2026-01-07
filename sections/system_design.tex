@@ -1,50 +1,93 @@
 \section{System Design}
 
-\subsection{Architecture Overview}
-The system architecture follows a pipeline design that processes data through four sequential stages. Raw public information enters the pipeline, and actionable design recommendations emerge as output. Each stage transfers data to the subsequent phase, and the modular design enables component replacement without requiring comprehensive system reconstruction.
+\subsection{Architectural Overview}
+The proposed system architecture adheres to a sequential pipeline paradigm wherein data is systematically processed through four discrete computational stages. Unstructured public-domain information is ingested at the pipeline's entry point, and actionable design-oriented recommendations are produced as terminal output. Inter-stage data transference is governed by well-defined interfaces, and the inherently modular architectural design facilitates component substitution without necessitating comprehensive system reconstruction or revalidation.
 
-The data flow proceeds as follows. In the Data Collection stage, demand signals are extracted from multiple public sources including Google Trends for search interest, Kaggle datasets for user reviews, and app metadata repositories. In the Preprocessing stage, raw data undergoes cleaning, normalization, and organization into time-series formats suitable for forecasting analysis. In the Forecasting stage, multiple models (Exponential Smoothing, ARIMA, Linear Regression) generate predictions regarding future demand for specific features. In the Decision Framework stage, forecasts are translated into concrete recommendations regarding feature prioritization, resource allocation, and release timing.
+The operational data flow is structured as follows. During the Data Acquisition stage, demand indicators are programmatically extracted from heterogeneous public sources, including the Google Trends platform for search interest quantification, Kaggle repositories for user-generated review corpora, and application metadata aggregation services. In the subsequent Preprocessing stage, raw data artifacts undergo rigorous cleansing, normalization, and reorganization into temporally indexed series amenable to predictive analytical procedures. The Forecasting stage employs an ensemble of statistical models specifically, Exponential Smoothing, Autoregressive Integrated Moving Average (ARIMA), and Linear Regression to generate probabilistic predictions pertaining to prospective demand for designated product features. Finally, the Decision Framework stage effectuates the translation of numerical forecasts into concrete, operationally relevant recommendations concerning feature prioritization hierarchies, resource allocation strategies, and optimal release timing parameters.
 
-Data flows unidirectionally through the pipeline from collection to recommendations. Feedback loops are incorporated to enable model refinement based on prediction accuracy assessment.
+Data propagation proceeds unidirectionally through the pipeline from acquisition to recommendation generation, as illustrated in Figure~\ref{fig:system_pipeline}. Feedback mechanisms have been incorporated to facilitate iterative model refinement contingent upon prediction accuracy evaluation metrics.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    startstop/.style={rectangle, rounded corners, minimum width=2.5cm, minimum height=0.8cm, text centered, draw=black, fill=blue!20, font=\footnotesize},
+    process/.style={rectangle, minimum width=2.5cm, minimum height=0.8cm, text centered, draw=black, fill=orange!20, font=\footnotesize},
+    arrow/.style={thick,->,>=stealth},
+    feedback/.style={thick,->,>=stealth,dashed}
+]
+
+% Main pipeline nodes
+\node (input) [startstop] {Public Data Sources};
+\node (collect) [process, below of=input] {Data Acquisition};
+\node (preprocess) [process, below of=collect] {Preprocessing};
+\node (forecast) [process, below of=preprocess] {Forecasting Engine};
+\node (decision) [process, below of=forecast] {Decision Framework};
+\node (output) [startstop, below of=decision] {Design Recommendations};
+
+% Data source details (right side)
+\node (sources) [right of=collect, xshift=2.5cm, font=\scriptsize, align=left] {Google Trends\\Kaggle Reviews\\App Metadata};
+
+% Model details (right side)
+\node (models) [right of=forecast, xshift=2.5cm, font=\scriptsize, align=left] {Exp. Smoothing\\ARIMA\\Linear Regression};
+
+% Arrows
+\draw [arrow] (input) -- (collect);
+\draw [arrow] (collect) -- (preprocess);
+\draw [arrow] (preprocess) -- (forecast);
+\draw [arrow] (forecast) -- (decision);
+\draw [arrow] (decision) -- (output);
+
+% Dotted lines to details
+\draw [dotted] (collect.east) -- (sources.west);
+\draw [dotted] (forecast.east) -- (models.west);
+
+% Feedback loop
+\draw [feedback] (output.west) -- ++(-1.5,0) |- node[near start, left, font=\scriptsize] {Feedback} (forecast.west);
+
+\end{tikzpicture}
+\caption{System architecture pipeline illustrating sequential data flow through four processing stages.}
+\label{fig:system_pipeline}
+\end{figure}
 
 \subsection{Component Architecture}
 
-\subsubsection{Data Collection Module}
-This module initiates the pipeline and manages three primary data sources. The Google Trends Scraper retrieves monthly search interest data for designated Notion features. The Review Dataset Parser processes user reviews from Kaggle datasets, extracting ratings, timestamps, and review text content. The Metadata Aggregator collects supplementary information including installation counts, version release histories, and rating distributions.
+\subsubsection{Data Acquisition Module}
+This module constitutes the primary entry point of the processing pipeline and is responsible for the orchestration of three distinct data source integrations. The Google Trends Extraction Component programmatically retrieves monthly search interest metrics for designated product features in this case study, the Notion productivity platform. The Review Corpus Parser processes user-submitted reviews obtained from Kaggle datasets, systematically extracting numerical ratings, temporal metadata, and unstructured textual content. The Metadata Aggregation Component collects supplementary categorical and quantitative information, including cumulative installation counts, version release chronologies, and rating distribution statistics.
 
-All data is timestamped and stored in a consistent format. The module incorporates error handling for API rate limits, connection failures, and retry logic to ensure reliable data collection.
+All acquired data artifacts are assigned temporal indices and persisted in a standardized canonical format. The module incorporates comprehensive exception handling mechanisms for Application Programming Interface (API) rate limitation constraints, network connectivity failures, and automated retry protocols to ensure operational reliability and data collection continuity.
 
 \subsubsection{Preprocessing Module}
-This module addresses data quality issues prior to analysis. The Cleaning component removes duplicate entries, handles missing values through interpolation or forward-filling, and flags statistical outliers. Feature Extraction applies natural language processing to review text to quantify mentions of specific features. Sentiment Scoring assigns sentiment values to reviews indicating user affect orientation. Time-Series Construction organizes all data into monthly series for each feature encompassing search interest, sentiment, and mention counts. Normalization scales values to enable cross-feature comparison given different original measurement scales.
+This module is tasked with the resolution of data quality deficiencies antecedent to analytical processing. The Data Cleansing Component eliminates duplicate entries, addresses missing values through temporal interpolation or forward-fill imputation methodologies, and identifies statistical outliers through threshold based flagging procedures. The Feature Extraction Component applies natural language processing techniques to review textual content to quantify explicit and implicit references to specific product features. The Sentiment Quantification Component assigns polarity scores to individual reviews, indicating the affective orientation of user-expressed opinions. The Time-Series Construction Component organizes all processed data into monthly indexed series for each feature, encompassing search interest indices, sentiment scores, and mention frequency counts. The Normalization Component applies scaling transformations to enable meaningful cross-feature comparative analysis, accounting for heterogeneous original measurement scales.
 
 \subsubsection{Forecasting Engine}
-This component constitutes the analytical core of the system. Multiple models are employed given their complementary strengths. Exponential Smoothing excels at detecting short-term shifts—recent demand changes are weighted heavily. ARIMA analysis captures longer-term patterns including seasonality, cycles, and trends extending over extended periods. Linear Regression incorporates exogenous factors such as competitive announcements or industry news.
+This component constitutes the analytical nucleus of the system architecture. A plurality of predictive models are employed, selected for their complementary analytical strengths and divergent methodological assumptions. Exponential Smoothing demonstrates particular efficacy in detecting short-term temporal shifts, as recent demand fluctuations are accorded proportionally elevated weighting coefficients. Autoregressive Integrated Moving Average (ARIMA) analysis is capable of capturing longer-term temporal patterns, including seasonal periodicity, cyclical variations, and secular trends extending over prolonged observational periods. Linear Regression methodology permits the incorporation of exogenous predictor variables, such as competitive market announcements or industry-wide developments.
 
-Each model generates independent forecasts which are subsequently combined using an ensemble approach. Models with superior historical accuracy receive proportionally greater weight in final predictions. Confidence intervals are computed to communicate prediction uncertainty to decision-makers.
+Each model generates independent forecast outputs, which are subsequently synthesized through an ensemble aggregation methodology. Models demonstrating superior historical predictive accuracy are accorded proportionally greater weighting coefficients in the determination of final consolidated predictions. Confidence intervals are computed and reported to communicate forecast uncertainty to organizational decision-makers.
 
 \subsubsection{Design Decision Framework}
-This module translates numerical forecasts into actionable recommendations. Feature Prioritization ranks features based on predicted demand growth, current user sentiment, and strategic importance. UI/UX Suggestions recommends improvements for high-demand features including enhanced discoverability and workflow simplification. Resource Planning proposes engineering effort distribution based on demand trajectories. Release Timing identifies anticipated demand peaks to inform launch scheduling.
+This module is responsible for the translation of quantitative forecast outputs into actionable operational recommendations. The Feature Prioritization Component establishes hierarchical rankings based on predicted demand growth trajectories, prevailing user sentiment indicators, and strategic organizational importance. The UI/UX Recommendation Component proposes interface improvements for high-demand features, including enhanced discoverability mechanisms and workflow simplification strategies. The Resource Planning Component generates proposed allocations of engineering effort based on anticipated demand trajectories. The Release Timing Component identifies projected demand peaks to inform optimal product launch scheduling decisions.
 
-The decision logic employs rule-based threshold triggers. Features exceeding specified demand growth thresholds with positive sentiment are designated high priority. The approach is systematic rather than algorithmic.
+The decision logic employs deterministic rule-based threshold activation mechanisms. Features exceeding predetermined demand growth thresholds in conjunction with positive sentiment indicators are designated as high-priority candidates. The approach is characterized as systematic and reproducible rather than heuristically algorithmic.
 
 \subsubsection{User Interface Module}
-System outputs require presentation in formats accessible to non-technical stakeholders. Dashboard Views provide high-level metrics and trend visualizations for rapid assessment. Feature Drill-downs offer detailed time-series charts for individual features with sentiment overlays and model comparison capabilities. The Recommendations Panel displays prioritized suggestions, estimated effort requirements, and suggested launch windows derived from the forecasting pipeline. Export Options include CSV and JSON exports and printable reports for offline analysis.
+System outputs necessitate presentation in formats accessible to non-technical organizational stakeholders. Dashboard Views provide high-level aggregate metrics and trend visualizations for expeditious assessment. Feature Drill-down Views offer granular time-series charting for individual features, incorporating sentiment overlay capabilities and comparative model performance visualization. The Recommendations Panel displays hierarchically prioritized suggestions, estimated engineering effort requirements, and optimal launch window recommendations derived from the forecasting pipeline. Export functionality includes Comma-Separated Values (CSV) and JavaScript Object Notation (JSON) data exports, as well as formatted printable reports suitable for offline analytical review.
 
-The user interface is intentionally decoupled from the forecasting engine, enabling independent modification of either component.
+The user interface layer is architecturally decoupled from the forecasting engine, thereby enabling independent modification, enhancement, or replacement of either component without necessitating alterations to the other.
 
 \subsection{Technology Stack}
 
 \subsubsection{Programming Languages}
-Python serves as the primary language for data processing, statistical modeling, and forecasting, selected for its extensive ecosystem of data science libraries. SQL handles structured storage and querying of time-series data.
+Python serves as the primary implementation language for data processing, statistical modeling, and forecasting operations, selected for its extensive ecosystem of specialized data science libraries and broad community support. Structured Query Language (SQL) is employed for structured data persistence and querying of temporally indexed datasets.
 
 \subsubsection{Libraries and Frameworks}
-The implementation utilizes pandas for data manipulation and time-series handling, NumPy for numerical computation and array operations, statsmodels for ARIMA and Exponential Smoothing implementations, and scikit-learn for linear regression, preprocessing utilities, and evaluation metrics. Natural language processing employs NLTK and spaCy for feature mention extraction from review text, while TextBlob and VADER provide sentiment analysis capabilities. Visualization relies on matplotlib and seaborn for plotting, and pytrends provides the Python interface for the Google Trends API.
+The implementation utilizes the pandas library for tabular data manipulation and time-series handling, NumPy for numerical computation and multi-dimensional array operations, statsmodels for ARIMA and Exponential Smoothing algorithm implementations, and scikit-learn for linear regression modeling, preprocessing utility functions, and evaluation metric computation. Natural language processing operations employ the NLTK and spaCy libraries for feature mention extraction from unstructured review text, while TextBlob and VADER provide lexicon-based sentiment analysis capabilities. Visualization functionality relies upon the matplotlib and seaborn plotting libraries, and the pytrends package provides the Python programmatic interface for the Google Trends API.
 
 \subsubsection{Data Sources and Storage}
-Primary data sources include the Google Trends API for search interest time-series and Kaggle Datasets for user review corpora. Storage utilizes CSV and JSON files for lightweight, versionable data storage, with SQLite or PostgreSQL available for larger or more structured deployments.
+Primary data sources comprise the Google Trends API for search interest time-series acquisition and Kaggle Datasets for user review corpus procurement. Data persistence utilizes CSV and JSON file formats for lightweight, version-controllable data storage, with SQLite or PostgreSQL relational database systems available for larger-scale or more structurally complex deployment scenarios.
 
 \subsubsection{Development Tools}
-The development environment comprises Jupyter Notebooks for interactive exploration and prototyping, Git and GitHub for version control and collaboration, VS Code and PyCharm for code development, and pytest for validation testing.
+The development environment comprises Jupyter Notebooks for interactive exploratory analysis and rapid prototyping, Git and GitHub for distributed version control and collaborative development, Visual Studio Code and PyCharm for integrated code development, and pytest for automated validation testing procedures.
 
 \subsubsection{Technology Selection Rationale}
-The technology stack was selected based on accessibility, flexibility, and community support criteria. All components are open-source, eliminating licensing costs. The modular design enables substitution of forecasting algorithms or data sources without comprehensive system modification. The pipeline scales from small case studies to larger datasets. All tools benefit from active developer communities, extensive documentation, and available support resources.
+The technology stack was selected based upon accessibility, flexibility, and community support criteria. All components are distributed under open-source licensing models, thereby eliminating proprietary licensing expenditures. The modular architectural design facilitates substitution of forecasting algorithms or data sources without necessitating comprehensive system modification or revalidation. The pipeline architecture scales effectively from small-scale case studies to substantially larger datasets. All selected tools benefit from active developer communities, comprehensive documentation resources, and readily available technical support.
