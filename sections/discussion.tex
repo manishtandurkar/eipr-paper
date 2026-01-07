@@ -2,26 +2,24 @@
 
 \section{Discussion}
 
-\subsection{What the Results Tell Us}
-Looking back at everything we tested, the main takeaway is pretty clear: mixing multiple data sources and forecasting methods produces more reliable guidance than betting on any single approach. When we combined signals from search trends, review sentiment, and usage patterns, the predictions held up better across different types of features. Some features respond to short-term hype cycles while others follow steadier long-term trajectories—and our ensemble method handled both reasonably well.
+\subsection{Interpretation of Results}
+The primary finding is that combining multiple data sources and forecasting methods produces more reliable guidance than relying on any single approach. When signals from search trends, review sentiment, and usage patterns were combined, predictions demonstrated improved robustness across different feature types. Some features respond to short-term interest cycles while others follow steadier long-term trajectories—the ensemble methodology addressed both patterns effectively.
 
-The visualization layer also proved its worth. Showing stakeholders where the predictions come from and how confident we are in each one made the whole thing feel less like a black box. People are more willing to act on forecasts when they can see the reasoning behind them.
+The visualization component also demonstrated substantial value. Presenting stakeholders with the sources of predictions and confidence levels reduced the perception of the system as opaque. Decision-makers expressed greater willingness to act on forecasts when the underlying reasoning was transparent.
 
-\subsection{Where We Hit Walls}
-We ran into our fair share of headaches along the way:
-\begin{itemize}
-\item \textbf{Messy data from different sources}: Google Trends spits out monthly numbers, app reviews come with precise timestamps, and some of the metadata had gaps all over the place. Getting everything lined up by month took more effort than we expected.
-\item \textbf{Features that behave differently}: Some features showed clear seasonal patterns while others just trended steadily upward. There was no magic one-size-fits-all model—we had to accept that different features needed different treatment.
-\item \textbf{Running out of time}: We would have loved to spend more cycles tuning hyperparameters and stress-testing the system under heavy load, but project deadlines had other plans.
-\end{itemize}
+\subsection{Limitations Encountered}
+Several limitations were encountered during this research.
 
-\subsection{How We Worked Around the Problems}
-When challenges came up, we adapted:
-\begin{itemize}
-\item For the data alignment issues, we built careful preprocessing steps and documented every assumption so anyone reading the code would know exactly what we did and why.
-\item Instead of trying to find one perfect model, we leaned into the ensemble approach and let validation performance guide which models got more weight in the final predictions.
-\item With limited time for testing, we prioritized correctness and reproducibility over exhaustive performance benchmarks. Better to have a system that reliably gives the right answers than one that's fast but wrong.
-\end{itemize}
+\textbf{Data source heterogeneity} presented challenges. Google Trends provides monthly aggregates, app reviews include precise timestamps, and metadata exhibited gaps throughout. Temporal alignment at monthly intervals required more effort than initially anticipated.
 
-\subsection{What We'd Do Differently Next Time}
-A few lessons stuck with us. First, nailing down clear data contracts early saves massive headaches later—when everyone agrees on what the inputs and outputs look like, integration gets way smoother. Second, building the system in modular chunks made it easy to swap out models without rewriting everything around them. Third, writing tests from the start rather than bolting them on at the end caught problems before they snowballed into bigger messes.
+\textbf{Feature behavioral variation} necessitated flexibility. Some features exhibited clear seasonal patterns while others trended steadily. No single model proved universally optimal—different features required different analytical treatment.
+
+\textbf{Time constraints} limited thoroughness. Additional cycles for hyperparameter tuning and load testing would have been beneficial, but project timelines imposed constraints.
+
+\subsection{Mitigation Strategies}
+When challenges arose, adaptive strategies were employed.
+
+For data alignment issues, careful preprocessing steps were developed and all assumptions were documented to ensure transparency for code reviewers. Rather than attempting to identify a single optimal model, the ensemble approach was adopted with validation performance guiding model weight allocation. Given limited testing time, correctness and reproducibility were prioritized over exhaustive performance benchmarking. A system that reliably produces accurate results was preferred over one optimized for speed but prone to errors.
+
+\subsection{Lessons Learned}
+Several lessons emerged from this work. First, establishing clear data contracts early prevents substantial integration difficulties—when all components agree on input and output specifications, integration proceeds more smoothly. Second, modular system construction facilitated model substitution without requiring comprehensive refactoring. Third, implementing tests from the beginning rather than retrofitting them at project completion caught problems before they compounded.

@@ -1,46 +1,30 @@
 \section{Methodology}
-Our approach unfolds across four connected stages, each building on the previous one. We start by gathering publicly available signals that hint at what users want, then clean and organize this information, run it through forecasting models, and finally turn the numbers into practical suggestions for product teams. Here's how each part works.
+The proposed methodology proceeds through four interconnected stages, each building upon the preceding phase. The process begins with collection of publicly available demand signals, continues through data preprocessing and organization, applies forecasting models to generate predictions, and concludes with translation of numerical outputs into actionable product recommendations.
 
-\subsection{Gathering the Data}
-Since we can't peek inside Notion's private analytics, we rely on what's openly available online. We pull search interest numbers from Google Trends to see how often people look up things like "Notion AI" or "Notion templates." We also grab user review datasets from Kaggle, where thousands of app store reviews give us a window into what people love or complain about. On top of that, we collect basic app metadata—ratings, download counts, version history—to round out the picture.
+\subsection{Data Collection}
+Given the inaccessibility of proprietary Notion analytics, this research relies exclusively on publicly available data sources. Search interest data is obtained from Google Trends to quantify the frequency of queries related to specific Notion features such as ``Notion AI'' and ``Notion templates.'' User review datasets are obtained from Kaggle repositories, providing access to thousands of app store reviews that reflect user satisfaction and feature preferences. Additionally, basic app metadata including ratings, download counts, and version histories are collected to supplement the primary data sources.
 
-All of this data gets timestamped and organized so that everything lines up by month. Our collection scripts handle the usual headaches: rate limits from APIs, occasional network hiccups, and logging everything so we can trace back any oddities later.
+All collected data is timestamped and organized to ensure temporal alignment at monthly intervals. The collection infrastructure addresses common technical challenges including API rate limits, network reliability issues, and comprehensive logging to enable traceability of data provenance.
 
-\subsection{Cleaning Things Up}
-Raw data is messy. Duplicate entries sneak in, some months have gaps, and outliers can throw off our analysis. So we spend time tidying up:
-\begin{itemize}
-\item We hunt down and remove duplicate records that would skew our counts.
-\item When a month has missing values, we fill in reasonable estimates using interpolation or by carrying forward the last known value.
-\item We flag and filter out extreme outliers that don't fit the normal pattern.
-\item Using natural language processing, we scan through review text to count how often specific features get mentioned and score the overall sentiment—whether people sound happy, frustrated, or somewhere in between.
-\end{itemize}
+\subsection{Data Preprocessing}
+Raw data requires substantial preprocessing before analysis. Duplicate entries are identified and removed to prevent distortion of frequency counts. Missing values are addressed through interpolation or forward-filling techniques using the most recent available value. Statistical outliers that deviate substantially from expected patterns are flagged and filtered. Natural language processing techniques are applied to review text to quantify feature mention frequency and compute sentiment scores indicating whether user affect is positive, negative, or neutral regarding specific features.
 
-\subsection{Building the Forecasts}
-We don't bet everything on a single forecasting method. Instead, we run three different approaches and see what story they tell together \cite{makridakis2018statistical}:
-\begin{itemize}
-\item \textbf{Exponential Smoothing} pays close attention to recent trends \cite{hyndman2008forecasting}. If interest in a feature spiked last month, this model picks up on it quickly.
-\item \textbf{ARIMA} looks at the bigger picture—seasonal patterns, longer cycles, and how past values tend to predict future ones \cite{box2015time}.
-\item \textbf{Linear Regression} helps us factor in outside influences, like whether a competitor launched something similar or if there's buzz in the tech news.
-\end{itemize}
+\subsection{Forecasting Model Development}
+Rather than relying on a single forecasting method, this framework applies three complementary approaches to capture different aspects of demand patterns \cite{makridakis2018statistical}. Exponential Smoothing is particularly responsive to recent trends \cite{hyndman2008forecasting}—if interest in a feature increased substantially in the preceding period, this model captures the shift rapidly. ARIMA analysis provides perspective on longer-term patterns including seasonality, cyclical behavior, and autocorrelation structures \cite{box2015time}. Linear Regression enables incorporation of exogenous factors such as competitive product launches or general industry trends.
 
-We train each model on historical data, hold out a chunk to test predictions, and then blend their outputs. The blend weighs each model based on how accurate it's been in the past—if one model nails the predictions consistently, it gets more say in the final forecast.
+Each model is trained on historical data with a held-out portion reserved for validation. Model outputs are then combined using an ensemble approach where individual model weights are determined by historical prediction accuracy—models demonstrating superior predictive performance receive proportionally greater influence in the final forecast.
 
-\subsection{Turning Predictions into Actions}
-Numbers alone don't help a product team decide what to build next. So we translate the forecast curves into straightforward guidance:
-\begin{itemize}
-\item If a feature shows climbing interest, we flag it for UI improvements and extra engineering attention.
-\item If demand stays steady and strong, we suggest keeping things polished and maybe exploring add-on features that complement what's already popular.
-\item If interest is fading, we recommend rethinking how the feature is positioned—or whether it needs a major refresh.
-\end{itemize}
+\subsection{Actionable Recommendation Generation}
+Numerical forecasts require translation into practical guidance for product teams. The framework converts forecast trajectories into categorical recommendations. Features exhibiting increasing demand trajectories are designated for user interface improvements and increased development resource allocation. Features demonstrating stable, consistent demand are recommended for maintenance and potential complementary additions. Features showing declining interest are flagged for strategic repositioning or redesign consideration.
 
-This creates a direct line from "the data says X is trending up" to "here's what the design team should consider doing about it."
+This translation creates a direct connection from quantitative analysis to qualitative design decisions.
 
-The visualization layer plays a crucial role here. We generate comprehensive plots comparing individual feature trajectories, overlay multiple forecasting methods to show consensus and divergence, and produce resource allocation charts that directly tie growth rates to budget recommendations. These visualizations are saved as high-resolution figures (300 DPI) for inclusion in reports and presentations, ensuring that stakeholders can quickly grasp key insights without parsing raw numbers.
+The visualization component serves a critical role in this process. Comprehensive plots comparing individual feature trajectories are generated, multiple forecasting methods are overlaid to illustrate areas of consensus and divergence, and resource allocation charts directly relate growth rates to budget recommendations. Visualizations are saved at publication quality (300 DPI) for inclusion in reports and presentations, ensuring stakeholders can interpret key insights without requiring analysis of raw numerical data.
 
-\subsection{Checking Our Work}
-We evaluate the models using a train-validation-test split. For time-series data, we also use rolling-origin testing, where we slide the prediction window forward and check how well the model performs each time. We track standard metrics: Mean Absolute Error tells us how far off predictions typically land, Root Mean Squared Error penalizes bigger mistakes more heavily, and Mean Absolute Percentage Error puts things in relative terms so we can compare across different features.
+\subsection{Model Evaluation}
+Model performance is evaluated using a train-validation-test split methodology. For time-series data, rolling-origin testing is additionally employed, sliding the prediction window forward and assessing model performance at each step. Standard evaluation metrics are tracked: Mean Absolute Error quantifies typical prediction deviation, Root Mean Squared Error applies greater penalty to larger errors, and Mean Absolute Percentage Error enables comparison across features with different scales.
 
-Where possible, we also generate confidence intervals—ranges that say "we're fairly sure the true value falls somewhere in here." This helps decision-makers understand how certain (or uncertain) a prediction really is.
+Where computationally feasible, confidence intervals are generated to communicate prediction uncertainty. These intervals indicate the range within which true values are expected to fall with specified probability, enabling decision-makers to assess the reliability of individual forecasts.
 
-\subsection{Keeping Everything Reproducible}
-We've documented every step. The data transformation scripts, model training notebooks, and even the code that produces the figures in this paper are all available in the repository. Anyone who wants to replicate our analysis—or adapt it for a different SaaS product—can follow along and get the same results we did.
+\subsection{Reproducibility}
+All processing steps are documented comprehensively. Data transformation scripts, model training notebooks, and visualization generation code are available in the associated repository. Researchers seeking to replicate this analysis or adapt the methodology for different SaaS products can follow the documented procedures to obtain equivalent results.

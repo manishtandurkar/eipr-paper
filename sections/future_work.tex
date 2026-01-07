@@ -1,43 +1,18 @@
 \section{Future Work and Improvements}
 
-Our prototype proves the concept works, but there's plenty of room to make it more robust and practical for real-world use.
+The prototype demonstrates proof of concept, but substantial opportunities exist for enhanced robustness and practical utility.
 
-\subsection{Pulling in More Data Sources}
-Right now we're working with Google Trends, app store reviews, and some basic metadata. That's a decent starting point, but richer data would mean sharper predictions. Down the road, we'd love to tap into:
-\begin{itemize}
-\item Conversations happening on Twitter, Reddit, and LinkedIn where people actually discuss productivity tools and workflow pain points.
-\item Activity in community forums—places like Notion's official community boards or Product Hunt threads where early adopters share unfiltered opinions.
-\item Competitor monitoring systems that track when rival products launch features and how that shifts public interest.
-\end{itemize}
+\subsection{Additional Data Sources}
+The current implementation utilizes Google Trends, app store reviews, and basic metadata. Enhanced data richness would improve prediction accuracy. Future work could incorporate social media discussions on platforms such as Twitter, Reddit, and LinkedIn where users discuss productivity tools and workflow challenges. Community forum activity—including official Notion community boards and Product Hunt threads where early adopters share unfiltered feedback—represents another valuable source. Competitor monitoring systems tracking rival product feature launches and resulting shifts in public interest would provide additional context.
 
-\subsection{Smarter Modeling Approaches}
-The statistical methods we used have been around for decades and they're solid workhorses. But newer techniques could push accuracy further:
-\begin{itemize}
-\item Neural network architectures like LSTMs or Transformers that excel at learning complex patterns across time.
-\item Causal inference frameworks that help distinguish genuine cause-and-effect from mere correlation.
-\item Streaming prediction systems that update forecasts continuously rather than waiting for batch processing cycles.
-\end{itemize}
+\subsection{Advanced Modeling Approaches}
+The statistical methods employed have decades of validation and remain robust. However, contemporary techniques could improve accuracy further. Neural network architectures such as LSTMs or Transformers demonstrate strength in learning complex temporal patterns. Causal inference frameworks could help distinguish genuine causal relationships from mere correlation. Streaming prediction systems could update forecasts continuously rather than waiting for batch processing cycles.
 
-\subsection{Getting Production-Ready}
-What works in a research notebook won't necessarily survive contact with real users. Serious deployment would need:
-\begin{itemize}
-\item Infrastructure that can handle traffic spikes—proper caching, load distribution, and database tuning.
-\item Automated pipelines that notice when models start drifting from reality and trigger retraining before predictions go stale.
-\item Enterprise-grade security features like role-based permissions and detailed audit trails.
-\end{itemize}
+\subsection{Production Deployment}
+Approaches effective in research contexts may not survive contact with real users without modification. Serious deployment would require infrastructure capable of handling traffic spikes—appropriate caching, load distribution, and database optimization. Automated pipelines would be needed to detect model drift from reality and trigger retraining before predictions become stale. Enterprise-grade security features including role-based permissions and detailed audit trails would be essential.
 
-\subsection{Making the Dashboard More Useful}
-The current interface gets the job done, but product managers could benefit from:
-\begin{itemize}
-\item Custom alert systems that ping the team when key metrics cross thresholds worth paying attention to.
-\item Scenario planning tools where teams can ask "what if" questions and see how different choices might play out.
-\item Direct hookups to project management platforms like Jira or Linear so insights flow straight into sprint planning.
-\end{itemize}
+\subsection{Dashboard Enhancement}
+The current interface provides basic functionality, but product managers could benefit from additional capabilities. Custom alert systems could notify teams when key metrics cross significant thresholds. Scenario planning tools could enable "what-if" analysis showing how different choices might affect outcomes. Direct integration with project management platforms such as Jira or Linear could enable insights to flow directly into sprint planning workflows.
 
-\subsection{Testing Beyond Notion}
-We only looked at one product in depth. To really trust the framework, future work should:
-\begin{itemize}
-\item Run the same analysis on several different SaaS products and see whether the patterns hold up.
-\item Find cases where we can compare our predictions against actual adoption numbers to measure real accuracy.
-\item Put the tool in front of actual product managers and study whether it genuinely improves their decisions.
-\end{itemize}
+\subsection{Generalization Beyond Notion}
+This research examined only one product in depth. To establish framework reliability, future work should apply the same analysis to multiple SaaS products to assess pattern consistency. Cases where predictions can be compared against actual adoption metrics would enable measurement of real accuracy. User studies with actual product managers would assess whether the tool genuinely improves decision-making quality.

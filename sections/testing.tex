@@ -2,40 +2,33 @@
 
 \section{Testing and Evaluation}
 
-\subsection{Our Testing Philosophy}
-We didn't wait until the end to start testing. Instead, we built checks into the system at every level, from individual functions up to the full end-to-end flow.
+\subsection{Testing Methodology}
+Testing was integrated throughout the development process at multiple levels, from individual functions to complete end-to-end workflows.
 
-\textbf{Unit tests} catch problems at the smallest scale. Every data cleaning function, every feature extraction routine, and every model wrapper has tests that verify it does what it claims to do. We used pytest for this since it's straightforward and widely supported.
+\textbf{Unit tests} verify correctness at the smallest scale. Every data cleaning function, feature extraction routine, and model wrapper includes tests confirming specified behavior. The pytest framework was selected for its simplicity and broad support.
 
-\textbf{Integration tests} make sure the pieces work together. The preprocessing pipeline feeds into model training, which feeds into API endpoints—and we tested those handoffs to make sure data doesn't get lost or mangled along the way.
+\textbf{Integration tests} verify that components function correctly together. The preprocessing pipeline feeds into model training, which feeds into API endpoints—these handoffs are tested to ensure data integrity throughout the pipeline.
 
-\textbf{End-to-end smoke tests} walk through the entire flow, from raw data ingestion all the way to charts rendering in the browser. These aren't exhaustive, but they catch the obvious breakages before anyone else sees them.
+\textbf{End-to-end smoke tests} traverse the entire workflow from raw data ingestion through chart rendering in the browser. While not exhaustive, these tests detect obvious failures before deployment.
 
-\textbf{Load tests} gave us a rough sense of performance. Nothing fancy—just enough to confirm that the API responds in reasonable time and doesn't fall over under moderate traffic.
+\textbf{Load tests} provide performance characterization, confirming that the API responds within acceptable time limits and maintains stability under moderate traffic.
 
-\textbf{Regression tests} run automatically whenever code changes. If someone accidentally breaks a model or an API contract, the tests catch it before the change gets merged.
+\textbf{Regression tests} execute automatically on code changes. If modifications inadvertently affect model behavior or API contracts, tests detect the change before integration.
 
-\subsection{Specific Things We Tested}
-A few examples of what our test suite covers:
-\begin{itemize}
-\item Feeding the data ingestion module malformed records—missing fields, bad timestamps, weird characters—to make sure it handles garbage gracefully instead of crashing.
-\item Running the NLP feature extraction on edge cases like super-short reviews, reviews with emoji, and the occasional non-English snippet that slips through.
-\item Training a model, saving it to disk, loading it back, and verifying it still makes the same predictions. Sounds obvious, but serialization bugs can be sneaky.
-\item Checking that the API returns exactly the JSON structure the frontend expects, including proper error messages when something goes wrong.
-\item Rendering dashboard charts with no data, with huge datasets, and with multiple overlapping series to make sure the UI holds up under different conditions.
-\end{itemize}
+\subsection{Test Coverage}
+The test suite addresses multiple scenarios including feeding malformed records to the data ingestion module—missing fields, invalid timestamps, unexpected characters—to verify graceful error handling. Natural language processing feature extraction is tested on edge cases including very short reviews, reviews containing emoji, and occasional non-English content. Model serialization and deserialization is tested by training a model, saving it to disk, loading it, and verifying consistent predictions. API response testing confirms that returned JSON structures match frontend expectations, including appropriate error messages. Dashboard rendering is tested with no data, large datasets, and multiple overlapping series to verify UI robustness under varying conditions.
 
-\subsection{How We Measured Success}
-We tracked several types of metrics:
+\subsection{Evaluation Metrics}
+Multiple metric categories are tracked for comprehensive evaluation.
 
-For the \textbf{forecasting models themselves}, we measured Mean Absolute Error (how far off predictions typically land), Root Mean Squared Error (which penalizes big misses more heavily), and Mean Absolute Percentage Error (to compare accuracy across features with different scales). We used holdout validation and rolling-origin testing to get honest estimates of how well models would perform on future data.
+For \textbf{forecasting models}, Mean Absolute Error quantifies typical prediction deviation, Root Mean Squared Error applies greater penalty to larger errors, and Mean Absolute Percentage Error enables cross-feature comparison at different scales. Holdout validation and rolling-origin testing provide honest estimates of performance on future data.
 
-For the \textbf{system as a whole}, we monitored API response times (specifically the 95th percentile), success rates, and memory usage during model inference.
+For the \textbf{system overall}, API response times (specifically 95th percentile), success rates, and memory usage during model inference are monitored.
 
-For \textbf{code quality}, we tracked test coverage on critical modules and counted how many bugs the CI pipeline caught before they reached production.
+For \textbf{code quality}, test coverage on critical modules is tracked along with the count of bugs detected by the CI pipeline before production deployment.
 
-\subsection{Automation and CI}
-Every pull request triggers the full test suite through GitHub Actions. Unit tests, integration tests, and even a quick model validation step all run automatically. If the model validation fails—say, a code change unexpectedly tanks prediction accuracy—the PR can't merge without explicit reviewer approval. This keeps the main branch stable and trustworthy.
+\subsection{Continuous Integration}
+Every pull request triggers the complete test suite through GitHub Actions. Unit tests, integration tests, and model validation steps execute automatically. If model validation fails—indicating that a code change unexpectedly degraded prediction accuracy—the pull request cannot be merged without explicit reviewer approval. This process maintains main branch stability and reliability.
 
 \subsection{Testing Results}
-In the end, we achieved solid coverage across the core pipeline. Unit tests cover the data processing and model components, integration tests verify the API contracts, and smoke tests confirm the frontend renders correctly. We prioritized making the system reproducible and reliable over chasing every last edge case. For a research prototype, that's the right tradeoff.
+Comprehensive coverage was achieved across the core pipeline. Unit tests cover data processing and model components, integration tests verify API contracts, and smoke tests confirm correct frontend rendering. Priority was given to reproducibility and reliability over exhaustive edge case coverage. For a research prototype, this represents an appropriate tradeoff between thoroughness and development velocity.

@@ -5,58 +5,20 @@ Building this project required different skill sets working together. Here's who
 \subsection{Manish Tandurkar: Frontend Development}
 Manish Tandurkar owned the user-facing side of things—the dashboard where all those forecasts and recommendations actually become visible and usable.
 
-What they focused on:
-\begin{itemize}
-\item Building out the single-page app that lets users explore feature forecasts, compare models, and drill into specific trends.
-\item Wiring up the frontend to talk to the backend APIs, making sure data flows smoothly and the charts render correctly.
-\item Writing tests for UI components and making sure the interface doesn't fall apart when data looks weird or is missing.
-\end{itemize}
+What they focused on: building out the single-page app that lets users explore feature forecasts, compare models, and drill into specific trends; wiring up the frontend to talk to the backend APIs, making sure data flows smoothly and the charts render correctly; and writing tests for UI components and making sure the interface doesn't fall apart when data looks weird or is missing.
 
-Key things they delivered:
-\begin{itemize}
-\item The Dashboard view with its overview metrics and trend charts.
-\item The Feature Explorer where you can filter and inspect individual feature time series.
-\item The Forecast Comparison panel that shows different models side by side.
-\item Interactive Chart.js visualizations with zoom, pan, and export-to-CSV functionality.
-\item Frontend unit tests using Jest and React Testing Library.
-\end{itemize}
+Key things they delivered: the Dashboard view with its overview metrics and trend charts, the Feature Explorer where you can filter and inspect individual feature time series, the Forecast Comparison panel that shows different models side by side, interactive Chart.js visualizations with zoom, pan, and export-to-CSV functionality, and frontend unit tests using Jest and React Testing Library.
 
 \subsection{Manish H Parashar: Backend Development}
 Manish H Parashar handled everything that happens behind the scenes—collecting data, preprocessing it, training models, and serving results through the API.
 
-What they focused on:
-\begin{itemize}
-\item Building the data ingestion pipeline that pulls from Google Trends, review datasets, and app metadata.
-\item Implementing the preprocessing logic that cleans messy data and extracts useful signals.
-\item Training the forecasting models and packaging them so they can be loaded and used on demand.
-\item Designing the REST API that the frontend calls to get forecasts and recommendations.
-\end{itemize}
+What they focused on: building the data ingestion pipeline that pulls from Google Trends, review datasets, and app metadata; implementing the preprocessing logic that cleans messy data and extracts useful signals; training the forecasting models and packaging them so they can be loaded and used on demand; and designing the REST API that the frontend calls to get forecasts and recommendations.
 
-Key things they delivered:
-\begin{itemize}
-\item Ingestion and preprocessing scripts that normalize timestamps and handle missing data.
-\item Model training pipelines for Exponential Smoothing, ARIMA, and Linear Regression.
-\item FastAPI endpoints for data retrieval, model inference, and forecast serving.
-\item Serialized model artifacts with metadata so we can track what was trained and when.
-\item Backend unit and integration tests, plus basic profiling of API response times.
-\end{itemize}
+Key things they delivered: ingestion and preprocessing scripts that normalize timestamps and handle missing data, model training pipelines for Exponential Smoothing, ARIMA, and Linear Regression, FastAPI endpoints for data retrieval, model inference, and forecast serving, serialized model artifacts with metadata so we can track what was trained and when, and backend unit and integration tests, plus basic profiling of API response times.
 
 \subsection{Nikhil N Bharadwaj: QA and Documentation}
 Nikhil N Bharadwaj made sure everything actually worked as expected and that anyone picking up the project could understand how to use and extend it.
 
-What they focused on:
-\begin{itemize}
-\item Designing and running the test plan—unit tests, integration tests, end-to-end validation.
-\item Setting up automated testing in CI so we catch problems early.
-\item Writing documentation that explains how to set up the project, run experiments, and interpret results.
-\item Coordinating testing efforts and making sure bugs got reported, tracked, and fixed.
-\end{itemize}
+What they focused on: designing and running the test plan—unit tests, integration tests, end-to-end validation; setting up automated testing in CI so we catch problems early; writing documentation that explains how to set up the project, run experiments, and interpret results; and coordinating testing efforts and making sure bugs got reported, tracked, and fixed.
 
-Key things they delivered:
-\begin{itemize}
-\item A comprehensive test plan covering data processing, model training, and API behavior.
-\item Automated test suites integrated into GitHub Actions.
-\item Sample test datasets for reproducible validation.
-\item Setup guides, troubleshooting notes, and documentation for developers and users.
-\item Bug reports with reproduction steps, and verification that fixes actually worked.
-\end{itemize}
+Key things they delivered: a comprehensive test plan covering data processing, model training, and API behavior, automated test suites integrated into GitHub Actions, sample test datasets for reproducible validation, setup guides, troubleshooting notes, and documentation for developers and users, and bug reports with reproduction steps, and verification that fixes actually worked.
