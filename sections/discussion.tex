@@ -2,24 +2,24 @@
 
 \section{Discussion}
 
-\subsection{Interpretation of Results}
-The primary finding is that combining multiple data sources and forecasting methods produces more reliable guidance than relying on any single approach. When signals from search trends, review sentiment, and usage patterns were combined, predictions demonstrated improved robustness across different feature types. Some features respond to short-term interest cycles while others follow steadier long-term trajectories—the ensemble methodology addressed both patterns effectively.
+Part of this paper explains how the results have been interpreted.
+The main conclusion is that the integration of several sources of data and other forecasting techniques would lead to more accurate guidance than basing on a single one. Predictions also showed better robustness among various features when the signals of search trends and review sentiment as well as the utilization patterns are merged. Certain characteristics react to interest cycles on the short run and some to ones on the long term--the ensemble methodology covered both in a successful way.
 
-The visualization component also demonstrated substantial value. Presenting stakeholders with the sources of predictions and confidence levels reduced the perception of the system as opaque. Decision-makers expressed greater willingness to act on forecasts when the underlying reasoning was transparent.
+The visualization element also showed high value. The availability of the prediction sources and degree of confidence to the stakeholders decreased the view of the system as opaque. The respondents who were in charge of making decisions were more willing to take action on predictions in the case that the reasoning behind the predictions was made visible.
 
 \subsection{Limitations Encountered}
-Several limitations were encountered during this research.
+There were a number of restrictions experienced in this study.
 
-\textbf{Data source heterogeneity} presented challenges. Google Trends provides monthly aggregates, app reviews include precise timestamps, and metadata exhibited gaps throughout. Temporal alignment at monthly intervals required more effort than initially anticipated.
+Heterogeneity of data sources was a problem. Google Trends is monthly aggregated, app reviews have the exact timestamps, and metadata had gaps in between. Monthly alignment took more effort than it was initially expected.
 
-\textbf{Feature behavioral variation} necessitated flexibility. Some features exhibited clear seasonal patterns while others trended steadily. No single model proved universally optimal—different features required different analytical treatment.
+It required flexibility due to the variation in the behavior of features. There were some features that portrayed obvious seasonal trends and those that displayed steady trends. None of the models was optimal in all cases--the various features needed different treatment of analysis.
 
-\textbf{Time constraints} limited thoroughness. Additional cycles for hyperparameter tuning and load testing would have been beneficial, but project timelines imposed constraints.
+There was a lack of time to be thorough. Hyperparameter tuning and load testing would have been useful to add additional cycles, but schedule limitations set by project timelines were present.
 
 \subsection{Mitigation Strategies}
-When challenges arose, adaptive strategies were employed.
+The adaptive strategies were used when there were difficulties.
 
-For data alignment issues, careful preprocessing steps were developed and all assumptions were documented to ensure transparency for code reviewers. Rather than attempting to identify a single optimal model, the ensemble approach was adopted with validation performance guiding model weight allocation. Given limited testing time, correctness and reproducibility were prioritized over exhaustive performance benchmarking. A system that reliably produces accurate results was preferred over one optimized for speed but prone to errors.
+In conditions of data alignment, close preprocessing procedures were created and all assumptions were recorded to provide transparency to the code reviewers. The ensemble approach was chosen instead of trying to determine one best model where the validation performance is used to determine the weight of each model. Since testing time was limited, proper testing and retesting were emphasized rather than comprehensive performance benchmarking. A system that was dependable on generating reliable results was desired as opposed to a system that was fast but likely to create errors.
 
 \subsection{Lessons Learned}
-Several lessons emerged from this work. First, establishing clear data contracts early prevents substantial integration difficulties—when all components agree on input and output specifications, integration proceeds more smoothly. Second, modular system construction facilitated model substitution without requiring comprehensive refactoring. Third, implementing tests from the beginning rather than retrofitting them at project completion caught problems before they compounded.
+A number of lessons came out of this work. To begin with, defining data contracts upfront avoids significant integration challenges, as when everyone is certain about input and output requirements, integration is easier. Second, the construction of modular systems ensured that it was easy to change a model without having to do any radical refactoring. Third, testing during the initial stages, instead of converting them into tests at the end of project construction was used to detect faults before they accumulated.

@@ -1,34 +1,32 @@
-% Testing and Evaluation Section
-
 \section{Testing and Evaluation}
 
 \subsection{Testing Methodology}
-Testing was integrated throughout the development process at multiple levels, from individual functions to complete end-to-end workflows.
+Testing was not considered as an independent final stage activity, but was conducted throughout the development. Validation procedures were also added in small stages as the system components were put into effect and problems were detected sooner and separately before they could spread throughout the pipeline.
 
-\textbf{Unit tests} verify correctness at the smallest scale. Every data cleaning function, feature extraction routine, and model wrapper includes tests confirming specified behavior. The pytest framework was selected for its simplicity and broad support.
+Unit testing was a technique that dealt with accuracy at the unit level. Data cleaning procedures, feature extraction modules and model wrappers were tested based on explicit input-output expectations in addition to failure conditions. The pytest system (Python 3.x) was selected because it was stable and simple to automate, as well as because it fits well within the development cycle of the project.
 
-\textbf{Integration tests} verify that components function correctly together. The preprocessing pipeline feeds into model training, which feeds into API endpoints—these handoffs are tested to ensure data integrity throughout the pipeline.
+Introduction testing was concerned with the relationships between components, but not with inner logic. The specific focus was put on the interfaces among the preprocessing pipeline, model training module and API layer because these layers interact through the interchange of intermediate representations, which can be vulnerable to schema or format errors.
 
-\textbf{End-to-end smoke tests} traverse the entire workflow from raw data ingestion through chart rendering in the browser. While not exhaustive, these tests detect obvious failures before deployment.
+The system was tested end-to-end with the help of end-to-end smoke testing, which started with the ingestion of raw data and ended with the visualization output in the browser. These tests were deliberately small and were mainly employed to identify errors in configuration, broken dependencies or surprise runtime failure before deployment.
 
-\textbf{Load tests} provide performance characterization, confirming that the API responds within acceptable time limits and maintains stability under moderate traffic.
+The testing of the load was also conducted in order to gain a rough idea of the performance properties in non-adversarial conditions. The moderate request volumes also proved to ensure that the API reacted predictably and without instability as well as excessive resource usage.
 
-\textbf{Regression tests} execute automatically on code changes. If modifications inadvertently affect model behavior or API contracts, tests detect the change before integration.
+Regression testing was also an automated process that was performed every time there were new code additions. This made sure that the behaviors already known to be valid during earlier iterations such as prediction outputs and API response formats did not change during later iterations.
 
 \subsection{Test Coverage}
-The test suite addresses multiple scenarios including feeding malformed records to the data ingestion module—missing fields, invalid timestamps, unexpected characters—to verify graceful error handling. Natural language processing feature extraction is tested on edge cases including very short reviews, reviews containing emoji, and occasional non-English content. Model serialization and deserialization is tested by training a model, saving it to disk, loading it, and verifying consistent predictions. API response testing confirms that returned JSON structures match frontend expectations, including appropriate error messages. Dashboard rendering is tested with no data, large datasets, and multiple overlapping series to verify UI robustness under varying conditions.
+The test suite was a representative of the problems that were being faced in the development process and not a total coverage of the theoretical edge cases. Malformed data was deliberately provided to the data ingestion to test that graceful errors are reported on missing data attributes and invalid timestamps and unexpected character encodings along with other invalid data are handled gracefully. The extraction of natural language processing features was tested on the inputs of short text and on the inputs with emoji as well as some non-English texts that were found during the data collection process. The training models were tested by having them trained, saved to disk, reloaded and ensuring that the results of inference were still the same after being deserialised. The responses of API were tested with the JSON schema that the frontend was consuming, even the structures of errors that are returned in the event of failure. The large data and empty input testing were conducted on visualization components to evaluate the behavior of frontends in different data conditions.
 
 \subsection{Evaluation Metrics}
-Multiple metric categories are tracked for comprehensive evaluation.
+The metrics were based on predictive accuracy and system level behavior.
 
-For \textbf{forecasting models}, Mean Absolute Error quantifies typical prediction deviation, Root Mean Squared Error applies greater penalty to larger errors, and Mean Absolute Percentage Error enables cross-feature comparison at different scales. Holdout validation and rolling-origin testing provide honest estimates of performance on future data.
+To measure common deviation in prediction, the Mean Absolute Error (MAE) was employed to the forecasting models, the Root Mean squared error (RMSE) was applied with the aim of punishing bigger errors, and the Mean Absolute Percentage error (MAPE) was employed to compare common deviation across features having uneven numerical scales. Holdout validation was used along with rolling-origin validation in estimating the performance on future and unseen data.
 
-For the \textbf{system overall}, API response times (specifically 95th percentile), success rates, and memory usage during model inference are monitored.
+In the case of the overall system, API response latency (with a particular focus on the 95th percentile), request success rates, and memory consumption during inference were tracked in the course of testing.
 
-For \textbf{code quality}, test coverage on critical modules is tracked along with the count of bugs detected by the CI pipeline before production deployment.
+Regarding the quality of the code, the level of test coverage of the key modules was used as a measure, and the defects that the continuous integration pipeline detects before deployment were counted by the number of development iterations.
 
 \subsection{Continuous Integration}
-Every pull request triggers the complete test suite through GitHub Actions. Unit tests, integration tests, and model validation steps execute automatically. If model validation fails—indicating that a code change unexpectedly degraded prediction accuracy—the pull request cannot be merged without explicit reviewer approval. This process maintains main branch stability and reliability.
+All pull requests were automatically executed with the help of GitHub Actions by running the test suite. This involved unit tests, integration tests and a minor model validation step which were also run as part of the CI workflow. In the event of validation that there was a non-trivial reduction in predictive performance, then the relevant pull request was not allowed to be merged without being explicitly reviewed and approved. This method minimized chances of regressions being introduced in the main development branch.
 
 \subsection{Testing Results}
-Comprehensive coverage was achieved across the core pipeline. Unit tests cover data processing and model components, integration tests verify API contracts, and smoke tests confirm correct frontend rendering. Priority was given to reproducibility and reliability over exhaustive edge case coverage. For a research prototype, this represents an appropriate tradeoff between thoroughness and development velocity.
+The ultimate system had a wide coverage of validation in the main areas. Unit testing was used to test data processing and modeling logic, inter-component interfaces were tested by integration testing and frontend rendering was tested by end-to-end smoke testing. There was a focus on reproducibility and operational reliability as opposed to full coverage of uncommon edge cases, and this is a reasonable tradeoff concerning a research-oriented prototype.
