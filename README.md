@@ -11,7 +11,7 @@ POME/Paper/
 ├── README.md               # This file
 ├── sections/               # All paper sections
 │   ├── abstract.tex        # Member 2
-│   ├── introduction.tex    # Member 1
+│   ├── introduction.tex    # Member 2
 │   ├── related_work.tex    # Member 2
 │   ├── system_design.tex   # Member 1
 │   ├── methodology.tex     # Member 1
@@ -19,7 +19,6 @@ POME/Paper/
 │   ├── testing.tex         # Member 3
 │   ├── results.tex         # Member 1
 │   ├── discussion.tex      # Member 3
-│   ├── contributions.tex   # Member 2
 │   ├── future_work.tex     # Member 3
 │   ├── conclusion.tex      # Member 2
 │   └── references.tex      # Member 3
