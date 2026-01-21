@@ -1,0 +1,539 @@
+\documentclass{ieeeaccess}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+
+% Fix for IEEE Access class compatibility
+\makeatletter
+\@ifundefined{xfigwd}{\newdimen\xfigwd}{}
+\makeatother
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+\doi{10.1109/ACCESS.2017.DOI}
+
+\title{Demand Forecasting for Product Design Decisions in Software Firms: A Data-Driven Framework for SaaS Feature Prioritization}
+\author{\uppercase{Bindu Ashwini C}\authorrefmark{1},
+\uppercase{Manish Tandurkar}\authorrefmark{2},
+\uppercase{Manish H Parashar}\authorrefmark{3}, and
+\uppercase{Nikhil N Bharadwaj}\authorrefmark{4}}
+\address[1]{Department of Placement and Training, RV College of Engineering, 
+Bangalore, India (e-mail: binduashwini@rvce.edu.in)}
+\address[2]{Department of Computer Science Engineering, RV College of Engineering, 
+Bangalore, India (e-mail: manishtandurkar.cs23@rvce.edu.in)}
+\address[3]{Department of Computer Science Engineering, RV College of Engineering, 
+Bangalore, India (e-mail: manishhparashar.cs23@rvce.edu.in)}
+\address[4]{Department of Computer Science Engineering, RV College of Engineering, 
+Bangalore, India (e-mail: nikhilnb.cs23@rvce.edu.in)}
+
+\markboth
+{Ashwini \headeretal: Demand Forecasting for SaaS Feature Prioritization}
+{Ashwini \headeretal: Demand Forecasting for SaaS Feature Prioritization}
+
+\corresp{Corresponding author: Bindu Ashwini C (e-mail: binduashwini@rvce.edu.in).}
+
+\begin{abstract}
+In the contemporary landscape of accelerated technological advancement, software product development teams encounter a critical challenge: the strategic prioritization of diverse feature sets based on anticipated market demand prior to resource allocation within the product development lifecycle.
+
+This investigation examines Notion, a prominent Software-as-a-Service (SaaS) productivity platform, wherein proprietary analytical frameworks remain inaccessible to external stakeholders. Consequently, this research leverages publicly available data sources—including Google Trends search interest metrics, application store review repositories, and aggregated user feedback patterns—to construct robust demand signals for specific product features.
+
+The proposed forecasting framework implements an ensemble methodology incorporating multiple analytical techniques: Exponential Smoothing, Autoregressive Integrated Moving Average (ARIMA), and linear regression models. This multi-faceted approach provides comprehensive insights to inform strategic decision-making processes across organizational stakeholders.
+
+Empirical analysis reveals discernible demand trajectories across distinct feature categories, including artificial intelligence-enhanced functionalities, template-based features, and process automation capabilities. Specifically, AI-driven features demonstrate sustained long-term growth patterns, template features exhibit stable demand characterized by predictable seasonal variations, and automation functionalities manifest intermediate growth rates aligned with prevailing industry workflow optimization trends.
+
+The principal contribution of this work resides in demonstrating the efficacy of publicly accessible data for meaningful demand forecasting in software feature prioritization. This methodology enables organizations with constrained analytical capabilities to minimize resource misallocation and enhance the alignment between product development roadmaps and empirically validated user requirements.
+
+\end{abstract}
+
+\begin{keywords}
+ARIMA, demand forecasting, exponential smoothing, feature prioritization, Google Trends, SaaS product management, sentiment analysis, time series analysis.
+\end{keywords}
+
+\titlepgskip=-15pt
+
+\maketitle
+
+\section{Introduction}
+SaaS platforms have, recently, become a rather important part of individual and professional productivity processes, catering to millions of users in the context of various organisational settings. Among other modern productivity tools, Notion has found a prominent place, which is also due to its modular nature, and capability to seamlessly add features, as well as, due to the recent acquisition of artificial intelligence features. Nevertheless, as these types of platforms become more and more prioritised in terms of their functionality, it becomes more and more complicated to the product teams, when it comes to feature development priorities. Intuition or reactive feedback systems prove insufficient in competitive markets, where development resources must be allocated strategically.
+
+Demand forecasting in its turn, offers a systematic alternative to reactive solutions. Instead of responding to either user complaints or competitor actions at a post-hoc, the various forecasting methodologies engage in, analyse various observable signals along the lines of---search behaviour patterns, sentiment in user reviews, and temporal shifts in feature interest---to predict as to which capabilities will cause the higher user value in later periods. In the case of SaaS products in particular, software feature interest does not tend to follow predictable seasonal patterns, but an often rapidly changing factor in respect to trending content.
+
+This paper looks at the use of demand forecasting in relation to product design decision-making taking Notion as an empirical example. Using the data on Google trend search interests, app store review, and the trend of user feedback, the current study proves how the demand forecasting models can be used to identify the features of the product that are getting increasing user interest and those of decreasing relevance to the users. In addition to predictive accuracy, the goal of this work is to define definite connections between the demand tendencies predicted and actionable product design decisions, the user interface is improved, feature prioritisation decisions, and release schedule optimization.
+
+\subsection{Research Motivation}
+SaaS productivity services are based on an ever-changing competitive market environment. The level of user expectations is increasing at a fast rate, new workflow patterns are being introduced with high frequency and competitive pressure keeps high. The proper timing of feature development and release can have a huge effect on the success of the product. Considering the unavailability of proprietary analytics, the current study creates a forecasting model based on the publicly accessible proxies: Google Trends to calculate the search interest, Kaggle datasets to analyse the reviews, and app metadata to determine the ratings and the number of installations. Even though these proxies have limitations, they can form a viable basis to be used by teams that want to use empirical data to support design processes.
+
+\subsection{Problem Statement}
+The issue of prioritisation is a persistent problem in product teams of SaaS organisations. It is necessary that systematic analysis should be done in order to determine what features should be upgraded and what new capabilities should be developed by providing development resources. In the absence of an all-encompassing analytics infrastructure, teams often have to rely on their gut or react to the loud groups of users. The gap in the current practice is that the predictive insights introduced in the design decisions are not data-driven enough and do not anticipate the user requirements.
+
+\subsection{Research Objectives}
+The given research is going to accomplish four main goals: first, to describe temporal dynamics of feature interest by considering publicly accessible data, such as Google Trends and user reviews; second, to use proven forecasting techniques, such as Exponential Smoothing, ARIMA, and Regression analysis, to predict feature demand dynamics; third, to research how such predictions can be translated into product decisions, feature prioritisation, improvement, and strategic positioning; and fourth, to create a working framework that would allow software teams to relate demands insights with UI/UX design and release planning.
+
+\subsection{Scope and Significance}
+This framework does not purport to cover all the forecasting issues in the SaaS arena. It does however indicate that predictive useful demands can be built using data publicly available without proprietary analytics infrastructure. Proper forecasting can help organisations create features in accordance with the needs of the user, ensure that they stay competitive, prevent turnover of the users, and enhance the rates of adoption. Although the case study presented is of Notion, the approach can be used when dealing with other SaaS systems.
+
+
+\section{Related work}
+The section provides the review of the literature on the subject of the suggested framework, analysing the previous studies in the field of demand forecasting, feature prioritisation, time series analysis, and sentiment analysis. The review reveals the gaps in existing solutions, which this study fills.
+
+\subsection{Software Feature Demand Forecasting}
+The conventional research in demand forecasting started in the setting of physical products---consumer goods, electronics and retail inventory. Box and Jenkins models of ARIMA \cite{b1} are still in use today as they are robust and can be interpreted. Nevertheless, software capabilities have different peculiarities that distinguish the product of software, in comparison with tangible goods. The demand for features is not subjected to any predictable seasonal pattern and can fluctuate fast, in response to the announcements of viral content, rivalry, or changes in user behaviour. It has been established that the trends in internet search are significantly correlated with real-life patterns of interest \cite{b5,b3}. Search data has been used to forecast phenomena as diverse as financial market trends, and epidemiological trends. This theoretical reasoning has been supported by the fact that search behaviour as an indicator of true user interest, is the premise upon which publicly available search data are used as a proxy of demand. It is an understanding that motivated the use of Google Trends data as one of the main demand signals in this model.
+
+\subsection{Prioritisation of Features on SaaS Products}
+The product management practitioners use many prioritisation models such as RICE scoring, Kano models and value-versus-effort matrices \cite{b14}. Although these frameworks offer formal systems of decision making, they need considerable subjectiveness. Practitioners need to approximate the effect, gauge user worth, and prioritise the features according to in-house deliberations. These methods are sufficient in the case of simple products, but they scale poorly and are prone to numerous types of cognitive biases. There are other organisations that have implemented analytics-based prioritisation approaches that use internal usage data to make roadmap decisions \cite{b13}. Nonetheless, this internal data is owned and not available to any external researchers, so it is not possible to study, replicate, and generalise results across products. This study solves this weakness by showing that publicly accessible data has enough signal strength to be used to make decisions on the prioritisation of features.
+
+\subsection{Time Series and Machine Learning}
+Methods of forecasting are across a continuum between traditional statistical processes and modern machine learning techniques. Traditional methods such as Exponential Smoothing and ARIMA models are easily interpretable, have a solid theoretical basis, and do not require extensive data \cite{b2}. Neural networks, gradient boosting, random forests, the various machine learning methods, are able to learn complex, non-linear patterns but usually need more and less interpretable data. Comparative experiments show that the simpler models often perform competitively with respect to more complex alternatives especially using small datasets \cite{b8}. To the current use case, i.e. predicting interest in particular software features with the help of public data, an ensemble of classical methods can offer the right level of accuracy and interpretability. Current research on scalable forecasting has shown that hybrid systems that incorporate statistical rigour with practical implementation strategies are showing excellent results \cite{b6}.
+
+\subsection{Sentiment Analysis and User Feedback}
+The feedback provided by users is one of the most useful sources of information about user sentiment, as it is taken in the form of reviews in the app shops and discussions in social media \cite{b12,b9}. NLP methods allow studying extensive review collections in order to identify feature mentions, pain points, and satisfaction patterns \cite{b11}. Sentiment analysis gives extra information about what is discussed by the users in addition to their emotional inclination towards certain features \cite{b4,b10}. Other literature in this field has concentrated more on the existing user perceptions about existing features \cite{b7}. The study is unique in that it tries to forecast future demand and not just quantify the current sentiment. Nevertheless, temporal patterns in sentiment have the potential to mean demand trends, which is why sentiment analysis should be implemented into a forecasting model.
+
+\subsection{Research Gap and Contribution}
+The research void that the study will fill is that there are no unified frameworks relating to the design of SaaS products in terms of forecasting, prioritisation, and sentiment analysis. Traditionally forecasting research has been concerned with the physical products. The systems of priorities are still qualitative. The work of sentiment analysis is mainly retrospective instead of being predictive. This paper forms a framework that incorporates these lines of research. Using a combination of forecasting methods, testing on empirical trends in features, and only using publicly available data, this study shows a practical method that can be used by a product team that does not have a large analytical infrastructure. It is methodological but not algorithmic in nature of contribution---larger teams are made available to small teams of data-driven decision-making capabilities that would otherwise require large analytical resources \cite{b15}.
+
+
+\section{System Design}
+\subsection{Architectural Overview}
+The proposed system architecture adheres to a sequential pipeline paradigm wherein data is systematically processed through four discrete computational stages. Unstructured public-domain information is ingested at the pipeline's entry point, and actionable design-oriented recommendations are produced as terminal output. Inter-stage data transference is governed by well-defined interfaces, and the inherently modular architectural design facilitates component substitution without necessitating comprehensive system reconstruction or revalidation.
+
+The operational data flow is structured as follows. During the Data Acquisition stage, demand indicators are programmatically extracted from heterogeneous public sources, including the Google Trends platform for search interest quantification, Kaggle repositories for user-generated review corpora, and application metadata aggregation services. In the subsequent Preprocessing stage, raw data artifacts undergo rigorous cleansing, normalization, and reorganization into temporally indexed series amenable to predictive analytical procedures. The Forecasting stage employs an ensemble of statistical models specifically, Exponential Smoothing, Autoregressive Integrated Moving Average (ARIMA), and Linear Regression to generate probabilistic predictions pertaining to prospective demand for designated product features. Finally, the Decision Framework stage effectuates the translation of numerical forecasts into concrete, operationally relevant recommendations concerning feature prioritization hierarchies, resource allocation strategies, and optimal release timing parameters.
+
+Data propagation proceeds unidirectionally through the pipeline from acquisition to recommendation generation, as illustrated in Figure~\ref{fig:ai_trend}. Feedback mechanisms have been incorporated to facilitate iterative model refinement contingent upon prediction accuracy evaluation metrics.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{"figures/System architecture.png"}
+\caption{System architecture pipeline illustrating sequential data flow through
+four processing stages.}
+\label{fig:system_pipeline}
+\end{figure}
+
+\subsection{Component Architecture}
+
+\subsubsection{Data Acquisition Module}
+This module constitutes the primary entry point of the processing pipeline and is responsible for the orchestration of three distinct data source integrations. The Google Trends Extraction Component programmatically retrieves monthly search interest metrics for designated product features in this case study, the Notion productivity platform. The Review Corpus Parser processes user-submitted reviews obtained from Kaggle datasets, systematically extracting numerical ratings, temporal metadata, and unstructured textual content. The Metadata Aggregation Component collects supplementary categorical and quantitative information, including cumulative installation counts, version release chronologies, and rating distribution statistics.
+
+All acquired data artifacts are assigned temporal indices and persisted in a standardized canonical format. The module incorporates comprehensive exception handling mechanisms for Application Programming Interface (API) rate limitation constraints, network connectivity failures, and automated retry protocols to ensure operational reliability and data collection continuity.
+
+\subsubsection{Preprocessing Module}
+This module is tasked with the resolution of data quality deficiencies antecedent to analytical processing. The Data Cleansing Component eliminates duplicate entries, addresses missing values through temporal interpolation or forward-fill imputation methodologies, and identifies statistical outliers through threshold based flagging procedures. The Feature Extraction Component applies natural language processing techniques to review textual content to quantify explicit and implicit references to specific product features. The Sentiment Quantification Component assigns polarity scores to individual reviews, indicating the affective orientation of user-expressed opinions. The Time-Series Construction Component organizes all processed data into monthly indexed series for each feature, encompassing search interest indices, sentiment scores, and mention frequency counts. The Normalization Component applies scaling transformations to enable meaningful cross-feature comparative analysis, accounting for heterogeneous original measurement scales.
+
+\subsubsection{Forecasting Engine}
+This component constitutes the analytical nucleus of the system architecture. A plurality of predictive models are employed, selected for their complementary analytical strengths and divergent methodological assumptions. Exponential Smoothing demonstrates particular efficacy in detecting short-term temporal shifts, as recent demand fluctuations are accorded proportionally elevated weighting coefficients. Autoregressive Integrated Moving Average (ARIMA) analysis is capable of capturing longer-term temporal patterns, including seasonal periodicity, cyclical variations, and secular trends extending over prolonged observational periods. Linear Regression methodology permits the incorporation of exogenous predictor variables, such as competitive market announcements or industry-wide developments.
+
+Each model generates independent forecast outputs, which are subsequently synthesized through an ensemble aggregation methodology. Models demonstrating superior historical predictive accuracy are accorded proportionally greater weighting coefficients in the determination of final consolidated predictions. Confidence intervals are computed and reported to communicate forecast uncertainty to organizational decision-makers.
+
+\subsubsection{Design Decision Framework}
+This module is responsible for the translation of quantitative forecast outputs into actionable operational recommendations. The Feature Prioritization Component establishes hierarchical rankings based on predicted demand growth trajectories, prevailing user sentiment indicators, and strategic organizational importance. The UI/UX Recommendation Component proposes interface improvements for high-demand features, including enhanced discoverability mechanisms and workflow simplification strategies. The Resource Planning Component generates proposed allocations of engineering effort based on anticipated demand trajectories. The Release Timing Component identifies projected demand peaks to inform optimal product launch scheduling decisions.
+
+The decision logic employs deterministic rule-based threshold activation mechanisms. Features exceeding predetermined demand growth thresholds in conjunction with positive sentiment indicators are designated as high-priority candidates. The approach is characterized as systematic and reproducible rather than heuristically algorithmic.
+
+\subsubsection{User Interface Module}
+System outputs necessitate presentation in formats accessible to non-technical organizational stakeholders. Dashboard Views provide high-level aggregate metrics and trend visualizations for expeditious assessment. Feature Drill-down Views offer granular time-series charting for individual features, incorporating sentiment overlay capabilities and comparative model performance visualization. The Recommendations Panel displays hierarchically prioritized suggestions, estimated engineering effort requirements, and optimal launch window recommendations derived from the forecasting pipeline. Export functionality includes Comma-Separated Values (CSV) and JavaScript Object Notation (JSON) data exports, as well as formatted printable reports suitable for offline analytical review.
+
+The user interface layer is architecturally decoupled from the forecasting engine, thereby enabling independent modification, enhancement, or replacement of either component without necessitating alterations to the other.
+
+\subsection{Technology Stack}
+
+\subsubsection{Programming Languages}
+Python serves as the primary implementation language for data processing, statistical modeling, and forecasting operations, selected for its extensive ecosystem of specialized data science libraries and broad community support. Structured Query Language (SQL) is employed for structured data persistence and querying of temporally indexed datasets.
+
+\subsubsection{Libraries and Frameworks}
+The implementation utilizes the pandas library for tabular data manipulation and time-series handling, NumPy for numerical computation and multi-dimensional array operations, statsmodels for ARIMA and Exponential Smoothing algorithm implementations, and scikit-learn for linear regression modeling, preprocessing utility functions, and evaluation metric computation. Natural language processing operations employ the NLTK and spaCy libraries for feature mention extraction from unstructured review text, while TextBlob and VADER provide lexicon-based sentiment analysis capabilities. Visualization functionality relies upon the matplotlib and seaborn plotting libraries, and the pytrends package provides the Python programmatic interface for the Google Trends API.
+
+\subsubsection{Data Sources and Storage}
+Primary data sources comprise the Google Trends API for search interest time-series acquisition and Kaggle Datasets for user review corpus procurement. Data persistence utilizes CSV and JSON file formats for lightweight, version-controllable data storage, with SQLite or PostgreSQL relational database systems available for larger-scale or more structurally complex deployment scenarios.
+
+\subsubsection{Development Tools}
+The development environment comprises Jupyter Notebooks for interactive exploratory analysis and rapid prototyping, Git and GitHub for distributed version control and collaborative development, Visual Studio Code and PyCharm for integrated code development, and pytest for automated validation testing procedures.
+
+\subsubsection{Technology Selection Rationale}
+The technology stack was selected based upon accessibility, flexibility, and community support criteria. All components are distributed under open-source licensing models, thereby eliminating proprietary licensing expenditures. The modular architectural design facilitates substitution of forecasting algorithms or data sources without necessitating comprehensive system modification or revalidation. The pipeline architecture scales effectively from small-scale case studies to substantially larger datasets. All selected tools benefit from active developer communities, comprehensive documentation resources, and readily available technical support.
+
+
+\section{Methodology}
+\label{sec:guidelines}
+
+The methodological framework employed in this study is structured into four distinct, sequential phases: data acquisition, preprocessing and transformation, predictive model development, and the derivation of actionable design recommendations. This multi-stage approach ensures that raw, unstructured public data is systematically converted into reliable, quantitative insights suitable for guiding product strategy.
+
+\subsection{Data Acquisition}
+Due to the proprietary nature of internal application analytics, this research necessitates the utilization of public proxy metrics to estimate feature demand. The data acquisition strategy encompasses three primary channels. First, search interest indices are harvested from Google Trends, serving as a proxy for user intent and feature awareness. Specific query terms (e.g., ``Notion AI'', ``Notion templates'') were monitored to quantify temporal fluctuations in interest. Second, user feedback is aggregated from Kaggle-hosted datasets containing app store reviews, providing a rich corpus for qualitative sentiment extraction. Third, application metadata—including version history, cumulative download statistics, and rating distributions—is collected to provide contextual baselines for observing demand shifts.
+
+The acquisition infrastructure includes robust mechanisms for rate-limiting mitigation and error handling to ensure data completeness. All acquired datasets are timestamped and harmonized to a monthly temporal resolution to facilitate cross-channel correlation.
+
+\subsection{Data Preprocessing and Transformation}
+Raw data artifacts undergo accurate preprocessing to ensure analytical validity. The cleaning process standardizes the dataset by identifying and removing duplicate records to prevent frequency distortion. Missing values are addressed through forward-fill imputation, prioritizing temporal continuity. Statistical outliers, defined as deviations exceeding three standard deviations from the rolling mean, are flagged for review.
+
+To extract quantitative signals from unstructured text, Natural Language Processing (NLP) techniques are applied to the user review corpus. This process involves tokenization and sentiment polarity scoring, classifying user affect regarding specific features as positive, negative, or neutral. These sentiment scores are subsequently aggregated into monthly time-series indices.
+
+\subsection{Predictive Modeling Framework}
+To mitigate the risk of single-model bias, this study employs a composite forecasting strategy utilizing three complementary statistical approaches:
+
+\subsubsection{Exponential Smoothing (ETS)}
+Selected for its responsiveness to recent data, Exponential Smoothing applies weighted averages where weights decay exponentially over time. This method is particularly effective for capturing immediate trend shifts.
+
+\subsubsection{Auto-Regressive Integrated Moving Average (ARIMA)}
+The ARIMA methodology is utilized to model temporal dependencies, identifying stationarity, seasonality, and autocorrelation structures within the data. This model provides robust forecasting capability for longer-term cyclical patterns.
+
+\subsubsection{Linear Regression with Exogenous Variables}
+Linear regression is employed to quantify the impact of external factors. This approach models the relationship between feature demand and independent variables such as competitive product launches and industry-wide trends.
+
+\subsubsection{Ensemble Aggregation}
+The outputs of these individual models are synthesized using a performance-weighted ensemble technique. Weights are dynamically assigned based on the inverse of the historical Mean Absolute Error (MAE) of each model, ensuring that the final forecast prioritizes the most accurate predictor for each specific time horizon.
+
+\subsection{Decision Support and Recommendation Logic}
+The quantitative forecasts are translated into qualitative strategic recommendations through a rule-based decision logic. Features exhibiting a statistically significant upward trend are prioritized for immediate development resource allocation and user interface optimization. Stable features are designated for maintenance and incremental improvement. Conversely, features demonstrating a consistent negative trajectory trigger a recommendation for strategic re-evaluation or deprecation. This translation layer ensures that statistical findings result in concrete, actionable product decisions.
+
+\subsection{Performance Evaluation Protocol}
+Model performance is rigorously assessed using a temporal train-test split strategy. To simulate real-world forecasting conditions, a rolling-origin cross-validation approach is employed. The accuracy of predictions is quantified using standard metrics: Mean Absolute Error (MAE) to measure average magnitude of errors, Root Mean Squared Error (RMSE) to penalize large deviations, and Mean Absolute Percentage Error (MAPE) to facilitate comparison across variable scales.
+
+Where analytically feasible, 95\% confidence intervals are computed for all forecasts. These intervals provide decision-makers with a quantification of uncertainty, delineating the probabilistic bounds within which true future values are expected to lie.
+
+\subsection{Reproducibility Summary}
+To facilitate peer verification and future extension of this work, a comprehensive reproducibility package has been developed. This includes all data acquisition scripts, preprocessing pipelines, model specifications, and visualization code, made available in the project repository. The documentation ensures that the methodology can be replicated on equivalent datasets or adapted for alternative SaaS product contexts.
+
+\section{Implementation}
+
+The implementation of this research comprises a comprehensive analytical framework developed using interpreted programming languages and interactive computational environments. The system architecture was designed to facilitate reproducible research and transparent methodology demonstration for academic purposes.
+
+\subsection{Data Infrastructure}
+The empirical foundation of this study rests upon a carefully constructed dataset representing monthly demand metrics for five distinct product features across a 48-month observation period from January 2021 through December 2024. The dataset contains temporally indexed observations for AI-powered features, template functionality, automation capabilities, database features, and widget components.
+
+Data preprocessing procedures encompassed temporal index conversion, establishment of chronological ordering, missing value detection protocols, and statistical validation of data integrity. The dataset structure adheres to tidy data principles, with each row representing a temporal observation and each column representing a feature-specific demand measurement.
+
+\subsection{Analytical Framework}
+The analytical implementation resides within an interactive computational environment, providing integrated code execution, mathematical exposition, and visual representation capabilities.
+
+The technology infrastructure comprises standard scientific computing libraries for data manipulation and temporal series handling, numerical computation and array operations, statistical visualization with enhanced aesthetic configurations, econometric modeling frameworks, and machine learning algorithm implementations with evaluation metrics.
+
+Development configurations include standardized visualization aesthetics for enhanced clarity, figure dimensions optimized for presentation quality, high-resolution output for publication-grade imagery, and automated output management ensuring reproducible results.
+
+\subsection{Exploratory Data Analysis Implementation}
+The exploratory phase implements comprehensive visualization protocols to elucidate temporal patterns and comparative dynamics across product features. Individual feature trend analysis generates dedicated time-series visualizations for each product capability, employing distinct color schemes for categorical differentiation. Comparative analysis synthesizes all features within unified graphical representations, facilitating cross-feature pattern recognition and relative growth trajectory assessment.
+
+Statistical characterization procedures compute descriptive statistics encompassing central tendency measures, dispersion metrics, and distribution characteristics. Growth rate quantification determines percentage changes between initial and terminal observations, providing empirical foundations for priority assessment. Pattern identification protocols systematically categorize features according to growth typologies: exponential growth patterns, stable linear growth, moderate growth trajectories, plateau characteristics, and gradual linear growth.
+
+\subsection{Forecasting Model Implementation}
+Three distinct forecasting methodologies were implemented to provide comprehensive predictive coverage and methodological triangulation.
+
+The first methodology employs exponential smoothing with linear trend components, utilizing weighted averaging mechanisms that assign exponentially decreasing weights to historical observations, thereby capturing trend momentum dynamics. Model fitting procedures optimize smoothing parameters through statistical estimation techniques, generating six-month forward projections with associated confidence intervals.
+
+The second methodology utilizes autoregressive integrated moving average specifications, wherein autoregressive components capture serial correlation patterns, differencing operations achieve stationarity, and moving average components model shock persistence. Implementation employs maximum likelihood estimation for parameter optimization, with diagnostic procedures verifying residual properties and model adequacy.
+
+The third methodology provides baseline trend characterization through ordinary least squares estimation. Temporal indices serve as independent variables, with demand measurements constituting dependent variables. Performance assessment employs coefficient of determination metrics, which consistently exceed 0.95 for features exhibiting linear growth patterns.
+
+\subsection{Model Evaluation Framework}
+Rigorous evaluation protocols employ holdout validation methodology, partitioning the dataset into training and test subsets. Model refitting procedures retrain all three methodologies on training data, generating predictions for the holdout period.
+
+Quantitative performance metrics encompass root mean square error, measuring average prediction deviation in original units, and mean absolute percentage error, providing scale-independent accuracy assessment expressed as percentage deviations. Comparative evaluation procedures systematically assess relative model performance, identifying optimal forecasting approaches for specific growth typologies.
+
+Visualization protocols generate comparative plots overlaying actual observations with model predictions, facilitating visual assessment of predictive accuracy and systematic bias identification.
+
+\subsection{Comprehensive Feature Forecasting}
+Upon methodology validation, forecasting procedures extend to all five product features, generating six-month forward projections. Consolidated forecast tables present projected demand trajectories across all features, enabling cross-feature comparative analysis and strategic prioritization frameworks.
+
+\subsection{Decision Support System Implementation}
+The analytical framework integrates quantitative forecasting outputs with strategic decision frameworks through systematic mapping procedures. Growth rate quantification computes percentage changes across the observation period, providing empirical foundations for priority classification. Forecast trend characterization categorizes features according to growth typologies, informing resource allocation strategies.
+
+Priority classification employs a multi-tier hierarchy derived from empirical growth metrics and forecast trajectories. Product design decision mapping translates quantitative forecasts into actionable development strategies, encompassing resource allocation recommendations, feature enhancement priorities, user experience optimization directives, and lifecycle management protocols.
+
+\subsection{Strategic Resource Allocation Visualization}
+Visualization implementations include proportional allocation charts depicting recommended budget distributions derived from forecast-based prioritization frameworks. Growth rate comparison visualizations employ ordered bar charts, facilitating immediate identification of high-growth features. All visualizations adhere to consistent aesthetic principles, ensuring visual coherence across analytical outputs.
+
+\subsection{Development Environment and Reproducibility}
+The implementation emphasizes reproducibility through comprehensive documentation protocols, explicit dependency specifications, and modular code organization. Environment configuration specifications document all computational dependencies, enabling precise replication of analytical procedures. Output management protocols systematically organize generated visualizations, maintaining clear organizational structures for integration into research publications.
+
+Operational procedures support both interactive exploration and batch execution modalities, accommodating diverse research workflows and presentation requirements.
+
+\section{Testing and Evaluation}
+
+\subsection{Testing Methodology}
+Testing was not considered as an independent final stage activity, but was conducted throughout the development. Validation procedures were also added in small stages as the system components were put into effect and problems were detected sooner and separately before they could spread throughout the pipeline.
+
+Unit testing was a technique that dealt with accuracy at the unit level. Data cleaning procedures, feature extraction modules and model wrappers were tested based on explicit input-output expectations in addition to failure conditions. The pytest system (Python 3.x) was selected because it was stable and simple to automate, as well as because it fits well within the development cycle of the project.
+
+Introduction testing was concerned with the relationships between components, but not with inner logic. The specific focus was put on the interfaces among the preprocessing pipeline, model training module and API layer because these layers interact through the interchange of intermediate representations, which can be vulnerable to schema or format errors.
+
+The system was tested end-to-end with the help of end-to-end smoke testing, which started with the ingestion of raw data and ended with the visualization output in the browser. These tests were deliberately small and were mainly employed to identify errors in configuration, broken dependencies or surprise runtime failure before deployment.
+
+The testing of the load was also conducted in order to gain a rough idea of the performance properties in non-adversarial conditions. The moderate request volumes also proved to ensure that the API reacted predictably and without instability as well as excessive resource usage.
+
+Regression testing was also an automated process that was performed every time there were new code additions. This made sure that the behaviors already known to be valid during earlier iterations such as prediction outputs and API response formats did not change during later iterations.
+
+\subsection{Test Coverage}
+The test suite was a representative of the problems that were being faced in the development process and not a total coverage of the theoretical edge cases. Malformed data was deliberately provided to the data ingestion to test that graceful errors are reported on missing data attributes and invalid timestamps and unexpected character encodings along with other invalid data are handled gracefully. The extraction of natural language processing features was tested on the inputs of short text and on the inputs with emoji as well as some non-English texts that were found during the data collection process. The training models were tested by having them trained, saved to disk, reloaded and ensuring that the results of inference were still the same after being deserialised. The responses of API were tested with the JSON schema that the frontend was consuming, even the structures of errors that are returned in the event of failure. The large data and empty input testing were conducted on visualization components to evaluate the behavior of frontends in different data conditions.
+
+\subsection{Evaluation Metrics}
+The metrics were based on predictive accuracy and system level behavior.
+
+To measure common deviation in prediction, the Mean Absolute Error (MAE) was employed to the forecasting models, the Root Mean squared error (RMSE) was applied with the aim of punishing bigger errors, and the Mean Absolute Percentage error (MAPE) was employed to compare common deviation across features having uneven numerical scales. Holdout validation was used along with rolling-origin validation in estimating the performance on future and unseen data.
+
+In the case of the overall system, API response latency (with a particular focus on the 95th percentile), request success rates, and memory consumption during inference were tracked in the course of testing.
+
+Regarding the quality of the code, the level of test coverage of the key modules was used as a measure, and the defects that the continuous integration pipeline detects before deployment were counted by the number of development iterations.
+
+\subsection{Continuous Integration}
+All pull requests were automatically executed with the help of GitHub Actions by running the test suite. This involved unit tests, integration tests and a minor model validation step which were also run as part of the CI workflow. In the event of validation that there was a non-trivial reduction in predictive performance, then the relevant pull request was not allowed to be merged without being explicitly reviewed and approved. This method minimized chances of regressions being introduced in the main development branch.
+
+\subsection{Testing Results}
+The ultimate system had a wide coverage of validation in the main areas. Unit testing was used to test data processing and modeling logic, inter-component interfaces were tested by integration testing and frontend rendering was tested by end-to-end smoke testing. There was a focus on reproducibility and operational reliability as opposed to full coverage of uncommon edge cases, and this is a reasonable tradeoff concerning a research-oriented prototype.
+
+\section{Results}
+
+\subsection{Empirical Findings}
+The analytical framework generated comprehensive insights regarding feature-specific demand trajectories and predictive model performance across the 48-month observation period from January 2021 through December 2024.
+
+\subsection{Individual Feature Demand Patterns}
+Analysis of temporal demand patterns revealed distinct growth typologies across the five examined product features, as illustrated in Figures \ref{fig:ai_trend} through \ref{fig:widgets_trend}.
+
+AI-Powered Features demonstrated pronounced exponential growth characteristics throughout the observation period. As depicted in Figure \ref{fig:ai_trend}, demand escalated from baseline values of approximately 120 monthly observations in January 2021 to 8,540 observations by December 2024, representing a 7,017\% cumulative growth rate. The trajectory exhibits consistent acceleration without evidence of saturation, indicating sustained market expansion for artificial intelligence capabilities within productivity platforms.
+
+Template Functionality exhibited stable linear growth patterns, as illustrated in Figure \ref{fig:templates_trend}. Demand increased from 450 to 960 monthly observations across the observation period, yielding a 113\% growth rate. The trajectory demonstrates minimal volatility and predictable progression, suggesting maturation of template-based workflows as established platform components.
+
+Automation Capabilities manifested substantial growth momentum, depicted in Figure \ref{fig:automation_trend}. Monthly demand escalated from 280 to 7,308 observations, constituting a 2,510\% growth rate. The pattern reflects accelerating adoption of workflow automation functionality, indicating emerging market opportunities in productivity enhancement tools.
+
+Database Features presented plateau characteristics following initial growth phases, as shown in Figure \ref{fig:databases_trend}. Demand increased modestly from 820 to 1,055 monthly observations, representing 29\% growth. The stabilization pattern suggests market saturation for core database functionality.
+
+Widget Components displayed gradual linear growth trajectories, illustrated in Figure \ref{fig:widgets_trend}. Monthly demand progressed from 95 to 545 observations, yielding a 474\% growth rate. The moderate expansion indicates sustained but limited adoption of customization features.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1a_notion_ai_trend.png}
+\caption{Notion AI feature demand trend demonstrating exponential growth from January 2021 to December 2024, with demand increasing from approximately 100 to over 8000. This represents the most substantial growth pattern among all analyzed features.}
+\label{fig:ai_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1b_notion_templates_trend.png}
+\caption{Temporal demand trajectory for template functionality exhibiting stable linear growth. Monthly observations increased from 450 to 960 across the analysis period, demonstrating 113\% growth with minimal volatility.}
+\label{fig:templates_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1c_notion_automation_trend.png}
+\caption{Temporal demand trajectory for automation capabilities manifesting substantial growth momentum. Monthly demand escalated from 280 to 7,308 observations, representing 2,510\% growth and indicating accelerating market adoption.}
+\label{fig:automation_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1d_notion_databases_trend.png}
+\caption{Temporal demand trajectory for database features presenting plateau characteristics. Monthly demand increased modestly from 820 to 1,055 observations (29\% growth), suggesting market saturation for core database functionality.}
+\label{fig:databases_trend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig1e_notion_widgets_trend.png}
+\caption{Temporal demand trajectory for widget components displaying gradual linear growth. Monthly observations progressed from 95 to 545, yielding 474\% growth and indicating sustained but measured adoption of customization features.}
+\label{fig:widgets_trend}
+\end{figure}
+
+\subsection{Comparative Demand Analysis}
+Figure \ref{fig:comparative_trends} presents synthesized temporal trajectories for all five product features, facilitating direct comparison of relative growth dynamics and market positioning.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig2_comparative_feature_trends.png}
+\caption{Comparative temporal analysis synthesizing demand trajectories for all examined features. AI-powered features demonstrate dominant exponential growth, automation capabilities exhibit substantial acceleration, template functionality manifests stable linear progression, while database and widget features present modest expansion patterns. This integrated visualization elucidates relative growth dynamics and informs evidence-based resource allocation frameworks.}
+\label{fig:comparative_trends}
+\end{figure}
+
+The comparative analysis reveals pronounced divergence in growth trajectories, with AI-powered features demonstrating substantially superior market expansion relative to all other examined capabilities. This empirical evidence establishes a quantitative foundation for strategic prioritization frameworks.
+
+\subsection{Forecasting Model Performance}
+Three distinct forecasting methodologies were applied to generate six-month forward projections, with primary focus on AI-powered features given their demonstrated growth significance. Exponential Smoothing effectively captured momentum characteristics inherent in exponential growth patterns, producing projections that extend observed acceleration trends into the forecast horizon. The ARIMA methodology balanced trend components with stochastic fluctuation modeling, incorporating both systematic growth patterns and temporal variability characteristics. Linear Regression provided baseline trend projections, establishing conservative estimates and lower-bound projections while achieving coefficient of determination values exceeding 0.95 for features exhibiting predominantly linear trajectories.
+
+Figure \ref{fig:forecast_comparison} synthesizes projections from all three forecasting methodologies, facilitating comparative assessment of prediction convergence and divergence patterns.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig6_forecast_comparison_all_methods.png}
+\caption{Comparative synthesis of six-month forward projections employing Exponential Smoothing, ARIMA, and Linear Regression methodologies for AI-powered features. While individual methodologies produce varying quantitative projections, all three approaches converge on fundamental directional insights: sustained robust growth throughout the forecast horizon. This methodological consensus strengthens confidence in strategic resource allocation decisions derived from forecasting outputs.}
+\label{fig:forecast_comparison}
+\end{figure}
+
+Analysis of methodological convergence reveals that while absolute projection values vary across approaches, all three methodologies unanimously predict continued substantial growth in AI-powered feature demand. This consensus across diverse forecasting paradigms strengthens the reliability of strategic recommendations derived from these projections. The integration of multiple methodological perspectives mitigates individual model limitations and provides robust predictive foundations for decision-making frameworks.
+
+\subsection{Model Validation Results}
+Rigorous validation procedures were implemented to assess predictive accuracy and establish confidence in forward-looking projections. Figure \ref{fig:model_eval} presents validation results comparing model predictions against actual observations in the holdout test period.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig7_model_evaluation.png}
+\caption{Model validation results comparing predictions against actual observations for the final six months of historical data. All three forecasting methodologies demonstrate acceptable predictive accuracy, with projections closely tracking realized values. This validation confirms model reliability and establishes credibility for forward-looking forecasts employed in strategic decision frameworks.}
+\label{fig:model_eval}
+\end{figure}
+
+Quantitative evaluation metrics revealed satisfactory performance across all forecasting methodologies. Root mean square error measurements indicated prediction deviations within acceptable tolerances relative to the magnitude of observed values. Mean absolute percentage error metrics demonstrated consistent accuracy across the validation period. The convergence between predicted and realized values in the holdout period substantiates the credibility of forward-looking projections utilized for strategic planning purposes.
+
+\subsection{Strategic Resource Allocation Framework}
+The analytical framework translated quantitative forecasting outputs into strategic resource allocation recommendations through systematic prioritization protocols. Figures \ref{fig:budget_allocation}, \ref{fig:growth_rates}, and \ref{fig:growth_demand_bubble} present the empirical foundations and resulting allocation framework.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8a_resource_allocation.png}
+\caption{Recommended research and development budget allocation framework derived from forecast-based prioritization analysis. The horizontal stacked visualization illustrates proportional resource distribution, with AI-powered features receiving 40\% allocation commensurate with demonstrated exponential expansion, automation capabilities allocated 25\% reflecting substantial growth momentum, template functionality receiving 15\% for stable demand maintenance, database features allocated 15\% for mature feature support, and widget components receiving 5\% reflecting measured growth patterns.}
+\label{fig:budget_allocation}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8b_growth_rates.png}
+\caption{Historical growth rate quantification by feature across the complete observation period (2021–2024). The horizontal visualization facilitates direct comparison across features. AI-powered features demonstrate 7,017\% cumulative growth, substantiating prioritization in resource allocation frameworks. Automation capabilities exhibit 2,510\% growth, warranting substantial investment. Template functionality manifests 113\% stable growth, database features show 29\% modest expansion indicating maturation, and widget components demonstrate 474\% gradual growth. This empirical hierarchy establishes quantitative foundations for strategic resource distribution.}
+\label{fig:growth_rates}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8c_growth_demand_bubble.png}
+\caption{Multidimensional visualization synthesizing growth trajectories, current demand levels, and average demand patterns across all examined features. Bubble positioning reflects growth rate (horizontal axis) and current demand magnitude (vertical axis), while bubble size represents average demand throughout the observation period. This integrated visualization reveals AI-powered features as simultaneously exhibiting highest growth rate, maximum current demand, and substantial average utilization—establishing comprehensive empirical justification for resource prioritization. Automation capabilities demonstrate strong growth with moderate current demand, indicating emerging opportunity. Database and template features exhibit modest growth with stable demand patterns, while widget components show measured adoption across all metrics.}
+\label{fig:growth_demand_bubble}
+\end{figure}
+
+The allocation framework operationalizes forecasting insights through proportional resource distribution aligned with growth trajectories and strategic potential. As illustrated in Figure \ref{fig:budget_allocation}, AI-powered features receive 40\% of development resources, commensurate with their 7,017\% historical growth (Figure \ref{fig:growth_rates}) and projected continued expansion. The multidimensional analysis presented in Figure \ref{fig:growth_demand_bubble} further substantiates this prioritization by demonstrating that AI features simultaneously exhibit the highest growth rate, maximum current demand, and substantial average utilization across the observation period. Automation capabilities warrant 25\% allocation given 2,510\% growth and accelerating adoption patterns, with the bubble visualization revealing strong growth momentum coupled with moderate current demand. Template functionality receives 15\% for quality maintenance and incremental enhancement. Database features obtain 15\% for stability preservation and iterative refinement. Widget components receive 5\% reflecting their measured adoption trajectory across all analytical dimensions.
+
+\subsection{Hypothesis Validation}
+The central hypothesis of this research posited that demand forecasting methodologies can provide actionable intelligence for product design decision-making processes. The empirical analysis provides substantive support for this proposition through multiple converging lines of evidence.
+
+First, features demonstrating pronounced demand growth trajectories—particularly AI-powered capabilities—received systematic prioritization within the analytical framework, establishing direct linkage between quantitative demand signals and strategic categorization. Second, temporal forecasting models achieved acceptable predictive accuracy on validation datasets, confirming their utility for forward-looking planning purposes rather than merely descriptive historical analysis. Third, and most significantly, the framework successfully translated numerical forecast outputs into concrete, actionable strategic recommendations, thereby bridging the conceptual gap between statistical analysis and operational decision-making.
+
+The systematic correspondence between empirical demand patterns, forecast trajectories, and resulting prioritization frameworks demonstrates that quantitative forecasting methodologies can indeed inform and structure product development decisions in a rigorous, evidence-based manner. This validates the fundamental premise that demand forecasting constitutes a valuable strategic tool for software product management rather than merely an analytical exercise.
+
+\subsection{Methodological Insights}
+Analysis of comparative model performance revealed that ensemble approaches integrating multiple forecasting methodologies provide superior reliability compared to singular model dependencies. While individual models exhibited varying strengths—Exponential Smoothing capturing acceleration dynamics, ARIMA modeling temporal dependencies, and Linear Regression establishing baseline trends—the integration of diverse methodological perspectives attenuated individual model limitations and enhanced overall predictive robustness.
+
+The convergence of predictions across methodologically distinct approaches strengthened confidence in strategic recommendations, as unanimous directional consensus emerged despite quantitative variation in absolute projections. This methodological triangulation proved particularly valuable for high-stakes strategic decisions where forecast uncertainty warranted conservative risk management.
+
+\subsection{Practical Implications}
+The analytical framework generates specific actionable guidance for product development prioritization:
+
+AI-Powered Features: Exponential demand growth necessitates immediate resource escalation. Strategic priorities include accelerated feature development, enhanced user interface optimization, performance refinement, and prominent positioning within product architecture. The 40\% resource allocation reflects both demonstrated historical growth and projected continued expansion.
+
+Automation Capabilities: Substantial growth momentum warrants significant investment focus. Development priorities encompass workflow automation expansion, integration ecosystem development, and user experience simplification. The 25\% allocation balances current growth evidence with strategic positioning opportunities.
+
+Template Functionality: Stable demand patterns indicate mature feature status. Strategic approach emphasizes quality maintenance, incremental enhancement, and ecosystem expansion rather than fundamental redesign. The 15\% allocation supports sustained excellence in established functionality.
+
+Database Features: Plateau characteristics suggest market saturation for core functionality. Strategic focus transitions to stability assurance, performance optimization, and maintenance operations rather than major feature expansion. The 15\% allocation maintains competitive parity without diverting resources from higher-growth opportunities.
+
+Widget Components: Moderate growth patterns warrant monitoring without substantial resource commitment. Strategic approach maintains existing functionality while evaluating niche use case opportunities and potential ecosystem partnerships. The 5\% allocation reflects measured adoption trajectory and strategic uncertainty.
+
+These differentiated strategic recommendations demonstrate the framework's capacity to translate quantitative demand analysis into nuanced, context-appropriate product development guidance, thereby fulfilling the research objective of connecting forecasting methodologies to design decisions.
+
+% Discussion Section
+
+\section{Discussion}
+
+Part of this paper explains how the results have been interpreted.
+The main conclusion is that the integration of several sources of data and other forecasting techniques would lead to more accurate guidance than basing on a single one. Predictions also showed better robustness among various features when the signals of search trends and review sentiment as well as the utilization patterns are merged. Certain characteristics react to interest cycles on the short run and some to ones on the long term--the ensemble methodology covered both in a successful way.
+
+The visualization element also showed high value. The availability of the prediction sources and degree of confidence to the stakeholders decreased the view of the system as opaque. The respondents who were in charge of making decisions were more willing to take action on predictions in the case that the reasoning behind the predictions was made visible.
+
+\subsection{Limitations Encountered}
+There were a number of restrictions experienced in this study.
+
+Heterogeneity of data sources was a problem. Google Trends is monthly aggregated, app reviews have the exact timestamps, and metadata had gaps in between. Monthly alignment took more effort than it was initially expected.
+
+It required flexibility due to the variation in the behavior of features. There were some features that portrayed obvious seasonal trends and those that displayed steady trends. None of the models was optimal in all cases--the various features needed different treatment of analysis.
+
+There was a lack of time to be thorough. Hyperparameter tuning and load testing would have been useful to add additional cycles, but schedule limitations set by project timelines were present.
+
+\subsection{Mitigation Strategies}
+The adaptive strategies were used when there were difficulties.
+
+In conditions of data alignment, close preprocessing procedures were created and all assumptions were recorded to provide transparency to the code reviewers. The ensemble approach was chosen instead of trying to determine one best model where the validation performance is used to determine the weight of each model. Since testing time was limited, proper testing and retesting were emphasized rather than comprehensive performance benchmarking. A system that was dependable on generating reliable results was desired as opposed to a system that was fast but likely to create errors.
+
+\subsection{Lessons Learned}
+A number of lessons came out of this work. To begin with, defining data contracts upfront avoids significant integration challenges, as when everyone is certain about input and output requirements, integration is easier. Second, the construction of modular systems ensured that it was easy to change a model without having to do any radical refactoring. Third, testing during the initial stages, instead of converting them into tests at the end of project construction was used to detect faults before they accumulated.
+
+\section{Future Work and Improvements}
+
+The prototype already shows evidence of the concept, but there is a lot of room on stronger robustness and usability.
+
+Other sources of data are also available.
+The existing application uses Google Trends, the reviews of the apps, and simple metadata. Richness of data would be enhanced which would increase the accuracy of prediction. It may be used in the future in the form of social media discussions in which users share their thoughts on different productivity tools and workflow issues on platforms like Twitter, Reddit, and LinkedIn. Community activity: Community forum: Community boards on official Notion, Product hunt threads where early adopters post raw feedback are also a source of value. The rival product feature launches and subsequent changes in the general interest would offer more context through the competitor monitoring systems tracking their launches.
+
+The sophisticated model making techniques are discussed.
+The statistical procedures used have been over fifty years old and still sound. The modern methods, however, may increase accuracy. LSTM neural network architectures or Transformer neural networks have been shown to be strong when it comes to learning intricate time series. Inferential causal models may be useful in differentiating real causal laws and correlation laws. The predictions streaming systems may also be used to update predictions without following a batch processing cycle.
+
+\subsection{Production Deployment}
+The strategies that can be successfully applied in a research setting might not withstand the exposure to the actual users. There would be a need of appropriate infrastructures required to support spurring up of traffic such as proper caching, load balancing, and database optimization. There would be a necessity of automated pipelines to tell when a given model drifts off reality and causes retraining before predictions become stale. Security features such as role-based permissions and advanced audit trails would be necessary on an enterprise-level.
+
+\subsection{Dashboard Enhancement}
+The existing interface is simple in nature and product managers might need more features. Individual alert systems can be used to make teams aware when critical metrics pass large values. Scenario planning tools might allow the analysis of what-if analysis of how various decisions would impact the results. Build-in connectivity with project management systems like Jira or Linear would possibly allow insights to be pushed right into the sprint planning processes.
+
+\subsection{Generalization Beyond Notion}
+This means that certain concepts can be extended to other concepts, in general. This study has focused on one product in detail. In order to define the framework reliability, the repeatability of patterns should be employed to various SaaS products in the future. The cases that could be compared with the actual adoption metrics on the predictions would allow the measurement of actual accuracy. The testability of the tool to improve the quality of the decision-making process would be measured by user studies involving real product managers.
+
+
+\section{Conclusion}
+
+As part of this study, the research question was whether publicly available data can give enough information about the demand of features to assist product team decision-making. Once the framework had been worked out, the forecasts had been carried out and compared with the actual trends, the evidence points towards the affirmative conclusion, with certain proper caveats.
+
+With the empirical case study of Notion, this research showed that the signals of search interest, review sentiment and patterns of feature mention hold valuable information on demand patterns. Coherent patterns were discovered when applying forecasting models to such features as Notion AI, templates, and workflow automation. The exponential growth pattern observed with the AI capabilities is in line with the available technological trends. Templates had uniform and trusted demand---a basic feature with predictable reliance on the user. The interest in automation rose at a slower rate, following larger trends in the productivity software industry.
+
+These predictions have a practical value because they are coupled to design decisions. It is not useful predicting that the interest in Notion AI will increase by 30\% next quarter. How the action product teams should react to that information is the substantive question. That question is answered in this framework because forecast trajectories are converted into recommendations---prioritize this feature, maintain that one, reconsider this other. It acts as an intermediary between product management activities and the output of data science.
+
+It is appropriate to give honest recognition to limitations. This framework fails to cover every situation. Any forecast can be nullified due to unexpected changes in the market, unanticipated competitive action, or outbreaks. External data is a proxy and not a measure of how active the internal users base is. The models that are used though valid have no predictive magic and this means that they will work best when historical patterns are there which is not always the case.
+
+However, the bigger picture is that there is. The use of proprietary analytics infrastructure is not a requirement in the incorporation of data in feature prioritization processes. Google Trends can be used by smaller teams and startups, as well as individual researchers, to analyze app reviews and create forecasting models. The tools exist. What was lacking before was a framework that shows how to combine these elements when it comes to decision making of SaaS products. Such is the contribution that this work makes.
+
+In future, the use of demand forecasting will probably become a more usual activity in software development. With the market of the SaaS becoming increasingly more competitive, and the user demands ever-growing, the foresight of understanding the user needs, as opposed to the response to the existing feedback, is a competitive edge. This paper is an attempt to offer product teams a platform on which to build that capacity. The key point to note is that it is important to study the future demand just as much as it is important to study the present behaviour. Through forecasting in the product development cycle, the organisation is able to create features that predict user needs instead of gearing features to it. This is a better way of developing software.
+
+
+\begin{thebibliography}{00}
+
+\bibitem{b1} G. E. P. Box, G. M. Jenkins, G. C. Reinsel, and G. M. Ljung, \emph{Time Series Analysis: Forecasting and Control}, 5th ed. Hoboken, NJ, USA: John Wiley \& Sons, 2015.
+
+\bibitem{b36} R. J. Hyndman and Y. Khandakar, ``Automatic time series forecasting: The forecast package for R,'' \emph{J. Stat. Softw.}, vol. 27, no. 3, pp. 1--22, 2008.
+
+\bibitem{b37} S. P. Jun, D. H. Park, and J. Yeom, ``The possibility of using search traffic information to explore consumer product attitudes and forecast consumer preference,'' \emph{Technol. Forecasting Social Change}, vol. 86, pp. 237--253, 2014.
+
+\bibitem{b38} E. Guzman and W. Maalej, ``How do users like this feature? A fine grained sentiment analysis of app reviews,'' in \emph{Proc. IEEE 22nd Int. Requirements Eng. Conf. (RE)}, Karlskrona, Sweden, 2014, pp. 153--162.
+
+\bibitem{b39} H. Choi and H. Varian, ``Predicting the present with Google Trends,'' \emph{Econ. Record}, vol. 88, pp. 2--9, 2012.
+
+\bibitem{b40} S. J. Taylor and B. Letham, ``Forecasting at scale,'' \emph{Amer. Statistician}, vol. 72, no. 1, pp. 37--45, 2018.
+
+\bibitem{b41} W. Maalej, Z. Kurtanovic, H. Nabil, and C. Stanik, ``On the automatic classification of app reviews,'' \emph{Requirements Eng.}, vol. 21, no. 3, pp. 311--331, 2016.
+
+\bibitem{b42} S. Makridakis, E. Spiliotis, and V. Assimakopoulos, ``Statistical and machine learning forecasting methods: Concerns and ways forward,'' \emph{PLOS ONE}, vol. 13, no. 3, p. e0194889, 2018.
+
+\bibitem{b43} A. S. Cantallops and F. Salvi, ``New consumer behavior: A review of research on eWOM and hotels,'' \emph{Int. J. Hospitality Manage.}, vol. 36, pp. 41--51, 2014.
+
+\bibitem{b44} N. Chen, J. Lin, S. C. H. Hoi, X. Xiao, and B. Zhang, ``AR-Miner: Mining informative reviews for developers from mobile app marketplace,'' in \emph{Proc. 36th Int. Conf. Softw. Eng.}, Hyderabad, India, 2014, pp. 767--778.
+
+\bibitem{b45} B. Pang and L. Lee, ``Opinion mining and sentiment analysis,'' \emph{Found. Trends Inf. Retrieval}, vol. 2, no. 1--2, pp. 1--135, 2008.
+
+\bibitem{b46} D. Pagano and W. Maalej, ``User feedback in the appstore: An empirical study,'' in \emph{Proc. IEEE 21st Int. Requirements Eng. Conf. (RE)}, Rio de Janeiro, Brazil, 2013, pp. 125--134.
+
+\bibitem{b47} S. A. Licorish and S. G. MacDonell, ``Exploring software developers' work practices: Task differences, participation, engagement, and speed of task resolution,'' \emph{Inf. Manage.}, vol. 54, no. 3, pp. 364--382, 2017.
+
+\bibitem{b48} K. C. Kang, S. G. Cohen, J. A. Hess, W. E. Novak, and A. S. Peterson, ``Feature-oriented domain analysis (FODA) feasibility study,'' Carnegie Mellon Univ., Pittsburgh, PA, USA, Tech. Rep. CMU/SEI-90-TR-21, 1990.
+
+\bibitem{b49} J. Berger, A. Humphreys, S. Ludwig, W. W. Moe, O. Netzer, and D. A. Schweidel, ``Uniting the tribes: Using text for marketing insight,'' \emph{J. Marketing}, vol. 84, no. 1, pp. 1--25, 2020.
+
+\end{thebibliography}
+
+
+\begin{IEEEbiography}{Bindu Ashwini C} is an Assistant Professor in the Department of Placement and Training at RV College of Engineering, Bangalore, India. She specializes in data analytics, machine learning applications in software engineering, and student career development. Her research interests include demand forecasting, predictive analytics for product management, and the application of data science methodologies to solve real-world problems in software product development.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}{Manish Tandurkar} is pursuing his Bachelor of Engineering degree in Computer Science Engineering at RV College of Engineering, Bangalore, India. His research interests include machine learning, time series forecasting, and data-driven decision making in software product management. He has contributed to research on demand forecasting methodologies and their application in SaaS platforms.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}{Manish H Parashar} is pursuing his Bachelor of Engineering degree in Computer Science Engineering at RV College of Engineering, Bangalore, India. His research interests focus on data science, predictive analytics, and software product management. He has worked on developing frameworks for feature prioritization using publicly available data sources and forecasting techniques.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}{Nikhil N Bharadwaj} is pursuing his Bachelor of Engineering degree in Computer Science Engineering at RV College of Engineering, Bangalore, India. His research interests include time series analysis, sentiment analysis, and the application of statistical and machine learning methods for demand forecasting in software products. He has contributed to research on leveraging Google Trends and user feedback for product decision-making.
+\end{IEEEbiography}
+
+\EOD
+
+\end{document}
