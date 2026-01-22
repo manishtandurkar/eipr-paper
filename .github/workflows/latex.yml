@@ -24,24 +24,24 @@ jobs:
     
     - name: Build PDF with latexmk
       run: |
-        latexmk -pdf -interaction=nonstopmode -file-line-error main.tex
+        latexmk -pdf -interaction=nonstopmode -file-line-error access.tex
     
     - name: Rename PDF
       run: |
-        mv main.pdf conference-paper.pdf
+        mv access.pdf ieee_access.pdf
     
     - name: Upload produced PDF
       uses: actions/upload-artifact@v4
       with: 
-        name: conference-paper
-        path: conference-paper.pdf
+        name: ieee_access
+        path: ieee_access.pdf
     
     - name: Create/Update Release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: latest
         name: Latest Conference Paper
-        files: conference-paper.pdf
+        files: ieee_access.pdf
         body: "Automatically generated PDF from latest commit"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
