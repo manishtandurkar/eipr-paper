@@ -1,75 +1,58 @@
-# POME Project Paper
+# POME Project Paper - Demand Forecasting for SaaS Feature Prioritization
 
 ## File Structure
 
-This paper is organized using a topic-wise modular structure for better organization and collaboration:
+This paper is for the IEEE Access journal submission:
 
 ```
 POME/Paper/
-├── main.tex                # Main document (compile this)
-├── IEEEtran.cls            # IEEE formatting class
+├── access.tex              # Main document (compile this)
+├── ieeeaccess.cls          # IEEE Access formatting class
+├── IEEEtran.cls            # IEEE base formatting class
 ├── README.md               # This file
-├── sections/               # All paper sections
-│   ├── abstract.tex        # Member 2
-│   ├── introduction.tex    # Member 2
-│   ├── related_work.tex    # Member 2
-│   ├── system_design.tex   # Member 1
-│   ├── methodology.tex     # Member 1
-│   ├── implementation.tex  # Member 1
-│   ├── testing.tex         # Member 3
-│   ├── results.tex         # Member 1
-│   ├── discussion.tex      # Member 3
-│   ├── future_work.tex     # Member 3
-│   ├── conclusion.tex      # Member 2
-│   └── references.tex      # Member 3
-└── figures/                # All figures and images
-    └── fig1.png           # Example figure
+├── figures/                # All figures and images
+└── (compiled outputs)
+    ├── access.pdf          # Generated PDF
+    ├── access.aux
+    ├── access.bbl
+    ├── access.blg
+    └── access.log
 ```
 
-## Section Descriptions
+## Paper Overview
 
-### Core Sections
-- **abstract.tex** - Brief summary of the entire project
-- **introduction.tex** - Project background, motivation, objectives, and scope
-- **related_work.tex** - Review of existing solutions and related projects
-- **system_design.tex** - Overall system architecture and design decisions
-- **methodology.tex** - Research/development methodology used
-- **implementation.tex** - Technical implementation details (frontend, backend, integration)
-- **testing.tex** - Testing strategies, test cases, and evaluation metrics
-- **results.tex** - Experimental results and system features
-- **discussion.tex** - Analysis, challenges faced, and lessons learned
-- **contributions.tex** - Individual team member contributions and roles
-- **future_work.tex** - Planned improvements and future directions
-- **conclusion.tex** - Project summary and final thoughts
-- **references.tex** - Bibliography and citations
+**Title**: Demand Forecasting for Product Design Decisions in Software Firms: A Data-Driven Framework for SaaS Feature Prioritization
 
-## Working Guidelines
+**Authors**: 
+- Bindu Ashwini C (Department of Placement and Training, RV College of Engineering)
+- Manish Tandurkar (Department of CSE, RV College of Engineering)
+- Manish H Parashar (Department of CSE, RV College of Engineering)
+- Nikhil N Bharadwaj (Department of CSE, RV College of Engineering)
 
-### For Team Collaboration
-1. **Assign sections**: Each team member takes ownership of specific sections
-2. **Coordinate edits**: Communicate before editing shared sections
-3. **Use comments**: Mark your work with LaTeX comments (`%`)
-4. **Compile often**: Test your changes by compiling the main document
+**Journal**: IEEE Access
 
-### Section Assignment Suggestions
-- **Frontend Developer**: `implementation.tex` (frontend part), `system_design.tex`
-- **Backend Developer**: `implementation.tex` (backend part), `methodology.tex`
-- **QA/Testing**: `testing.tex`, `results.tex`, `discussion.tex`
-- **All Members**: Update `contributions.tex` with your individual work
+**Publication Date**: January 22, 2026
 
 ## How to Compile
 
-1. Make sure all files are in the correct folders
-2. Compile the main file: 
+1. Ensure all dependencies are installed (LaTeX distribution like MiKTeX or TeX Live)
+2. Navigate to the paper directory
+3. Compile the main file: 
    ```bash
-   pdflatex main.tex
+   pdflatex access.tex
    ```
-3. If you have bibliography issues:
+4. If you have bibliography/citations to process:
    ```bash
-   bibtex main
-   pdflatex main.tex
-   pdflatex main.tex
+   pdflatex access.tex
+   pdflatex access.tex
    ```
+5. The output PDF will be generated as `access.pdf`
+
+### Using latexmk (Recommended)
+For automatic compilation with all dependencies resolved:
+```bash
+latexmk -pdf access.tex
+```
 
 ## Adding Figures
 
