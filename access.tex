@@ -4,49 +4,62 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-
-% Fix for IEEE Access class compatibility
-\makeatletter
-\@ifundefined{xfigwd}{\newdimen\xfigwd}{}
-\makeatother
-
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
-\history{Date of publication January 22, 2026, date of current version January 22, 2026.}
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
 \doi{10.1109/ACCESS.2017.DOI}
 
-\title{Demand Forecasting for Product Design Decisions in Software Firms: A Data-Driven Framework for SaaS Feature Prioritization}
-\author{\uppercase{Bindu Ashwini C}\authorrefmark{1},
-\uppercase{Manish Tandurkar}\authorrefmark{2},
-\uppercase{Manish H Parashar}\authorrefmark{2}, and
-\uppercase{Nikhil N Bharadwaj}\authorrefmark{2}}
-\address[1]{Department of Placement and Training, RV College of Engineering, 
-Bangalore, India (e-mail: binduashwini@rvce.edu.in)}
-\address[2]{Department of Computer Science Engineering, RV College of Engineering, 
-Bangalore, India (e-mail: manishtandurkar.cs23@rvce.edu.in, manishhparashar.cs23@rvce.edu.in, nikhilnb.cs23@rvce.edu.in)}
+\title{Preparation of Papers for IEEE ACCESS}
+\author{\uppercase{First A. Author}\authorrefmark{1}, \IEEEmembership{Fellow, IEEE},
+\uppercase{Second B. Author\authorrefmark{2}, and Third C. Author,
+Jr}.\authorrefmark{3},
+\IEEEmembership{Member, IEEE}}
+\address[1]{National Institute of Standards and 
+Technology, Boulder, CO 80305 USA (e-mail: author@boulder.nist.gov)}
+\address[2]{Department of Physics, Colorado State University, Fort Collins, 
+CO 80523 USA (e-mail: author@lamar.colostate.edu)}
+\address[3]{Electrical Engineering Department, University of Colorado, Boulder, CO 
+80309 USA}
+\tfootnote{This paragraph of the first footnote will contain support 
+information, including sponsor and financial support acknowledgment. For 
+example, ``This work was supported in part by the U.S. Department of 
+Commerce under Grant BS123456.''}
 
 \markboth
-{Ashwini \headeretal: Demand Forecasting for SaaS Feature Prioritization}
-{Ashwini \headeretal: Demand Forecasting for SaaS Feature Prioritization}
+{Author \headeretal: Preparation of Papers for IEEE TRANSACTIONS and JOURNALS}
+{Author \headeretal: Preparation of Papers for IEEE TRANSACTIONS and JOURNALS}
 
-\corresp{Corresponding author: Bindu Ashwini C (e-mail: binduashwini@rvce.edu.in).}
+\corresp{Corresponding author: First A. Author (e-mail: author@ boulder.nist.gov).}
 
 \begin{abstract}
-In the modern environment of fast-moving technological progress, the software product development teams are faced with a critical issue, which is the strategic prioritization of various sets of features depending on their expected demand in the market before resource commitment in the product development life.
-
-This study analyzes Notion, a leading Software-as-a-Service (SaaS) productivity application, in which proprietary analytical systems are unavailable to the outside parties. Therefore, publicly available data sources such as Google Trends search interest data, application store review repositories, and aggregated user feedback pattern have been used to create strong demand indicators of particular product features in this research.
-
-The suggested forecasting model employs the ensemble approach that involves the use of various analysing tools: Exponential Smoothing, Autoregressive Integrated Moving Average (ARIMA), and linear regression models. This interdisciplinary methodology offers all round information to make strategic decisions among the organizational stakeholders.
-
-Empirical data indicate that there are discernible demand trends in the different categories of features, such as artificial intelligence-enabled functionalities, template-based features and capabilities of automating processes. In particular, AI-related functionality shows long-term growth trends, template functions are featured with steady demand marked by consistent seasonal changes, and automation capabilities are presented with average growth rates in accordance to the current trends in optimization of workflows in the industry.
-
-The main value of this work lies in the illustration of the effectiveness of publicly available information in demand forecasting with a meaning in prioritizing software features. This approach gives companies having limited analytical functions the chance to reduce the resource misplacement and improve the correspondence of the product development paths and empirically validated user requirements.
-
+These instructions give you guidelines for preparing papers for 
+IEEE Access. Use this document as a template if you are 
+using \LaTeX. Otherwise, use this document as an 
+instruction set. The electronic file of your paper will be formatted further 
+at IEEE. Paper titles should be written in uppercase and lowercase letters, 
+not all uppercase. Avoid writing long formulas with subscripts in the title; 
+short formulas that identify the elements are fine (e.g., "Nd--Fe--B"). Do 
+not write ``(Invited)'' in the title. Full names of authors are preferred in 
+the author field, but are not required. Put a space between authors' 
+initials. The abstract must be a concise yet comprehensive reflection of 
+what is in your article. In particular, the abstract must be self-contained, 
+without abbreviations, footnotes, or references. It should be a microcosm of 
+the full article. The abstract must be between 150--250 words. Be sure that 
+you adhere to these limits; otherwise, you will need to edit your abstract 
+accordingly. The abstract must be written as one paragraph, and should not 
+contain displayed mathematical equations or tabular material. The abstract 
+should include three or four different keywords or phrases, as this will 
+help readers to find it. It is important to avoid over-repetition of such 
+phrases as this can result in a page being rejected by search engines. 
+Ensure that your abstract reads well and is grammatically correct.
 \end{abstract}
 
 \begin{keywords}
-ARIMA, demand forecasting, exponential smoothing, feature prioritization, Google Trends, SaaS product management, sentiment analysis, time series analysis.
+Enter key words or phrases in alphabetical 
+order, separated by commas. For a list of suggested keywords, send a blank 
+e-mail to keywords@ieee.org or visit \underline
+{http://www.ieee.org/organizations/pubs/ani\_prod/keywrd98.txt}
 \end{keywords}
 
 \titlepgskip=-15pt
@@ -54,474 +67,829 @@ ARIMA, demand forecasting, exponential smoothing, feature prioritization, Google
 \maketitle
 
 \section{Introduction}
-SaaS platforms have, recently, become a rather important part of individual and professional productivity processes, catering to millions of users in the context of various organisational settings. Among other modern productivity tools, Notion has found a prominent place, which is also due to its modular nature, and capability to seamlessly add features, as well as, due to the recent acquisition of artificial intelligence features. Nevertheless, as these types of platforms become more and more prioritised in terms of their functionality, it becomes more and more complicated to the product teams, when it comes to feature development priorities. Intuition or reactive feedback systems prove insufficient in competitive markets, where development resources must be allocated strategically.
+\label{sec:introduction}
+\PARstart{T}{his} document is a template for \LaTeX. If you are 
+reading a paper or PDF version of this document, please download the 
+electronic file, trans\_jour.tex, from the IEEE Web site at \underline
+{http://ieeeauthorcenter.ieee.org/create-your-ieee-article/}\break\underline{use-authoring-tools-and-ieee-article-templates/ieee-article-}\break\underline{templates/} so you can use it to prepare your manuscript. If 
+you would prefer to use LaTeX, download IEEE's LaTeX style and sample files 
+from the same Web page. You can also explore using the Overleaf editor at 
+\underline
+{https://www.overleaf.com/blog/278-how-to-use-overleaf-}\break\underline{with-ieee-collabratec-your-quick-guide-to-getting-started}\break\underline{\#.xsVp6tpPkrKM9}
 
-Demand forecasting in its turn, offers a systematic alternative to reactive solutions. Instead of responding to either user complaints or competitor actions at a post-hoc, the various forecasting methodologies engage in, analyse various observable signals along the lines of---search behaviour patterns, sentiment in user reviews, and temporal shifts in feature interest---to predict as to which capabilities will cause the higher user value in later periods. In the case of SaaS products in particular, software feature interest does not tend to follow predictable seasonal patterns, but an often rapidly changing factor in respect to trending content.
+If your paper is intended for a conference, please contact your conference 
+editor concerning acceptable word processor formats for your particular 
+conference. 
 
-This paper looks at the use of demand forecasting in relation to product design decision-making taking Notion as an empirical example. Using the data on Google trend search interests, app store review, and the trend of user feedback, the current study proves how the demand forecasting models can be used to identify the features of the product that are getting increasing user interest and those of decreasing relevance to the users. In addition to predictive accuracy, the goal of this work is to define definite connections between the demand tendencies predicted and actionable product design decisions, the user interface is improved, feature prioritisation decisions, and release schedule optimization.
+IEEE will do the final formatting of your paper. If your paper is intended 
+for a conference, please observe the conference page limits. 
 
-\subsection{Research Motivation}
-SaaS productivity services are based on an ever-changing competitive market environment. The level of user expectations is increasing at a fast rate, new workflow patterns are being introduced with high frequency and competitive pressure keeps high. The proper timing of feature development and release can have a huge effect on the success of the product. Considering the unavailability of proprietary analytics, the current study creates a forecasting model based on the publicly accessible proxies: Google Trends to calculate the search interest, Kaggle datasets to analyse the reviews, and app metadata to determine the ratings and the number of installations. Even though these proxies have limitations, they can form a viable basis to be used by teams that want to use empirical data to support design processes.
+\subsection{Abbreviations and Acronyms}
+Define abbreviations and acronyms the first time they are used in the text, 
+even after they have already been defined in the abstract. Abbreviations 
+such as IEEE, SI, ac, and dc do not have to be defined. Abbreviations that 
+incorporate periods should not have spaces: write ``C.N.R.S.,'' not ``C. N. 
+R. S.'' Do not use abbreviations in the title unless they are unavoidable 
+(for example, ``IEEE'' in the title of this article).
 
-\subsection{Problem Statement}
-The issue of prioritisation is a persistent problem in product teams of SaaS organisations. It is necessary that systematic analysis should be done in order to determine what features should be upgraded and what new capabilities should be developed by providing development resources. In the absence of an all-encompassing analytics infrastructure, teams often have to rely on their gut or react to the loud groups of users. The gap in the current practice is that the predictive insights introduced in the design decisions are not data-driven enough and do not anticipate the user requirements.
+\subsection{Other Recommendations}
+Use one space after periods and colons. Hyphenate complex modifiers: 
+``zero-field-cooled magnetization.'' Avoid dangling participles, such as, 
+``Using \eqref{eq}, the potential was calculated.'' [It is not clear who or what 
+used \eqref{eq}.] Write instead, ``The potential was calculated by using \eqref{eq},'' or 
+``Using \eqref{eq}, we calculated the potential.''
 
-\subsection{Research Objectives}
-The given research is going to accomplish four main goals: first, to describe temporal dynamics of feature interest by considering publicly accessible data, such as Google Trends and user reviews; second, to use proven forecasting techniques, such as Exponential Smoothing, ARIMA, and Regression analysis, to predict feature demand dynamics; third, to research how such predictions can be translated into product decisions, feature prioritisation, improvement, and strategic positioning; and fourth, to create a working framework that would allow software teams to relate demands insights with UI/UX design and release planning.
+Use a zero before decimal points: ``0.25,'' not ``.25.'' Use 
+``cm$^{3}$,'' not ``cc.'' Indicate sample dimensions as ``0.1 cm 
+$\times $ 0.2 cm,'' not ``0.1 $\times $ 0.2 cm$^{2}$.'' The 
+abbreviation for ``seconds'' is ``s,'' not ``sec.'' Use 
+``Wb/m$^{2}$'' or ``webers per square meter,'' not 
+``webers/m$^{2}$.'' When expressing a range of values, write ``7 to 
+9'' or ``7--9,'' not ``7$\sim $9.''
 
-\subsection{Scope and Significance}
-This framework does not purport to cover all the forecasting issues in the SaaS arena. It does however indicate that predictive useful demands can be built using data publicly available without proprietary analytics infrastructure. Proper forecasting can help organisations create features in accordance with the needs of the user, ensure that they stay competitive, prevent turnover of the users, and enhance the rates of adoption. Although the case study presented is of Notion, the approach can be used when dealing with other SaaS systems.
+A parenthetical statement at the end of a sentence is punctuated outside of 
+the closing parenthesis (like this). (A parenthetical sentence is punctuated 
+within the parentheses.) In American English, periods and commas are within 
+quotation marks, like ``this period.'' Other punctuation is ``outside''! 
+Avoid contractions; for example, write ``do not'' instead of ``don't.'' The 
+serial comma is preferred: ``A, B, and C'' instead of ``A, B and C.''
 
+If you wish, you may write in the first person singular or plural and use 
+the active voice (``I observed that $\ldots$'' or ``We observed that $\ldots$'' 
+instead of ``It was observed that $\ldots$''). Remember to check spelling. If 
+your native language is not English, please get a native English-speaking 
+colleague to carefully proofread your paper.
 
-\section{Related work}
-The section provides the review of the literature on the subject of the suggested framework, analysing the previous studies in the field of demand forecasting, feature prioritisation, time series analysis, and sentiment analysis. The review reveals the gaps in existing solutions, which this study fills.
+Try not to use too many typefaces in the same article. You're writing
+scholarly papers, not ransom notes. Also please remember that MathJax
+can't handle really weird typefaces.
 
-\subsection{Software Feature Demand Forecasting}
-The conventional research in demand forecasting started in the setting of physical products---consumer goods, electronics and retail inventory. Box and Jenkins models of ARIMA \cite{b1} are still in use today as they are robust and can be interpreted. Nevertheless, software capabilities have different peculiarities that distinguish the product of software, in comparison with tangible goods. The demand for features is not subjected to any predictable seasonal pattern and can fluctuate fast, in response to the announcements of viral content, rivalry, or changes in user behaviour. It has been established that the trends in internet search are significantly correlated with real-life patterns of interest \cite{b5,b3}. Search data has been used to forecast phenomena as diverse as financial market trends, and epidemiological trends. This theoretical reasoning has been supported by the fact that search behaviour as an indicator of true user interest, is the premise upon which publicly available search data are used as a proxy of demand. It is an understanding that motivated the use of Google Trends data as one of the main demand signals in this model.
+\subsection{Equations}
+Number equations consecutively with equation numbers in parentheses flush 
+with the right margin, as in \eqref{eq}. To make your equations more 
+compact, you may use the solidus (~/~), the exp function, or appropriate 
+exponents. Use parentheses to avoid ambiguities in denominators. Punctuate 
+equations when they are part of a sentence, as in
+\begin{equation}E=mc^2.\label{eq}\end{equation}
 
-\subsection{Prioritisation of Features on SaaS Products}
-The product management practitioners use many prioritisation models such as RICE scoring, Kano models and value-versus-effort matrices \cite{b14}. Although these frameworks offer formal systems of decision making, they need considerable subjectiveness. Practitioners need to approximate the effect, gauge user worth, and prioritise the features according to in-house deliberations. These methods are sufficient in the case of simple products, but they scale poorly and are prone to numerous types of cognitive biases. There are other organisations that have implemented analytics-based prioritisation approaches that use internal usage data to make roadmap decisions \cite{b13}. Nonetheless, this internal data is owned and not available to any external researchers, so it is not possible to study, replicate, and generalise results across products. This study solves this weakness by showing that publicly accessible data has enough signal strength to be used to make decisions on the prioritisation of features.
+Be sure that the symbols in your equation have been defined before the 
+equation appears or immediately following. Italicize symbols ($T$ might refer 
+to temperature, but T is the unit tesla). Refer to ``\eqref{eq},'' not ``Eq. \eqref{eq}'' 
+or ``equation \eqref{eq},'' except at the beginning of a sentence: ``Equation \eqref{eq} 
+is $\ldots$ .''
 
-\subsection{Time Series and Machine Learning}
-Methods of forecasting are across a continuum between traditional statistical processes and modern machine learning techniques. Traditional methods such as Exponential Smoothing and ARIMA models are easily interpretable, have a solid theoretical basis, and do not require extensive data \cite{b2}. Neural networks, gradient boosting, random forests, the various machine learning methods, are able to learn complex, non-linear patterns but usually need more and less interpretable data. Comparative experiments show that the simpler models often perform competitively with respect to more complex alternatives especially using small datasets \cite{b8}. To the current use case, i.e. predicting interest in particular software features with the help of public data, an ensemble of classical methods can offer the right level of accuracy and interpretability. Current research on scalable forecasting has shown that hybrid systems that incorporate statistical rigour with practical implementation strategies are showing excellent results \cite{b6}.
+\subsection{\LaTeX-Specific Advice}
 
-\subsection{Sentiment Analysis and User Feedback}
-The feedback provided by users is one of the most useful sources of information about user sentiment, as it is taken in the form of reviews in the app shops and discussions in social media \cite{b12,b9}. NLP methods allow studying extensive review collections in order to identify feature mentions, pain points, and satisfaction patterns \cite{b11}. Sentiment analysis gives extra information about what is discussed by the users in addition to their emotional inclination towards certain features \cite{b4,b10}. Other literature in this field has concentrated more on the existing user perceptions about existing features \cite{b7}. The study is unique in that it tries to forecast future demand and not just quantify the current sentiment. Nevertheless, temporal patterns in sentiment have the potential to mean demand trends, which is why sentiment analysis should be implemented into a forecasting model.
+Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
+of ``hard'' references (e.g., \verb|(1)|). That will make it possible
+to combine sections, add equations, or change the order of figures or
+citations without having to go through the file line by line.
 
-\subsection{Research Gap and Contribution}
-The research void that the study will fill is that there are no unified frameworks relating to the design of SaaS products in terms of forecasting, prioritisation, and sentiment analysis. Traditionally forecasting research has been concerned with the physical products. The systems of priorities are still qualitative. The work of sentiment analysis is mainly retrospective instead of being predictive. This paper forms a framework that incorporates these lines of research. Using a combination of forecasting methods, testing on empirical trends in features, and only using publicly available data, this study shows a practical method that can be used by a product team that does not have a large analytical infrastructure. It is methodological but not algorithmic in nature of contribution---larger teams are made available to small teams of data-driven decision-making capabilities that would otherwise require large analytical resources \cite{b15}.
+Please don't use the \verb|{eqnarray}| equation environment. Use
+\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
+environment leaves unsightly spaces around relation symbols.
 
+Please note that the \verb|{subequations}| environment in {\LaTeX}
+will increment the main equation counter even when there are no
+equation numbers displayed. If you forget that, you might write an
+article in which the equation numbers skip from (17) to (20), causing
+the copy editors to wonder if you've discovered a new method of
+counting.
 
-\section{System Design}
-\subsection{Architectural Overview}
-The proposed system architecture adheres to a sequential pipeline paradigm wherein data is systematically processed through four discrete computational stages. Unstructured public-domain information is ingested at the pipeline's entry point, and actionable design-oriented recommendations are produced as terminal output. Inter-stage data transference is governed by well-defined interfaces, and the inherently modular architectural design facilitates component substitution without necessitating comprehensive system reconstruction or revalidation.
+{\BibTeX} does not work by magic. It doesn't get the bibliographic
+data from thin air but from .bib files. If you use {\BibTeX} to produce a
+bibliography you must send the .bib files. 
 
-The flow of operational data is designed in the following way. Under the Data Acquisition phase, the demand indicators are programmatically mined through heterogeneous publicly accessible sources such as Google Trends search interest quantification platform, Kaggle repositories containing user-generated review corpora, and metadata aggregation services of applications. During the next Preprocessing step, the raw data artifacts are subjected to stringent cleansing, normalizing, and rearranging them into temporally indexed series that can be subjected to predictive analytical functions. The Forecasting step uses a combination of the following statistical models, namely, the Exponential Smoothing, the Autoregressive Integrated Moving Average (ARIMA), the Linear Regression to produce probabilistic forecasts of the future demand of specific product characteristics. Lastly, the Decision Framework step operationalizes the transformation of the numerical forecasts into operational, practical recommendations on the feature prioritization hierarchies, strategy of resource allocation and best release timing parameters.
+{\LaTeX} can't read your mind. If you assign the same label to a
+subsubsection and a table, you might find that Table I has been cross
+referenced as Table IV-B3. 
 
-The flow of data is unidirectional through the pipeline of the acquisition to the recommendation generation as in the case shown in Figure~\ref{fig:ai_trend}. Feedback mechanism has been included to enable the model refinement in an iterative manner on the basis of prediction accuracy metrics.
+{\LaTeX} does not have precognitive abilities. If you put a
+\verb|\label| command before the command that updates the counter it's
+supposed to be using, the label will pick up the last counter to be
+cross referenced instead. In particular, a \verb|\label| command
+should not go before the caption of a figure or a table.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{"figures/System architecture.png"}
-\caption{System architecture pipeline illustrating sequential data flow through
-four processing stages.}
-\label{fig:system_pipeline}
-\end{figure}
+Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
+will not stop equation numbers inside \verb|{array}| (there won't be
+any anyway) and it might stop a wanted equation number in the
+surrounding equation.
 
-\subsection{Component Architecture}
+\section{Units}
+Use either SI (MKS) or CGS as primary units. (SI units are strongly 
+encouraged.) English units may be used as secondary units (in parentheses). 
+This applies to papers in data storage. For example, write ``15 
+Gb/cm$^{2}$ (100 Gb/in$^{2})$.'' An exception is when 
+English units are used as identifiers in trade, such as ``3\textonehalf-in 
+disk drive.'' Avoid combining SI and CGS units, such as current in amperes 
+and magnetic field in oersteds. This often leads to confusion because 
+equations do not balance dimensionally. If you must use mixed units, clearly 
+state the units for each quantity in an equation.
 
-\subsubsection{Data Acquisition Module}
-This module forms the main point of entry of the processing pipeline and is responsible to coordinate three separate data source integrations. In this case study of the Notion productivity platform, the Google Trends Extraction Component programmatically downloads monthly search interest data of the specific product features in the case study. Review Corpus Parser takes user-submitted reviews received by Kaggle datasets and processes them systematically to extract numerical rating, temporal metadata and unstructured text. Metadata Aggregation Component gathers additional categorical and quantitative data, such as cumulative installations and version release history and statistics on rating distribution.
+The SI unit for magnetic field strength $H$ is A/m. However, if you wish to use 
+units of T, either refer to magnetic flux density $B$ or magnetic field 
+strength symbolized as $\mu _{0}H$. Use the center dot to separate 
+compound units, e.g., ``A$\cdot $m$^{2}$.''
 
-All purchased data objects are given a time index and stored in a canonical standard form. The module uses detailed exception handling functions to limit rate threshold constraints of Application Programming Interface (API), network connectivity as well as automated retrial procedures to support operational dependability and data collection procedures.
+\section{Some Common Mistakes}
+The word ``data'' is plural, not singular. The subscript for the 
+permeability of vacuum $\mu _{0}$ is zero, not a lowercase letter 
+``o.'' The term for residual magnetization is ``remanence''; the adjective 
+is ``remanent''; do not write ``remnance'' or ``remnant.'' Use the word 
+``micrometer'' instead of ``micron.'' A graph within a graph is an 
+``inset,'' not an ``insert.'' The word ``alternatively'' is preferred to the 
+word ``alternately'' (unless you really mean something that alternates). Use 
+the word ``whereas'' instead of ``while'' (unless you are referring to 
+simultaneous events). Do not use the word ``essentially'' to mean 
+``approximately'' or ``effectively.'' Do not use the word ``issue'' as a 
+euphemism for ``problem.'' When compositions are not specified, separate 
+chemical symbols by en-dashes; for example, ``NiMn'' indicates the 
+intermetallic compound Ni$_{0.5}$Mn$_{0.5}$ whereas 
+``Ni--Mn'' indicates an alloy of some composition 
+Ni$_{x}$Mn$_{1-x}$.
 
-\subsubsection{Preprocessing Module}
-This module is assigned the remedy to the data quality inadequacies prior to the analytical processing. The Data Cleansing Component will remove duplicates, fill in gaps using temporal interpolation and forward-fill imputation algorithms, and also promote the detection of statistical outliers using threshold supported flagging processes. The Feature Extraction Component involves the use of natural language processing to scan written materials to measure explicit and implicit mentions to definite product characteristics. The Sentiment Quantification Component will provide a score of polarity to each review as the measure of the affective predisposition of the opinion expressed by users. The Time-Series Construction Component brings together all the processed data in monthly indexed series of each feature which include search interest indices, sentiment score, and mention frequency counts. The Normalization Component takes scaling transformations to permit meaningful cross-feature comparative analysis to take into consideration heterogeneous original measurement scales.
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt){fig1.png}
+{Magnetization as a function of applied field.
+It is good practice to explain the significance of the figure in the caption.\label{fig1}}
 
-\subsubsection{Forecasting Engine}
-This element is the analytical centre of the system architecture. It uses a plurality of predictive models chosen because of their complementary analysing strengths and divergent assumptions about the methodology. Exponential Smoothing proves to be especially effective when the temporal changes involved are short-term because the recent changes in demand receive relatively high weighting coefficients. Autoregressive Integrated Moving Average (ARIMA) can best represent longer-time temporal variations, such as periodicity of the seasons, cyclical variations, as well as trend over a longer period of observation. Linear Regression approach allows introduction of exogenous predictor variables e.g. competitive market announcement or industry wide development.
+Be aware of the different meanings of the homophones ``affect'' (usually a 
+verb) and ``effect'' (usually a noun), ``complement'' and ``compliment,'' 
+``discreet'' and ``discrete,'' ``principal'' (e.g., ``principal 
+investigator'') and ``principle'' (e.g., ``principle of measurement''). Do 
+not confuse ``imply'' and ``infer.'' 
 
-The models produce autonomous forecast results, which are then synthesized by an ensemble aggregation techniqueology. The models with a high historical predictive accuracy receive proportionate weighting coefficients in the final consolidated predictions determination. The computations of confidence intervals are done and reported in order to communicate uncertainty in forecasts to organizational decision-makers.
+Prefixes such as ``non,'' ``sub,'' ``micro,'' ``multi,'' and ``ultra'' are 
+not independent words; they should be joined to the words they modify, 
+usually without a hyphen. There is no period after the ``et'' in the Latin 
+abbreviation ``\emph{et al.}'' (it is also italicized). The abbreviation ``i.e.,'' means 
+``that is,'' and the abbreviation ``e.g.,'' means ``for example'' (these 
+abbreviations are not italicized).
 
-\subsubsection{Design Decision Framework}
-This module is in charge of translation of the outputs of quantitative forecasts into operational recommendations. The Feature Prioritization Component determines hierarchical priorities due to the projected growth demand curves, existing user sentiment indicators, and strategic relevance in an organization. The UI/UX Recommendation Component suggests making the interface more useful in the key areas such as better discoverability designs and workflow streamlining techniques. Resource Planning Component creates the possible estimates of allocation of engineering effort depending on the demand patterns expected. The Release Timing Component determines the expected demand peaks with an aim of making good decisions regarding product launch timing.
+A general IEEE styleguide is available at \underline{http://www.ieee.org/}\break\underline{authortools}.
 
-The rule based threshold activation mechanisms are used as the decision logic. Attributes that have a growth exceeding set demand growth criteria plus positive sentiment indicators are ranked as high-priority candidates. The methodology is described as regular and repeatable instead of heuristically algorithmic.
-
-\subsubsection{User Interface Module}
-System outputs require a non-technical presentation format that can be understood by the other organizational stakeholders. Dashboard Views offer trend visualizations and aggregate metrics on a high level to allow a quick evaluation. One of the features is Feature Drill-down Views, which provide a granular time-series charting of individual features with sentiment overlay features and comparative model performance visualization. Recommendations Panel shows the recommendations in a hierarchical manner of priority, estimation of engineering effort needs and the most suitable launch window based on the forecasting pipeline. Exporting capabilities can be Comma-Separated Values (CSV) and JavaScript Object Notation (JSON) data exports, and formatted printable reports that can be analyzed offline.
-
-The forecasting engine and the user interface layer are architecturally separated, thus allowing the independent modification, improvement, or replacement of either of them, without requiring modification to the other.
-
-\subsection{Technology Stack}
-
-\subsubsection{Programming Languages}
-The data processing, statistical modeling, and forecasting of activities are primarily implemented in Python due to the large selection of ecosystems of pythonic data science libraries and wide communal acceptance. SQL is used to perform structured persistence of data and querying of temporally-indexed data.
-
-\subsubsection{Libraries and Frameworks}
-The implementation utilizes the pandas library for tabular data manipulation and time-series handling, NumPy for numerical computation and multi-dimensional array operations, statsmodels for ARIMA and Exponential Smoothing algorithm implementations, and scikit-learn for linear regression modeling, preprocessing utility functions, and evaluation metric computation. Natural language processing operations employ the NLTK and spaCy libraries for feature mention extraction from unstructured review text, while TextBlob and VADER provide lexicon-based sentiment analysis capabilities. Visualization functionality relies upon the matplotlib and seaborn plotting libraries, and the pytrends package provides the Python programmatic interface for the Google Trends API.
-
-\subsubsection{Data Sources and Storage}
-Primary data sources comprise the Google Trends API for search interest time-series acquisition and Kaggle Datasets for user review corpus procurement. Data persistence utilizes CSV and JSON file formats for lightweight, version-controllable data storage, with SQLite or PostgreSQL relational database systems available for larger-scale or more structurally complex deployment scenarios.
-
-\subsubsection{Development Tools}
-The development environment comprises Jupyter Notebooks for interactive exploratory analysis and rapid prototyping, Git and GitHub for distributed version control and collaborative development, Visual Studio Code and PyCharm for integrated code development, and pytest for automated validation testing procedures.
-
-\subsubsection{Technology Selection Rationale}
-Technology stack has also been chosen according to accessibility, flexibility, and community support factors. All the parts fall under open-source licensing schemes, thus removing the need to spend on proprietary licensing. When the forecasting algorithms or data sources need to be changed, the modular design of the architecture enables such a change without the need to completely modify or re-validate the system. The pipeline architecture has the ability to scale to small case studies up to significantly large datasets. The advantages of all the chosen tools are strong communities of developers, extensive documentation possibilities, as well as easy access to technical support.
-
-
-\section{Methodology}
+\section{Guidelines for Graphics Preparation and Submission}
 \label{sec:guidelines}
-A clear step by step procedure was followed, which involved the collection of data from various public sources such as Google trends, app reviews, and user feedback. This was followed by pre processing and transformation, which involved cleaning the data to remove noise and organizing it into a usable format, converting the text or trends into numerical values as per the requirement .Predictive model development, then involved the application of models to understand and predict hypothetical user requirements. Lastly, actionable design recommendations were provided by turning the analysis results into real product decisions.
 
-\subsection{Data Acquisition}
-Due to the confidentiality of the internal analytics of Notion, this study utilized publicly accessible information sources , in order to approximate the interest of the users in various features. Instead of relying on direct measures of usage,it examined indirect measures(proxies) on demand. First, the data was collected from Google trends, which offers essential information on the interest and awareness of the users concerning particular features, as well as the fluctuations in the number of search-based on the demand, over time. Also, reviews on app stores, which were made of datasets of user opinion public on Kaggle, were reviewed to have a sense of how users felt about it. Also, there was the collection of application related metadata like version history, cumulative download history and rating distributions in-order to offer background information in interpreting demand trends. Search trends were essential to determine what interests the user in the long run, whereas reviews were useful to determine the opinion and feedback of the users. All the data collected was thoroughly handled and reconciled to the monthly schedule and thus comparisons with the various sources were made possible. 
-
-\subsection{Data Preprocessing and Transformation}
-Cleaning and preparing of the data before analysis was also deemed necessary in order to make the results correct and reliable. This was done by first,locating and eliminating the duplicates so as to avoid frequency distortions. The gaps in value were filled in with forward-fill imputation, allowing continuity in time, and the statistical outliers (i.e. a difference more than three standard deviations to the rolling mean) were highlighted to be looked into. This measure was necessary to make the dataset standard and devoid of elements that would give misleading inferences. Then, user reviews in unstructured text form were treated through Natural Language Processing (NLP) features. The text was divided and corresponded into smaller elements,called tokenization was done, and sentiment analysis was conducted to analyze the emotional tone of a certain review. The feedback of the users about the particular features was further grouped as positive, negative, or neutral, enabling the researchers to make correct interpretations about the user opinion. Lastly, the overall scores on sentiment were then aggregated and summarized every month and were created as numerical time- series indexes. These indices were then modelled and analysed with different forecasting models. In this manner, the change in qualitative user opinions into quantitative information that changes over time was successfully accomplished. To extract quantitative signals from unstructured text, Natural Language Processing (NLP) techniques are applied to the user review corpus. This process involves tokenization and sentiment polarity scoring, classifying user affect regarding specific features as positive, negative, or neutral. These sentiment scores are subsequently aggregated into monthly time-series indices.
-
-\subsection{Predictive Modeling Framework}
-The study was not based on one forecasting model since it is prone to bias. Hence, several complementary models were pooled together to estimate demand of features. This method is known as a compound or ensemble forecasting strategy.
-
-\subsubsection{Exponential Smoothing (ETS)}
-This model was selected due to the fact that it gives more weights to the recent data than older data and the weight decreases exponentially with time. It especially works well when there is a sudden shift or a momentary user interest. 
-
-\subsubsection{Auto-Regressive Integrated Moving Average (ARIMA)}
-ARIMA evaluates the time components within the data by assessing the concept of stationarity (data oscillates at a fixed floor), seasonality (data recurring), and auto-correlation (data-dependence on previous data). It is also quite helpful to make long term predictions and to define cyclical patterns. 
-
-\subsubsection{Linear Regression with Exogenous Variables}
-In this model, the influence of external factors on the demand of features is measured, e.g. the entry of new competitor products or the industry trends in general. It statistically verifies the dependence between these variables and user interest on each of the features. 
-
-\subsubsection{Ensemble Aggregation}
-All the three models had their outputs combined to form one final forecast. The contribution of each model was weighted by its historical performance (1/ Mean Absolute Error) such that models which had performed well in the past had more say in the final prediction.
-
-\subsection{Decision Support and Recommendation Logic}
-The research converted the numerical projections into real product suggestions through a rule based decision system. The characteristics that had experienced statistically significant increase in demand were suggested to be developed in the nearest future and to be optimized in terms of user interfaces. Attributes whose demand had been unchanged quickly were proposed to be maintained and incremental improvements to all were promoted where reasonable. On the other hand, those features whose trend was in the downward direction throughout the time were recommended to be strategically reconsidered or, in case of necessity, to be deprived. The translation layer in this manner made sure that the statistical results were not just abstract numbers but resulted in tangible actionable decisions concerning the product.
-
-\subsection{Performance Evaluation Protocol}
-The other key activity that followed the building and running of the predictive models was to determine how the predictive models performed through the application of statistical tools and metrics because through this, the reliability of the predictions and its actionability can be determined accordingly. The first was a train-test split of the data, i.e., initially, the model was trained using previous data, and tested on later data, which simulates the real-world forecasting. Instead of a train-test split however, a sliding window was used,where the training set is shifting forward in time and the prediction is tested at each time step. This is a more realistic way of estimating forecast performance in the real world. To this end, suitable measures of accuracy were used,such as Mean Absolute Error (MAE), a measure that views the magnitude of forecasting errors on average,Root Mean Squared Error (RMSE) which weighs larger errors more intensely and Mean Absolute Percentage Error (MAPE) that can be used to compare the variables of very different scales. The other significant area was the calculation of 95\% confidence intervals of every forecast by showing the extent within which the real values in the future were expected to be contained.
-
-\subsection{Reproducibility Summary}
-A detailed reproducibility package was rewritten to help in peer-verifying the work and extending it in the future. This consisted of all data acquisition scripts, pre processing pipeline scripts, model specifications and visualization scripts, which were placed in the project repository. The documentation guaranteed reliability of replication of the methodology on similar datasets or modification to other SaaS product systems.
-
-\section{Implementation}
-
-The realisation of this study involves a detailed analysis structure which is created in terms of the use of interpreted programming languages and interactive computing environments. System architecture was made to support reproducible research and demonstration of methodology of conducting research with transparency to be used in academics.
-
-\subsection{Data Infrastructure}
-The empirical basis of the paper is based on the well-designed dataset reflecting the monthly demand data of five different product features over a 48-month time frame starting on January 2021 and ending on December 2024. In the dataset, the features of AI-powered features, template functionality, automation capabilities, database features, and widget components have indexed observations over time.
-
-The data preprocessing processes included the conversion of temporal indexes, the creation of chronological order, the protocols of missing values, and statistical verification of the data integrity. The data format follows the principles of tidy data, and each row has a temporal observation and each column contains a feature-specific incoming demand measure.
-
-\subsection{Analytical Framework}
-The analytical implementation is implemented in an interactive computing environment, which includes the ability to execute computer code, mathematically describe and visualise.
-
-Common scientific computing libraries on data manipulation and temporal series processing, numerical computation and array processing, statistical visualization with enhanced aesthetic settings, econometric modeling frameworks, and machine learning algorithm applications with performance metrics are all components of the technology infrastructure.
-
-Popular development objects are standardized visualization aesthetics to provide greater clarity, figure dimensioning to provide best presentation appearance, high-resolution output to provide publication quality imagery, and automated output control to provide reproducible output.
-
-\subsection{Exploratory Data Analysis Implementation}
-The investigative phase establishes elaborate visualization procedures to expound temporal trends and comparative dynamics between product features. The analysis of individual feature trends creates specific time-series plots of each product capability with different color palettes used to distinguish categories. The synthesis of all the features in single graphical representations is achieved by comparative analysis, which allows recognizing cross-feature patterns and evaluating a relative growth trajectory.
-
-The statistical characterization processes calculate descriptive statistics that include the measures of central tendency, measures of dispersion, and distribution features. The quantification of growth rate calculates percentage variations between initial and terminal observations, which give empirical backgrounds in the context of priority evaluation. Pattern identification procedures are used to systematically divide features into typologies of growth patterns: exponential growth pattern, stable linear growth, moderate growth patterns, plateau growth characteristic, and gradual linear growth.
-
-\subsection{Forecasting Model Implementation}
-There were three different forecasting methodologies that were used to achieve extensive predictive coverage and methodological triangulation.
-
-The former methodology assumes the use of exponential smoothing with linear trend components, using weighted averaging mechanisms whereby a weight decreasing exponentially on the past observations is applied, and therefore it captures the dynamics of trend momentum. The model fitting processes optimize the parameters used in the smoothing process by smoothing them as a result of statistical estimation processes, producing six months forward predictions and confidence levels.
-
-The second methodology involves the use of autoregressive integrated moving average specifications where autoregressive terms are used to obtain the serial correlation structure, the differentiation terms are used in order to obtain the stationarity and the moving average terms are used in order to obtain the shock persistence. The implementation uses maximum likelihood estimation to optimize the parameters and diagnostic checks are used to verify the residual and model adequacy.
-
-The third methodology gives baseline trend characterization using the ordinary least squares estimation. Temporal indices act as independent variables whereas the measures of demand are dependent variables. Performance measurement utilizes the coefficient of determination statistics, which has always had a value above 0.95 when it comes to features with linear growth patterns.
-
-\subsection{Model Evaluation Framework}
-Strict evaluation procedures use the holdout validation protocol that separates the dataset in terms of training and test parts. Refitting Model Refitting can be considered a process through which all three methodologies are re-trained on training data, producing predictions on the holdout period.
-
-Quantitative measures of performance include root mean square error, which captures an average prediction error in original units, and mean absolute percentage error which gives a scale-independent measure of accuracy in expressed forms given as percentages. Comparative evaluation processes are systematic in evaluating relative performance of model performances, with optimal forecasting methods of particular typologies of growth identified.
-
-The visualization protocols produce comparative plots on top of the real observations and model results and allow visual evaluation of the predictive accuracy and the identification of systematic bias.
-
-\subsection{Comprehensive Feature Forecasting}
-With the methodology validation, the foreseeing processes are also applied to all the five product features with projections of six months in the future. The forecast tables are consolidated to give the projected trends in the demand of all the features and can be used to compare features cross-feature wise and prioritization schemes.
-
-\subsection{Decision Support System Implementation}
-The analytical structure combines quantitative forecasting outputs and strategic decision structures in a systematic manner by mapping. Quantification of growth rate calculates percentage changes over the period of observation which offers empirical values on priority classification. Forecast trend characterization classifies features based on typologies of growth, to guide strategies on resource allocation.
-
-Priority classification entails a multi-tier hierarchy which is based on empirical growth metrics and forecast trajectories. The decision mapping of product design converts quantitative predictions into development strategies that are to be executed, which include resource allocation suggestions, enhancements priorities, user experience enhancement guidelines and lifecycle management guidelines.
-
-\subsection{Strategic Resource Allocation Visualization}
-Minor application Visualization Visualization deployments take the form of proportional allocation charts representing recommended budget allocations based on forecast-based prioritization frameworks. Comparison visualizations of growth rates use ordered bar charts based on which the high-growth features can be identified immediately. Each of the visualizations is based on the same aesthetic principles, making the visuals coherent enough to have visual consistency in the analysis findings.
-
-\subsection{Development Environment and Reproducibility}
-It has been implemented by focusing on reproducibility by ensuring extensive documentation procedures, dependability specification, and modularity in the organization of the code. The environment configuration specifications record all the computational dependencies, which allows the exact reproduction of the analytical processes. Output management procedures methodically structure produced visualization, and there is a regular structure of organization to be utilized in research publications.
-
-Both interactive exploration and batch execution mode of operation is supported with the help of operational procedures that support the varied research workflows and presentation requirements.
-
-\section{Testing and Evaluation}
-
-\subsection{Testing Methodology}
-Testing was not considered as an independent final stage activity, but was conducted throughout the development. Validation procedures were also added in small stages as the system components were put into effect and problems were detected sooner and separately before they could spread throughout the pipeline.
-
-Unit testing was a technique that dealt with accuracy at the unit level. Data cleaning procedures, feature extraction modules and model wrappers were tested based on explicit input-output expectations in addition to failure conditions. The pytest system (Python 3.x) was selected because it was stable and simple to automate, as well as because it fits well within the development cycle of the project.
-
-Introduction testing was concerned with the relationships between components, but not with inner logic. The specific focus was put on the interfaces among the preprocessing pipeline, model training module and API layer because these layers interact through the interchange of intermediate representations, which can be vulnerable to schema or format errors.
-
-The system was tested end-to-end with the help of end-to-end smoke testing, which started with the ingestion of raw data and ended with the visualization output in the browser. These tests were deliberately small and were mainly employed to identify errors in configuration, broken dependencies or surprise runtime failure before deployment.
-
-The testing of the load was also conducted in order to gain a rough idea of the performance properties in non-adversarial conditions. The moderate request volumes also proved to ensure that the API reacted predictably and without instability as well as excessive resource usage.
-
-Regression testing was also an automated process that was performed every time there were new code additions. This made sure that the behaviors already known to be valid during earlier iterations such as prediction outputs and API response formats did not change during later iterations.
-
-\subsection{Test Coverage}
-The test suite was a representative of the problems that were being faced in the development process and not a total coverage of the theoretical edge cases. Malformed data was deliberately provided to the data ingestion to test that graceful errors are reported on missing data attributes and invalid timestamps and unexpected character encodings along with other invalid data are handled gracefully. The extraction of natural language processing features was tested on the inputs of short text and on the inputs with emoji as well as some non-English texts that were found during the data collection process. The training models were tested by having them trained, saved to disk, reloaded and ensuring that the results of inference were still the same after being deserialised. The responses of API were tested with the JSON schema that the frontend was consuming, even the structures of errors that are returned in the event of failure. The large data and empty input testing were conducted on visualization components to evaluate the behavior of frontends in different data conditions.
-
-\subsection{Evaluation Metrics}
-The metrics were based on predictive accuracy and system level behavior.
-
-To measure common deviation in prediction, the Mean Absolute Error (MAE) was employed to the forecasting models, the Root Mean squared error (RMSE) was applied with the aim of punishing bigger errors, and the Mean Absolute Percentage error (MAPE) was employed to compare common deviation across features having uneven numerical scales. Holdout validation was used along with rolling-origin validation in estimating the performance on future and unseen data.
-
-In the case of the overall system, API response latency (with a particular focus on the 95th percentile), request success rates, and memory consumption during inference were tracked in the course of testing.
-
-Regarding the quality of the code, the level of test coverage of the key modules was used as a measure, and the defects that the continuous integration pipeline detects before deployment were counted by the number of development iterations.
-
-\subsection{Continuous Integration}
-All pull requests were automatically executed with the help of GitHub Actions by running the test suite. This involved unit tests, integration tests and a minor model validation step which were also run as part of the CI workflow. In the event of validation that there was a non-trivial reduction in predictive performance, then the relevant pull request was not allowed to be merged without being explicitly reviewed and approved. This method minimized chances of regressions being introduced in the main development branch.
-
-\subsection{Testing Results}
-The ultimate system had a wide coverage of validation in the main areas. Unit testing was used to test data processing and modeling logic, inter-component interfaces were tested by integration testing and frontend rendering was tested by end-to-end smoke testing. There was a focus on reproducibility and operational reliability as opposed to full coverage of uncommon edge cases, and this is a reasonable tradeoff concerning a research-oriented prototype.
-
-\section{Results}
-
-\subsection{Empirical Findings}
-The analytical model provided in-depth information about the feature-specific demand patterns and the forecasting model accuracy over the 48 months duration of data (Jan 2021- December 2024).
-
-\subsection{Individual Feature Demand Patterns}
-The discussion of temporal demand trends showed that there were clear typologies of growth in the five products features under consideration as shown in Figures \ref{fig:ai_trend} to \ref{fig:widgets_trend}.
-
-AI-Powered Features exhibited great exponential developmental trends over the course of observation. Figure \ref{fig:ai_trend} shows that the demand trend started at a level of around 120 monthly observations in January 2021 and expanded to 8,540 observations in December 2024, which is a cumulative growth rate of 7017 percent. The trend shows a steady acceleration without sign of exhaustion of the trend which means that the artificial intelligence potential in productivity platforms continues to grow.
-
-Template Functionality showed constant growth trend linear, being presented in Figure \ref{fig:templates_trend}. The growth in demand was 450 to 960 monthly observations over the period of observation giving a growth rate of 113 percent. The trend illustrates very low volatility and predictable development, which implies that template-based workflows mature as platform constituents.
-
-Automation Capabilities caused significant growth momentum as shown by Figure \ref{fig:automation_trend}. The number of observations increased by 2,510 percent because the monthly demand grew to 7308 out of 280 observations. The trend is characterized by rapid growth in workflow automation functionality, which signifies the emergence of market in the productivity improvement tools.
-
-Database Features exhibited plateau features after early growth phases as indicated by Figure \ref{fig:databases_trend}. The increased demand was insignificantly but positively by 820 to 1,055 monthly observations, which is 29 percent. The trend of stabilization indicates market saturation of basic database functionality.
-
-Widget Components showed slow linear growth paths, as plotted in Figure \ref{fig:widgets_trend}. The monthly demand also improved to 545 observations out of 95 with a growth rate of 474 percent. The average growth is a sign that there is a sustained and constrained usage of customization features.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1a_notion_ai_trend.png}
-\caption{Notion AI feature demand trend showing exponential growth between January 2021 and December 2024 where the demand is expected to grow between about 100 and over 8000. This is the largest growth trend of all the analyzed features.}
-\label{fig:ai_trend}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1b_notion_templates_trend.png}
-\caption{Time dependency demand curve of a template functionality with linear growth stability. The number of monthly observations rose by 450 to 960 over the period of analysis showing a 113 percent growth with low volatility.}
-\label{fig:templates_trend}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1c_notion_automation_trend.png}
-\caption{Automation capabilities that develop significant growth momentum of temporality demand. The monthly demand grew to 280, 7,308 observations, with a growth of 2,510 percent and an indication of faster adoption in the market.}
-\label{fig:automation_trend}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1d_notion_databases_trend.png}
-\caption{Time-varying demand trend of the database features which exhibit plateau features. The number of monthly demands grew slightly by 820 to 1,055 observations (29 percentage point) indicating the risk of market saturation with the core database capability.}
-\label{fig:databases_trend}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1e_notion_widgets_trend.png}
-\caption{Temporal demand path of component (widget) that is showing slow linear demand profile. The monthly observations increased by 95 to 545, which provided 474 percent growth and a sign of consistent yet controlled implementation of customization features.}
-\label{fig:widgets_trend}
-\end{figure}
-
-\subsection{Comparative Demand Analysis}
-Synthesized temporal trajectories of all five product features are available in Figure \ref{fig:comparative_trends}, which allows easy comparison of relative growth dynamics and positioning on the market.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig2_comparative_feature_trends.png}
-\caption{Comparison of the time series that will combine the demand curves of all the features investigated. The AI-based features portray the powerful exponential growth, automation potential portrays significant acceleration, template functionality portrays consistent linear growth, and database and widget features depict humble growth patterns. It is an integrated visualization that explains relative dynamics of growth and shapes resource allocation frameworks on evidence basis.}
-\label{fig:comparative_trends}
-\end{figure}
-
-The comparative analysis shows a strong deviation in growth patterns, and AI-powered features have shown markedly better market expansion compared to all other reviewed capabilities. This factual evidence sets up a quantitative basis of strategic prioritization structures.
-
-\subsection{Forecasting Model Performance}
-Six-month forward projections were carried out with the help of three different approaches to forecasting, and the main emphasis was put on AI-based features, which proved to be important in the sphere of growth. Exponential Smoothing was effective in picking up the momentum properties of exponential growth patterns, which generates projections that continue the observed acceleration patterns into the forecast horizon. The ARIMA modelling technique reconciled the trend elements with the modelling stochastic fluctuations, and integrated both a systematic growth trend and a time variability attribute. Linear Regression was used to provide baseline trend prediction in determining conservative predictions and lower-bound predictions and the coefficient of determination values of more than 0.95 in features with a majority of linear trajectories.
-
-Figure \ref{fig:forecast_comparison} compiles the projections of all three forecasting methodologies, which helps to compare and evaluate the convergence and divergence trends of prediction.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig6_forecast_comparison_all_methods.png}
-\caption{Relative analysis of six-month forward prediction using the Exponential Smoothing, ARIMA, and Linear Regression models on AI-driven features. Even though the individual methodologies result in different quantitative forecasts, all three methods lead to several underlying directional observations: robust long-term growth over the period of the forecast. This takes place in this methodological agreement that enhances belief in strategic resource allocation decisions that are based on forecasting outputs.}
-\label{fig:forecast_comparison}
-\end{figure}
-
-Methodological convergence analysis shows that the absolute projection values differ between methods but all three methods are in agreement that further significant growth in AI-driven feature demand is predicted. The fact that a vast number of forecasting paradigms agree on this fact makes the strategic recommendations based on such projections more reliable. This combination of the approaches, which are based on several methodological views, alleviates the short-comings of individual models and offers strong predictive base of decision-making models.
-
-\subsection{Model Validation Results}
-Stringent validation steps were used in order to estimate predictive accuracy and build confidence on projections into the future. The validation results are demonstrated in Figure \ref{fig:model_eval} and markedly, the model results are compared to actual observations during the holdout test period.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig7_model_evaluation.png}
-\caption{Comparison of the predictions with the actual observations in the last six months of the historical data. The three forecasting methodologies all exhibit reasonable predictive accuracy with the projections being close to the actual values realized. This confirmation assures reliability of models and provides credibility to those forward looking predictions that are used in strategic decision models.}
-\label{fig:model_eval}
-\end{figure}
-
-Quantitative assessment measures were found to show good performance in all the forecasting methodologies. The root mean square error values reflected the difference between prediction and tolerable values ranging to the size of the values observed. The mean error measures of the absolute percent values showed the same accuracy throughout the validation time. The similarity between the anticipated and actual figures during the holdout period supports the soundness of future projection that is used in strategic planning.
-
-\subsection{Strategic Resource Allocation Framework}
-The analytical model transformed the quantitative forecasting results into strategic resource allocation suggestions by using systemic prioritization procedures. The empirical bases and allocation framework are provided in Figures \ref{fig:budget_allocation}, \ref{fig:growth_rates}, and \ref{fig:growth_demand_bubble}.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig8a_resource_allocation.png}
-\caption{Suggested research and development budget allocation model based on forecast-based prioritization analysis. The proportional resource allocation is shown in the horizontal stacked visualization where AI-powered features are assigned 40 percent of the resource allocation due to an experienced exponential growth, automation capabilities are given 25 percent due to strong growth momentum, template functionality is given 15 percent due to stability in demand maintenance, and the widget components are given 5 percent due to observed growth patterns.}
-\label{fig:budget_allocation}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig8b_growth_rates.png}
-\caption{Quantification of growth rate of the features by feature over the entire duration of observation (2021-2024). The horizontal visualization is able to compare the features directly. The cumulative growth of AI-powered functions is 7,017 percent, proving the priority in resource allocation schemes. Automation features show a growth of 2,510 per cent and it requires significant investment. Template functionality records 113\% steady growth, database functionality records 29\% steady growth which reflects maturation, and widgets record 474\% steady growth which reflects maturation. This empirical ranking provides quantitative principles of strategic resources allocation.}
-\label{fig:growth_rates}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig8c_growth_demand_bubble.png}
-\caption{Multidimensional visualization that combines growth trajectories, the level of demand, and the average demand trends of all the features under investigation. Bubble positioning is an indicator of growth rate (horizontal axis) and the current demand level (vertical axis), with bubble size being an indicator of the average demand during the time period of observation. The combined visualization shows that AI-powered features have the highest growth rate, maximum current demand, and significant average utilization at once-having an exhaustive empirical basis of prioritizing resources. Automation capabilities reflect great growth potential with moderate current demand which indicates opportunity potential. Database and template features provide a slight increase with consistent demand trend whereas the widget components demonstrate controlled adoption in all measures.}
-\label{fig:growth_demand_bubble}
-\end{figure}
-
-The allocation system implements the intuition to forecast by the proportional and distributed resources based on the growth pathways and strategic potential. As shown in Figure \ref{fig:budget_allocation} AI-powered features will get 40 percent of development resources, which is in line with its 7,017 percent growth (Figure \ref{fig:growth_rates}) and future growth projections. Figures \ref{fig:budget_allocation}, \ref{fig:growth_rates}, and \ref{fig:growth_demand_bubble} provide further proof of this prioritization by showing that AI features are concurrently characterized by the highest growth rate, the maximum current demand and large average utilization during the period of observation. The automation capabilities should receive 25\% allocation because of the 2,510\% growth and increasing adoption trends, and the bubble visualization shows that there is a high momentum in growth with moderate presence of demand. Template functionality is rated at 15 percent on the maintenance of quality and incremental improvement. Database characteristics receive 15 percent on stability retention and trial and error. All is reflected to 5\% of the actual adoption trajectory of any particular widget component across all the dimensions of analysis.
-
-\subsection{Hypothesis Validation}
-The main hypothesis of this study was that the demand forecasting techniques can be used to give actionable intelligence in the product design decision making processes. This suggestion is supported substantively by the empirical analysis in several converging pieces of evidence.
-
-To start with, capabilities that show strong demand growth trends, especially AI-enhanced ones, were prioritized systematically in the framework of analytical process, which sets a direct connection between quantitative indicators of demand and a strategic classification. Second, the temporal forecasting models enabled a satisfactory predictive accuracy of validation datasets and the models could be used in forward-looking planning, as opposed to their application in purely historical analysis. Third and most importantly the framework was able to convert the numerical forecast outputs into tangible and practical strategic advice, closing the conceptual divide between statistical analysis and operational decision-making.
-
-The predictive regularity between empirical demand trends, forecast paths and subsequent product development decisions prove that quantitative forecasting procedures can actually inform and organise product development decisions in a scientific, evidence based way. This justifies the essence of the argument that the art of demand forecasting is a good strategic practice of managing software product and not a mere analytical process.
-
-\subsection{Methodological Insights}
-Comparison model performance analysis showed that, ensemble models that combine more than one forecasting model result in better reliability than single model reliance. As much as single models showed diversity in strengths, with Exponential Smoothing modeling the dynamics of acceleration, ARIMA modeling temporal dynamics, and the Linear Regression modeling the base trend, the combination of diverse methodological views weakened the individual model, and made the overall predictive power stronger.
-
-The jointness of predictions made in methodologically diverse methods increased the confidence in strategic advice given because there was directional consensus even though the absolute projections were varied in a quantitative measure. This triangulation methodology would be most useful in high stakes strategic decisions where uncertainty of the forecasts justified the conservative management of risk.
-
-\subsection{Practical Implications}
-The analysis framework creates a definite actionable information on the development of the products in terms of priority:
-
-AI-Powered Features: The requirements of exponential increase in demand lead to immediate increase in resources. The strategic priorities are faster feature development, better optimization of user interface, improvement of performance, and high position in product architecture. The 40 percent resource allocation indicates the historical growth which has been experienced and the estimated growth.
-
-Automation Capabilities: The high growth momentum would be a reason to pay much attention to investment. The priorities of development include the expansion of workflow automation, development of the integration ecosystem, and simplification of the user experience. The 25 percent allocation is a compromise between current growth evidence and strategic positioning opportunities.
-
-Template Functionality: The stable demand patterns present mature feature status. Strategic approach is more of quality preservation and incremental improvement but not redesign comprehension. The 15 percent budget facilitates long-term greatness with respect to traditional functionality.
-
-Database Characteristics Plateau characteristics are an indication of market saturation in core functionality. The strategic emphasis switches to stability guarantees, performance management and maintenance activities as opposed to significant feature expansion. The 15 percent quota is more competitive without any pull-out of resources on better growth prospects.
-
-Widget Components: Mature growth patterns require no significant resource investment to follow them. Strategic approach does not change functionality, but considers the opportunity of niche use cases and possible ecosystem partners. The 5% allocation is the adoption trajectory and the strategic uncertainty.
-
-These context-based strategic recommendations show that the framework can inform the translation of quantitative analysis of demands into sensitive, context-specific product development recommendations, thus attaining the research goal of relating the forecasting methods to design choice.
-
-% Discussion Section
-
-\section{Discussion}
-
-Part of this paper explains how the results have been interpreted.
-The main conclusion is that the integration of several sources of data and other forecasting techniques would lead to more accurate guidance than basing on a single one. Predictions also showed better robustness among various features when the signals of search trends and review sentiment as well as the utilization patterns are merged. Certain characteristics react to interest cycles on the short run and some to ones on the long term--the ensemble methodology covered both in a successful way.
-
-The visualization element also showed high value. The availability of the prediction sources and degree of confidence to the stakeholders decreased the view of the system as opaque. The respondents who were in charge of making decisions were more willing to take action on predictions in the case that the reasoning behind the predictions was made visible.
-
-\subsection{Limitations Encountered}
-There were a number of restrictions experienced in this study.
-
-Heterogeneity of data sources was a problem. Google Trends is monthly aggregated, app reviews have the exact timestamps, and metadata had gaps in between. Monthly alignment took more effort than it was initially expected.
-
-It required flexibility due to the variation in the behavior of features. There were some features that portrayed obvious seasonal trends and those that displayed steady trends. None of the models was optimal in all cases--the various features needed different treatment of analysis.
-
-There was a lack of time to be thorough. Hyperparameter tuning and load testing would have been useful to add additional cycles, but schedule limitations set by project timelines were present.
-
-\subsection{Mitigation Strategies}
-The adaptive strategies were used when there were difficulties.
-
-In conditions of data alignment, close preprocessing procedures were created and all assumptions were recorded to provide transparency to the code reviewers. The ensemble approach was chosen instead of trying to determine one best model where the validation performance is used to determine the weight of each model. Since testing time was limited, proper testing and retesting were emphasized rather than comprehensive performance benchmarking. A system that was dependable on generating reliable results was desired as opposed to a system that was fast but likely to create errors.
-
-\subsection{Lessons Learned}
-A number of lessons came out of this work. To begin with, defining data contracts upfront avoids significant integration challenges, as when everyone is certain about input and output requirements, integration is easier. Second, the construction of modular systems ensured that it was easy to change a model without having to do any radical refactoring. Third, testing during the initial stages, instead of converting them into tests at the end of project construction was used to detect faults before they accumulated.
-
-\section{Future Work and Improvements}
-
-The prototype already shows evidence of the concept, but there is a lot of room on stronger robustness and usability.
-
-Other sources of data are also available.
-The existing application uses Google Trends, the reviews of the apps, and simple metadata. Richness of data would be enhanced which would increase the accuracy of prediction. It may be used in the future in the form of social media discussions in which users share their thoughts on different productivity tools and workflow issues on platforms like Twitter, Reddit, and LinkedIn. Community activity: Community forum: Community boards on official Notion, Product hunt threads where early adopters post raw feedback are also a source of value. The rival product feature launches and subsequent changes in the general interest would offer more context through the competitor monitoring systems tracking their launches.
-
-The sophisticated model making techniques are discussed.
-The statistical procedures used have been over fifty years old and still sound. The modern methods, however, may increase accuracy. LSTM neural network architectures or Transformer neural networks have been shown to be strong when it comes to learning intricate time series. Inferential causal models may be useful in differentiating real causal laws and correlation laws. The predictions streaming systems may also be used to update predictions without following a batch processing cycle.
-
-\subsection{Production Deployment}
-The strategies that can be successfully applied in a research setting might not withstand the exposure to the actual users. There would be a need of appropriate infrastructures required to support spurring up of traffic such as proper caching, load balancing, and database optimization. There would be a necessity of automated pipelines to tell when a given model drifts off reality and causes retraining before predictions become stale. Security features such as role-based permissions and advanced audit trails would be necessary on an enterprise-level.
-
-\subsection{Dashboard Enhancement}
-The existing interface is simple in nature and product managers might need more features. Individual alert systems can be used to make teams aware when critical metrics pass large values. Scenario planning tools might allow the analysis of what-if analysis of how various decisions would impact the results. Build-in connectivity with project management systems like Jira or Linear would possibly allow insights to be pushed right into the sprint planning processes.
-
-\subsection{Generalization Beyond Notion}
-This means that certain concepts can be extended to other concepts, in general. This study has focused on one product in detail. In order to define the framework reliability, the repeatability of patterns should be employed to various SaaS products in the future. The cases that could be compared with the actual adoption metrics on the predictions would allow the measurement of actual accuracy. The testability of the tool to improve the quality of the decision-making process would be measured by user studies involving real product managers.
-
+\subsection{Types of Graphics}
+The following list outlines the different types of graphics published in 
+IEEE journals. They are categorized based on their construction, and use of 
+color/shades of gray:
+
+\subsubsection{Color/Grayscale figures}
+{Figures that are meant to appear in color, or shades of black/gray. Such 
+figures may include photographs, illustrations, multicolor graphs, and 
+flowcharts.}
+
+\subsubsection{Line Art figures}
+{Figures that are composed of only black lines and shapes. These figures 
+should have no shades or half-tones of gray, only black and white.}
+
+\subsubsection{Author photos}
+{Head and shoulders shots of authors that appear at the end of our papers. }
+
+\subsubsection{Tables}
+{Data charts which are typically black and white, but sometimes include 
+color.}
+
+\begin{table}
+\caption{Units for Magnetic Properties}
+\label{table}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{25pt}|p{75pt}|p{115pt}|}
+\hline
+Symbol& 
+Quantity& 
+Conversion from Gaussian and \par CGS EMU to SI $^{\mathrm{a}}$ \\
+\hline
+$\Phi $& 
+magnetic flux& 
+1 Mx $\to  10^{-8}$ Wb $= 10^{-8}$ V$\cdot $s \\
+$B$& 
+magnetic flux density, \par magnetic induction& 
+1 G $\to  10^{-4}$ T $= 10^{-4}$ Wb/m$^{2}$ \\
+$H$& 
+magnetic field strength& 
+1 Oe $\to  10^{3}/(4\pi )$ A/m \\
+$m$& 
+magnetic moment& 
+1 erg/G $=$ 1 emu \par $\to 10^{-3}$ A$\cdot $m$^{2} = 10^{-3}$ J/T \\
+$M$& 
+magnetization& 
+1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 10^{3}$ A/m \\
+4$\pi M$& 
+magnetization& 
+1 G $\to  10^{3}/(4\pi )$ A/m \\
+$\sigma $& 
+specific magnetization& 
+1 erg/(G$\cdot $g) $=$ 1 emu/g $\to $ 1 A$\cdot $m$^{2}$/kg \\
+$j$& 
+magnetic dipole \par moment& 
+1 erg/G $=$ 1 emu \par $\to 4\pi \times  10^{-10}$ Wb$\cdot $m \\
+$J$& 
+magnetic polarization& 
+1 erg/(G$\cdot $cm$^{3}) =$ 1 emu/cm$^{3}$ \par $\to 4\pi \times  10^{-4}$ T \\
+$\chi , \kappa $& 
+susceptibility& 
+1 $\to  4\pi $ \\
+$\chi_{\rho }$& 
+mass susceptibility& 
+1 cm$^{3}$/g $\to  4\pi \times  10^{-3}$ m$^{3}$/kg \\
+$\mu $& 
+permeability& 
+1 $\to  4\pi \times  10^{-7}$ H/m \par $= 4\pi \times  10^{-7}$ Wb/(A$\cdot $m) \\
+$\mu_{r}$& 
+relative permeability& 
+$\mu \to \mu_{r}$ \\
+$w, W$& 
+energy density& 
+1 erg/cm$^{3} \to  10^{-1}$ J/m$^{3}$ \\
+$N, D$& 
+demagnetizing factor& 
+1 $\to  1/(4\pi )$ \\
+\hline
+\multicolumn{3}{p{251pt}}{Vertical lines are optional in tables. Statements that serve as captions for 
+the entire table do not need footnote letters. }\\
+\multicolumn{3}{p{251pt}}{$^{\mathrm{a}}$Gaussian units are the same as cg emu for magnetostatics; Mx 
+$=$ maxwell, G $=$ gauss, Oe $=$ oersted; Wb $=$ weber, V $=$ volt, s $=$ 
+second, T $=$ tesla, m $=$ meter, A $=$ ampere, J $=$ joule, kg $=$ 
+kilogram, H $=$ henry.}
+\end{tabular}
+\label{tab1}
+\end{table}
+
+\subsection{Multipart figures}
+Figures compiled of more than one sub-figure presented side-by-side, or 
+stacked. If a multipart figure is made up of multiple figure
+types (one part is lineart, and another is grayscale or color) the figure 
+should meet the stricter guidelines.
+
+\subsection{File Formats For Graphics}\label{formats}
+Format and save your graphics using a suitable graphics processing program 
+that will allow you to create the images as PostScript (PS), Encapsulated 
+PostScript (.EPS), Tagged Image File Format (.TIFF), Portable Document 
+Format (.PDF), Portable Network Graphics (.PNG), or Metapost (.MPS), sizes them, and adjusts 
+the resolution settings. When 
+submitting your final paper, your graphics should all be submitted 
+individually in one of these formats along with the manuscript.
+
+\subsection{Sizing of Graphics}
+Most charts, graphs, and tables are one column wide (3.5 inches/88 
+millimeters/21 picas) or page wide (7.16 inches/181 millimeters/43 
+picas). The maximum depth a graphic can be is 8.5 inches (216 millimeters/54
+picas). When choosing the depth of a graphic, please allow space for a 
+caption. Figures can be sized between column and page widths if the author 
+chooses, however it is recommended that figures are not sized less than 
+column width unless when necessary. 
+
+There is currently one publication with column measurements that do not 
+coincide with those listed above. Proceedings of the IEEE has a column 
+measurement of 3.25 inches (82.5 millimeters/19.5 picas). 
+
+The final printed size of author photographs is exactly
+1 inch wide by 1.25 inches tall (25.4 millimeters$\,\times\,$31.75 millimeters/6 
+picas$\,\times\,$7.5 picas). Author photos printed in editorials measure 1.59 inches 
+wide by 2 inches tall (40 millimeters$\,\times\,$50 millimeters/9.5 picas$\,\times\,$12 
+picas).
+
+\subsection{Resolution }
+The proper resolution of your figures will depend on the type of figure it 
+is as defined in the ``Types of Figures'' section. Author photographs, 
+color, and grayscale figures should be at least 300dpi. Line art, including 
+tables should be a minimum of 600dpi.
+
+\subsection{Vector Art}
+In order to preserve the figures' integrity across multiple computer 
+platforms, we accept files in the following formats: .EPS/.PDF/.PS. All 
+fonts must be embedded or text converted to outlines in order to achieve the 
+best-quality results.
+
+\subsection{Color Space}
+The term color space refers to the entire sum of colors that can be 
+represented within the said medium. For our purposes, the three main color 
+spaces are Grayscale, RGB (red/green/blue) and CMYK 
+(cyan/magenta/yellow/black). RGB is generally used with on-screen graphics, 
+whereas CMYK is used for printing purposes.
+
+All color figures should be generated in RGB or CMYK color space. Grayscale 
+images should be submitted in Grayscale color space. Line art may be 
+provided in grayscale OR bitmap colorspace. Note that ``bitmap colorspace'' 
+and ``bitmap file format'' are not the same thing. When bitmap color space 
+is selected, .TIF/.TIFF/.PNG are the recommended file formats.
+
+\subsection{Accepted Fonts Within Figures}
+When preparing your graphics IEEE suggests that you use of one of the 
+following Open Type fonts: Times New Roman, Helvetica, Arial, Cambria, and 
+Symbol. If you are supplying EPS, PS, or PDF files all fonts must be 
+embedded. Some fonts may only be native to your operating system; without 
+the fonts embedded, parts of the graphic may be distorted or missing.
+
+A safe option when finalizing your figures is to strip out the fonts before 
+you save the files, creating ``outline'' type. This converts fonts to 
+artwork what will appear uniformly on any screen.
+
+\subsection{Using Labels Within Figures}
+
+\subsubsection{Figure Axis labels }
+Figure axis labels are often a source of confusion. Use words rather than 
+symbols. As an example, write the quantity ``Magnetization,'' or 
+``Magnetization M,'' not just ``M.'' Put units in parentheses. Do not label 
+axes only with units. As in Fig. 1, for example, write ``Magnetization 
+(A/m)'' or ``Magnetization (A$\cdot$m$^{-1}$),'' not just ``A/m.'' Do not label axes with a ratio of quantities and 
+units. For example, write ``Temperature (K),'' not ``Temperature/K.'' 
+
+Multipliers can be especially confusing. Write ``Magnetization (kA/m)'' or 
+``Magnetization (10$^{3}$ A/m).'' Do not write ``Magnetization 
+(A/m)$\,\times\,$1000'' because the reader would not know whether the top 
+axis label in Fig. 1 meant 16000 A/m or 0.016 A/m. Figure labels should be 
+legible, approximately 8 to 10 point type.
+
+\subsubsection{Subfigure Labels in Multipart Figures and Tables}
+Multipart figures should be combined and labeled before final submission. 
+Labels should appear centered below each subfigure in 8 point Times New 
+Roman font in the format of (a) (b) (c). 
+
+\subsection{File Naming}
+Figures (line artwork or photographs) should be named starting with the 
+first 5 letters of the author's last name. The next characters in the 
+filename should be the number that represents the sequential 
+location of this image in your article. For example, in author 
+``Anderson's'' paper, the first three figures would be named ander1.tif, 
+ander2.tif, and ander3.ps.
+
+Tables should contain only the body of the table (not the caption) and 
+should be named similarly to figures, except that `.t' is inserted 
+in-between the author's name and the table number. For example, author 
+Anderson's first three tables would be named ander.t1.tif, ander.t2.ps, 
+ander.t3.eps.
+
+Author photographs should be named using the first five characters of the 
+pictured author's last name. For example, four author photographs for a 
+paper may be named: oppen.ps, moshc.tif, chen.eps, and duran.pdf.
+
+If two authors or more have the same last name, their first initial(s) can 
+be substituted for the fifth, fourth, third$\ldots$ letters of their surname 
+until the degree where there is differentiation. For example, two authors 
+Michael and Monica Oppenheimer's photos would be named oppmi.tif, and 
+oppmo.eps.
+
+\subsection{Referencing a Figure or Table Within Your Paper}
+When referencing your figures and tables within your paper, use the 
+abbreviation ``Fig.'' even at the beginning of a sentence. Do not abbreviate 
+``Table.'' Tables should be numbered with Roman Numerals.
+
+\subsection{Checking Your Figures: The IEEE Graphics Analyzer}
+The IEEE Graphics Analyzer enables authors to pre-screen their graphics for 
+compliance with IEEE Access standards before submission. 
+The online tool, located at
+\underline{http://graphicsqc.ieee.org/}, allows authors to 
+upload their graphics in order to check that each file is the correct file 
+format, resolution, size and colorspace; that no fonts are missing or 
+corrupt; that figures are not compiled in layers or have transparency, and 
+that they are named according to the IEEE Access naming 
+convention. At the end of this automated process, authors are provided with 
+a detailed report on each graphic within the web applet, as well as by 
+email.
+
+For more information on using the Graphics Analyzer or any other graphics 
+related topic, contact the IEEE Graphics Help Desk by e-mail at 
+graphics@ieee.org.
+
+\subsection{Submitting Your Graphics}
+Because IEEE will do the final formatting of your paper,
+you do not need to position figures and tables at the top and bottom of each 
+column. In fact, all figures, figure captions, and tables can be placed at 
+the end of your paper. In addition to, or even in lieu of submitting figures 
+within your final manuscript, figures should be submitted individually, 
+separate from the manuscript in one of the file formats listed above in 
+Section \ref{formats}. Place figure captions below the figures; place table titles 
+above the tables. Please do not include captions as part of the figures, or 
+put them in ``text boxes'' linked to the figures. Also, do not place borders 
+around the outside of your figures.
+
+\subsection{Color Processing/Printing in IEEE Journals}
+All IEEE Transactions, Journals, and Letters allow an author to publish 
+color figures on IEEE Xplore\textregistered\ at no charge, and automatically 
+convert them to grayscale for print versions. In most journals, figures and 
+tables may alternatively be printed in color if an author chooses to do so. 
+Please note that this service comes at an extra expense to the author. If 
+you intend to have print color graphics, include a note with your final 
+paper indicating which figures or tables you would like to be handled that 
+way, and stating that you are willing to pay the additional fee.
 
 \section{Conclusion}
+A conclusion section is not required. Although a conclusion may review the 
+main points of the paper, do not replicate the abstract as the conclusion. A 
+conclusion might elaborate on the importance of the work or suggest 
+applications and extensions. 
 
-As part of this study, the research question was whether publicly available data can give enough information about the demand of features to assist product team decision-making. Once the framework had been worked out, the forecasts had been carried out and compared with the actual trends, the evidence points towards the affirmative conclusion, with certain proper caveats.
+\appendices
 
-With the empirical case study of Notion, this research showed that the signals of search interest, review sentiment and patterns of feature mention hold valuable information on demand patterns. Coherent patterns were discovered when applying forecasting models to such features as Notion AI, templates, and workflow automation. The exponential growth pattern observed with the AI capabilities is in line with the available technological trends. Templates had uniform and trusted demand---a basic feature with predictable reliance on the user. The interest in automation rose at a slower rate, following larger trends in the productivity software industry.
+Appendixes, if needed, appear before the acknowledgment.
 
-These predictions have a practical value because they are coupled to design decisions. It is not useful predicting that the interest in Notion AI will increase by 30\% next quarter. How the action product teams should react to that information is the substantive question. That question is answered in this framework because forecast trajectories are converted into recommendations---prioritize this feature, maintain that one, reconsider this other. It acts as an intermediary between product management activities and the output of data science.
+\section*{Acknowledgment}
 
-It is appropriate to give honest recognition to limitations. This framework fails to cover every situation. Any forecast can be nullified due to unexpected changes in the market, unanticipated competitive action, or outbreaks. External data is a proxy and not a measure of how active the internal users base is. The models that are used though valid have no predictive magic and this means that they will work best when historical patterns are there which is not always the case.
+The preferred spelling of the word ``acknowledgment'' in American English is 
+without an ``e'' after the ``g.'' Use the singular heading even if you have 
+many acknowledgments. Avoid expressions such as ``One of us (S.B.A.) would 
+like to thank $\ldots$ .'' Instead, write ``F. A. Author thanks $\ldots$ .'' In most 
+cases, sponsor and financial support acknowledgments are placed in the 
+unnumbered footnote on the first page, not here.
 
-However, the bigger picture is that there is. The use of proprietary analytics infrastructure is not a requirement in the incorporation of data in feature prioritization processes. Google Trends can be used by smaller teams and startups, as well as individual researchers, to analyze app reviews and create forecasting models. The tools exist. What was lacking before was a framework that shows how to combine these elements when it comes to decision making of SaaS products. Such is the contribution that this work makes.
+\section*{References and Footnotes}
 
-In future, the use of demand forecasting will probably become a more usual activity in software development. With the market of the SaaS becoming increasingly more competitive, and the user demands ever-growing, the foresight of understanding the user needs, as opposed to the response to the existing feedback, is a competitive edge. This paper is an attempt to offer product teams a platform on which to build that capacity. The key point to note is that it is important to study the future demand just as much as it is important to study the present behaviour. Through forecasting in the product development cycle, the organisation is able to create features that predict user needs instead of gearing features to it. This is a better way of developing software.
+\subsection{References}
+References need not be cited in text. When they are, they appear on the 
+line, in square brackets, inside the punctuation. Multiple references are 
+each numbered with separate brackets. When citing a section in a book, 
+please give the relevant page numbers. In text, refer simply to the 
+reference number. Do not use ``Ref.'' or ``reference'' except at the 
+beginning of a sentence: ``Reference \cite{b3} shows $\ldots$ .'' Please do not use 
+automatic endnotes in \emph{Word}, rather, type the reference list at the end of the 
+paper using the ``References'' style.
 
+Reference numbers are set flush left and form a column of their own, hanging 
+out beyond the body of the reference. The reference numbers are on the line, 
+enclosed in square brackets. In all references, the given name of the author 
+or editor is abbreviated to the initial only and precedes the last name. Use 
+them all; use \emph{et al.} only if names are not given. Use commas around Jr., 
+Sr., and III in names. Abbreviate conference titles. When citing IEEE 
+transactions, provide the issue number, page range, volume number, year, 
+and/or month if available. When referencing a patent, provide the day and 
+the month of issue, or application. References may not include all 
+information; please obtain and include relevant information. Do not combine 
+references. There must be only one reference with each number. If there is a 
+URL included with the print reference, it can be included at the end of the 
+reference. 
+
+Other than books, capitalize only the first word in a paper title, except 
+for proper nouns and element symbols. For papers published in translation 
+journals, please give the English citation first, followed by the original 
+foreign-language citation See the end of this document for formats and 
+examples of common references. For a complete discussion of references and 
+their formats, see the IEEE style manual at
+\underline{http://www.ieee.org/authortools}.
+
+\subsection{Footnotes}
+Number footnotes separately in superscript numbers.\footnote{It is recommended that footnotes be avoided (except for 
+the unnumbered footnote with the receipt date on the first page). Instead, 
+try to integrate the footnote information into the text.} Place the actual 
+footnote at the bottom of the column in which it is cited; do not put 
+footnotes in the reference list (endnotes). Use letters for table footnotes 
+(see Table \ref{table}).
+
+\section{Submitting Your Paper for Review}
+
+\subsection{Final Stage}
+When you submit your final version (after your paper has been accepted), 
+print it in two-column format, including figures and tables. You must also 
+send your final manuscript on a disk, via e-mail, or through a Web 
+manuscript submission system as directed by the society contact. You may use 
+\emph{Zip} for large files, or compress files using \emph{Compress, Pkzip, Stuffit,} or \emph{Gzip.} 
+
+Also, send a sheet of paper or PDF with complete contact information for all 
+authors. Include full mailing addresses, telephone numbers, fax numbers, and 
+e-mail addresses. This information will be used to send each author a 
+complimentary copy of the journal in which the paper appears. In addition, 
+designate one author as the ``corresponding author.'' This is the author to 
+whom proofs of the paper will be sent. Proofs are sent to the corresponding 
+author only.
+
+\subsection{Review Stage Using ScholarOne\textregistered\ Manuscripts}
+Contributions to the Transactions, Journals, and Letters may be submitted 
+electronically on IEEE's on-line manuscript submission and peer-review 
+system, ScholarOne\textregistered\ Manuscripts. You can get a listing of the 
+publications that participate in ScholarOne at 
+\underline{http://www.ieee.org/publications\_standards/publications/}\break\underline{authors/authors\_submission.html}.
+First check if you have an existing account. If there is none, please create 
+a new account. After logging in, go to your Author Center and click ``Submit 
+First Draft of a New Manuscript.'' 
+
+Along with other information, you will be asked to select the subject from a 
+pull-down list. Depending on the journal, there are various steps to the 
+submission process; you must complete all steps for a complete submission. 
+At the end of each step you must click ``Save and Continue''; just uploading 
+the paper is not sufficient. After the last step, you should see a 
+confirmation that the submission is complete. You should also receive an 
+e-mail confirmation. For inquiries regarding the submission of your paper on 
+ScholarOne Manuscripts, please contact oprs-support@ieee.org or call +1 732 
+465 5861.
+
+ScholarOne Manuscripts will accept files for review in various formats. 
+Please check the guidelines of the specific journal for which you plan to 
+submit.
+
+You will be asked to file an electronic copyright form immediately upon 
+completing the submission process (authors are responsible for obtaining any 
+security clearances). Failure to submit the electronic copyright could 
+result in publishing delays later. You will also have the opportunity to 
+designate your article as ``open access'' if you agree to pay the IEEE open 
+access fee. 
+
+\subsection{Final Stage Using ScholarOne Manuscripts}
+Upon acceptance, you will receive an email with specific instructions 
+regarding the submission of your final files. To avoid any delays in 
+publication, please be sure to follow these instructions. Most journals 
+require that final submissions be uploaded through ScholarOne Manuscripts, 
+although some may still accept final submissions via email. Final 
+submissions should include source files of your accepted manuscript, high 
+quality graphic files, and a formatted pdf file. If you have any questions 
+regarding the final submission process, please contact the administrative 
+contact for the journal. 
+
+In addition to this, upload a file with complete contact information for all 
+authors. Include full mailing addresses, telephone numbers, fax numbers, and 
+e-mail addresses. Designate the author who submitted the manuscript on 
+ScholarOne Manuscripts as the ``corresponding author.'' This is the only 
+author to whom proofs of the paper will be sent. 
+
+\subsection{Copyright Form}
+Authors must submit an electronic IEEE Copyright Form (eCF) upon submitting 
+their final manuscript files. You can access the eCF system through your 
+manuscript submission system or through the Author Gateway. You are 
+responsible for obtaining any necessary approvals and/or security 
+clearances. For additional information on intellectual property rights, 
+visit the IEEE Intellectual Property Rights department web page at 
+\underline{http://www.ieee.org/publications\_standards/publications/}\break\underline{rights/index.html}. 
+
+\section{IEEE Publishing Policy}
+The general IEEE policy requires that authors should only submit original 
+work that has neither appeared elsewhere for publication, nor is under 
+review for another refereed publication. The submitting author must disclose 
+all prior publication(s) and current submissions when submitting a 
+manuscript. Do not publish ``preliminary'' data or results. The submitting 
+author is responsible for obtaining agreement of all coauthors and any 
+consent required from employers or sponsors before submitting an article. 
+The IEEE Access Department strongly discourages courtesy 
+authorship; it is the obligation of the authors to cite only relevant prior 
+work.
+
+The IEEE Access Department does not publish conference 
+records or proceedings, but can publish articles related to conferences that 
+have undergone rigorous peer review. Minimally, two reviews are required for 
+every article submitted for peer review.
+
+\section{Publication Principles}
+The two types of contents of that are published are; 1) peer-reviewed and 2) 
+archival. The Access Department publishes scholarly 
+articles of archival value as well as tutorial expositions and critical 
+reviews of classical subjects and topics of current interest. 
+
+Authors should consider the following points:
+
+\begin{enumerate}
+\item Technical papers submitted for publication must advance the state of knowledge and must cite relevant prior work. 
+\item The length of a submitted paper should be commensurate with the importance, or appropriate to the complexity, of the work. For example, an obvious extension of previously published work might not be appropriate for publication or might be adequately treated in just a few pages.
+\item Authors must convince both peer reviewers and the editors of the scientific and technical merit of a paper; the standards of proof are higher when extraordinary or unexpected results are reported. 
+\item Because replication is required for scientific progress, papers submitted for publication must provide sufficient information to allow readers to perform similar experiments or calculations and 
+use the reported results. Although not everything need be disclosed, a paper 
+must contain new, useable, and fully described information. For example, a 
+specimen's chemical composition need not be reported if the main purpose of 
+a paper is to introduce a new measurement technique. Authors should expect 
+to be challenged by reviewers if the results are not supported by adequate 
+data and critical details.
+\item Papers that describe ongoing work or announce the latest technical achievement, which are suitable for presentation at a professional conference, may not be appropriate for publication.
+\end{enumerate}
+
+\section{Reference Examples}
+
+\begin{itemize}
+
+\item \emph{Basic format for books:}\\
+J. K. Author, ``Title of chapter in the book,'' in \emph{Title of His Published Book, x}th ed. City of Publisher, (only U.S. State), Country: Abbrev. of Publisher, year, ch. $x$, sec. $x$, pp. \emph{xxx--xxx.}\\
+See \cite{b1,b2}.
+
+\item \emph{Basic format for periodicals:}\\
+J. K. Author, ``Name of paper,'' \emph{Abbrev. Title of Periodical}, vol. \emph{x, no}. $x, $pp\emph{. xxx--xxx, }Abbrev. Month, year, DOI. 10.1109.\emph{XXX}.123456.\\
+See \cite{b3}--\cite{b5}.
+
+\item \emph{Basic format for reports:}\\
+J. K. Author, ``Title of report,'' Abbrev. Name of Co., City of Co., Abbrev. State, Country, Rep. \emph{xxx}, year.\\
+See \cite{b6,b7}.
+
+\item \emph{Basic format for handbooks:}\\
+\emph{Name of Manual/Handbook, x} ed., Abbrev. Name of Co., City of Co., Abbrev. State, Country, year, pp. \emph{xxx--xxx.}\\
+See \cite{b8,b9}.
+
+\item \emph{Basic format for books (when available online):}\\
+J. K. Author, ``Title of chapter in the book,'' in \emph{Title of
+Published Book}, $x$th ed. City of Publisher, State, Country: Abbrev.
+of Publisher, year, ch. $x$, sec. $x$, pp. \emph{xxx--xxx}. [Online].
+Available: \underline{http://www.web.com}\\
+See \cite{b10}--\cite{b13}.
+
+\item \emph{Basic format for journals (when available online):}\\
+J. K. Author, ``Name of paper,'' \emph{Abbrev. Title of Periodical}, vol. $x$, no. $x$, pp. \emph{xxx--xxx}, Abbrev. Month, year. Accessed on: Month, Day, year, DOI: 10.1109.\emph{XXX}.123456, [Online].\\
+See \cite{b14}--\cite{b16}.
+
+\item \emph{Basic format for papers presented at conferences (when available online): }\\
+J.K. Author. (year, month). Title. presented at abbrev. conference title. [Type of Medium]. Available: site/path/file\\
+See \cite{b17}.
+
+\item \emph{Basic format for reports and handbooks (when available online):}\\
+J. K. Author. ``Title of report,'' Company. City, State, Country. Rep. no., (optional: vol./issue), Date. [Online] Available: site/path/file\\
+See \cite{b18,b19}.
+
+\item \emph{Basic format for computer programs and electronic documents (when available online): }\\
+Legislative body. Number of Congress, Session. (year, month day). \emph{Number of bill or resolution}, \emph{Title}. [Type of medium]. Available: site/path/file\\
+\textbf{\emph{NOTE: }ISO recommends that capitalization follow the accepted practice for the language or script in which the information is given.}\\
+See \cite{b20}.
+
+\item \emph{Basic format for patents (when available online):}\\
+Name of the invention, by inventor's name. (year, month day). Patent Number [Type of medium]. Available: site/path/file\\
+See \cite{b21}.
+
+\item \emph{Basic format}\emph{for conference proceedings (published):}\\
+J. K. Author, ``Title of paper,'' in \emph{Abbreviated Name of Conf.}, City of Conf., Abbrev. State (if given), Country, year, pp. \emph{xxxxxx.}\\
+See \cite{b22}.
+
+\item \emph{Example for papers presented at conferences (unpublished):}\\
+See \cite{b23}.
+
+\item \emph{Basic format for patents}$:$\\
+J. K. Author, ``Title of patent,'' U.S. Patent \emph{x xxx xxx}, Abbrev. Month, day, year.\\
+See \cite{b24}.
+
+\item \emph{Basic format for theses (M.S.) and dissertations (Ph.D.):}
+\begin{enumerate}
+\item J. K. Author, ``Title of thesis,'' M.S. thesis, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
+\item J. K. Author, ``Title of dissertation,'' Ph.D. dissertation, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
+\end{enumerate}
+See \cite{b25,b26}.
+
+\item \emph{Basic format for the most common types of unpublished references:}
+\begin{enumerate}
+\item J. K. Author, private communication, Abbrev. Month, year.
+\item J. K. Author, ``Title of paper,'' unpublished.
+\item J. K. Author, ``Title of paper,'' to be published.
+\end{enumerate}
+See \cite{b27}--\cite{b29}.
+
+\item \emph{Basic formats for standards:}
+\begin{enumerate}
+\item \emph{Title of Standard}, Standard number, date.
+\item \emph{Title of Standard}, Standard number, Corporate author, location, date.
+\end{enumerate}
+See \cite{b30,b31}.
+
+\item \emph{Article number in~reference examples:}\\
+See \cite{b32,b33}.
+
+\item \emph{Example when using et al.:}\\
+See \cite{b34}.
+
+\end{itemize}
 
 \begin{thebibliography}{00}
 
-\bibitem{b1} G. E. P. Box, G. M. Jenkins, G. C. Reinsel, and G. M. Ljung, \emph{Time Series Analysis: Forecasting and Control}, 5th ed. Hoboken, NJ, USA: John Wiley \& Sons, 2015.
+\bibitem{b1} G. O. Young, ``Synthetic structure of industrial plastics,'' in \emph{Plastics,} 2\textsuperscript{nd} ed., vol. 3, J. Peters, Ed. New York, NY, USA: McGraw-Hill, 1964, pp. 15--64.
 
-\bibitem{b2} R. J. Hyndman and G. Athanasopoulos, \emph{Forecasting: Principles and Practice}, 3rd ed. Melbourne, Australia: OTexts, 2021.
+\bibitem{b2} W.-K. Chen, \emph{Linear Networks and Systems.} Belmont, CA, USA: Wadsworth, 1993, pp. 123--135.
 
-\bibitem{b3} H. Choi and H. Varian, ``Predicting the present with Google Trends,'' \emph{Econ. Record}, vol. 88, pp. 2--9, 2012.
+\bibitem{b3} J. U. Duncombe, ``Infrared navigation---Part I: An assessment of feasibility,'' \emph{IEEE Trans. Electron Devices}, vol. ED-11, no. 1, pp. 34--39, Jan. 1959, 10.1109/TED.2016.2628402.
 
-\bibitem{b4} B. Pang and L. Lee, ``Opinion mining and sentiment analysis,'' \emph{Found. Trends Inf. Retrieval}, vol. 2, no. 1--2, pp. 1--135, 2008.
+\bibitem{b4} E. P. Wigner, ``Theory of traveling-wave optical laser,'' \emph{Phys. Rev}., vol. 134, pp. A635--A646, Dec. 1965.
 
-\bibitem{b5} S. P. Jun, D. H. Park, and J. Yeom, ``The possibility of using search traffic information to explore consumer product attitudes and forecast consumer preference,'' \emph{Technol. Forecasting Social Change}, vol. 86, pp. 237--253, 2014.
+\bibitem{b5} E. H. Miller, ``A note on reflector arrays,'' \emph{IEEE Trans. Antennas Propagat}., to be published.
 
-\bibitem{b6} S. J. Taylor and B. Letham, ``Forecasting at scale,'' \emph{Amer. Statistician}, vol. 72, no. 1, pp. 37--45, 2018.
+\bibitem{b6} E. E. Reber, R. L. Michell, and C. J. Carter, ``Oxygen absorption in the earth's atmosphere,'' Aerospace Corp., Los Angeles, CA, USA, Tech. Rep. TR-0200 (4230-46)-3, Nov. 1988.
 
-\bibitem{b7} D. Pagano and W. Maalej, ``User feedback in the appstore: An empirical study,'' in \emph{Proc. IEEE 21st Int. Requirements Eng. Conf. (RE)}, Rio de Janeiro, Brazil, 2013, pp. 125--134.
+\bibitem{b7} J. H. Davis and J. R. Cogdell, ``Calibration program for the 16-foot antenna,'' Elect. Eng. Res. Lab., Univ. Texas, Austin, TX, USA, Tech. Memo. NGL-006-69-3, Nov. 15, 1987.
 
-\bibitem{b8} S. Makridakis, E. Spiliotis, and V. Assimakopoulos, ``Statistical and machine learning forecasting methods: Concerns and ways forward,'' \emph{PLOS ONE}, vol. 13, no. 3, p. e0194889, 2018.
+\bibitem{b8} \emph{Transmission Systems for Communications}, 3\textsuperscript{rd} ed., Western Electric Co., Winston-Salem, NC, USA, 1985, pp. 44--60.
 
-\bibitem{b9} N. Chen, J. Lin, S. C. H. Hoi, X. Xiao, and B. Zhang, ``AR-Miner: Mining informative reviews for developers from mobile app marketplace,'' in \emph{Proc. 36th Int. Conf. Softw. Eng.}, Hyderabad, India, 2014, pp. 767--778.
+\bibitem{b9} \emph{Motorola Semiconductor Data Manual}, Motorola Semiconductor Products Inc., Phoenix, AZ, USA, 1989.
 
-\bibitem{b10} E. Guzman and W. Maalej, ``How do users like this feature? A fine grained sentiment analysis of app reviews,'' in \emph{Proc. IEEE 22nd Int. Requirements Eng. Conf. (RE)}, Karlskrona, Sweden, 2014, pp. 153--162.
+\bibitem{b10} G. O. Young, ``Synthetic structure of industrial
+plastics,'' in Plastics, vol. 3, Polymers of Hexadromicon, J. Peters,
+Ed., 2\textsuperscript{nd} ed. New York, NY, USA: McGraw-Hill, 1964, pp. 15-64.
+[Online]. Available:
+\underline{http://www.bookref.com}.
 
-\bibitem{b11} W. Maalej, Z. Kurtanovic, H. Nabil, and C. Stanik, ``On the automatic classification of app reviews,'' \emph{Requirements Eng.}, vol. 21, no. 3, pp. 311--331, 2016.
+\bibitem{b11} \emph{The Founders' Constitution}, Philip B. Kurland
+and Ralph Lerner, eds., Chicago, IL, USA: Univ. Chicago Press, 1987.
+[Online]. Available: \underline{http://press-pubs.uchicago.edu/founders/}
 
-\bibitem{b12} A. S. Cantallops and F. Salvi, ``New consumer behavior: A review of research on eWOM and hotels,'' \emph{Int. J. Hospitality Manage.}, vol. 36, pp. 41--51, 2014.
+\bibitem{b12} The Terahertz Wave eBook. ZOmega Terahertz Corp., 2014.
+[Online]. Available:
+\underline{http://dl.z-thz.com/eBook/zomega\_ebook\_pdf\_1206\_sr.pdf}. Accessed on: May 19, 2014.
 
-\bibitem{b13} S. A. Licorish and S. G. MacDonell, ``Exploring software developers' work practices: Task differences, participation, engagement, and speed of task resolution,'' \emph{Inf. Manage.}, vol. 54, no. 3, pp. 364--382, 2017.
+\bibitem{b13} Philip B. Kurland and Ralph Lerner, eds., \emph{The
+Founders' Constitution.} Chicago, IL, USA: Univ. of Chicago Press,
+1987, Accessed on: Feb. 28, 2010, [Online] Available:
+\underline{http://press-pubs.uchicago.edu/founders/}
 
-\bibitem{b14} K. C. Kang, S. G. Cohen, J. A. Hess, W. E. Novak, and A. S. Peterson, ``Feature-oriented domain analysis (FODA) feasibility study,'' Carnegie Mellon Univ., Pittsburgh, PA, USA, Tech. Rep. CMU/SEI-90-TR-21, 1990.
+\bibitem{b14} J. S. Turner, ``New directions in communications,'' \emph{IEEE J. Sel. Areas Commun}., vol. 13, no. 1, pp. 11-23, Jan. 1995.
 
-\bibitem{b15} J. Berger, A. Humphreys, S. Ludwig, W. W. Moe, O. Netzer, and D. A. Schweidel, ``Uniting the tribes: Using text for marketing insight,'' \emph{J. Marketing}, vol. 84, no. 1, pp. 1--25, 2020.
+\bibitem{b15} W. P. Risk, G. S. Kino, and H. J. Shaw, ``Fiber-optic frequency shifter using a surface acoustic wave incident at an oblique angle,'' \emph{Opt. Lett.}, vol. 11, no. 2, pp. 115--117, Feb. 1986.
 
-\bibitem{b36} R. J. Hyndman and Y. Khandakar, ``Automatic time series forecasting: The forecast package for R,'' \emph{J. Stat. Softw.}, vol. 27, no. 3, pp. 1--22, 2008.
+\bibitem{b16} P. Kopyt \emph{et al., ``}Electric properties of graphene-based conductive layers from DC up to terahertz range,'' \emph{IEEE THz Sci. Technol.,} to be published. DOI: 10.1109/TTHZ.2016.2544142.
+
+\bibitem{b17} PROCESS Corporation, Boston, MA, USA. Intranets:
+Internet technologies deployed behind the firewall for corporate
+productivity. Presented at INET96 Annual Meeting. [Online].
+Available: \underline{http://home.process.com/Intranets/wp2.htp}
+
+\bibitem{b18} R. J. Hijmans and J. van Etten, ``Raster: Geographic analysis and modeling with raster data,'' R Package Version 2.0-12, Jan. 12, 2012. [Online]. Available: \underline {http://CRAN.R-project.org/package=raster} 
+
+\bibitem{b19} Teralyzer. Lytera UG, Kirchhain, Germany [Online].
+Available:
+\underline{http://www.lytera.de/Terahertz\_THz\_Spectroscopy.php?id=home}, Accessed on: Jun. 5, 2014
+
+\bibitem{b20} U.S. House. 102\textsuperscript{nd} Congress, 1\textsuperscript{st} Session. (1991, Jan. 11). \emph{H. Con. Res. 1, Sense of the Congress on Approval of}  \emph{Military Action}. [Online]. Available: LEXIS Library: GENFED File: BILLS
+
+\bibitem{b21} Musical toothbrush with mirror, by L.M.R. Brooks. (1992, May 19). Patent D 326 189 [Online]. Available: NEXIS Library: LEXPAT File: DES
+
+\bibitem{b22} D. B. Payne and J. R. Stern, ``Wavelength-switched pas- sively coupled single-mode optical network,'' in \emph{Proc. IOOC-ECOC,} Boston, MA, USA, 1985, pp. 585--590.
+
+\bibitem{b23} D. Ebehard and E. Voges, ``Digital single sideband detection for interferometric sensors,'' presented at the \emph{2\textsuperscript{nd} Int. Conf. Optical Fiber Sensors,} Stuttgart, Germany, Jan. 2-5, 1984.
+
+\bibitem{b24} G. Brandli and M. Dick, ``Alternating current fed power supply,'' U.S. Patent 4 084 217, Nov. 4, 1978.
+
+\bibitem{b25} J. O. Williams, ``Narrow-band analyzer,'' Ph.D. dissertation, Dept. Elect. Eng., Harvard Univ., Cambridge, MA, USA, 1993.
+
+\bibitem{b26} N. Kawasaki, ``Parametric study of thermal and chemical nonequilibrium nozzle flow,'' M.S. thesis, Dept. Electron. Eng., Osaka Univ., Osaka, Japan, 1993.
+
+\bibitem{b27} A. Harrison, private communication, May 1995.
+
+\bibitem{b28} B. Smith, ``An approach to graphs of linear forms,'' unpublished.
+
+\bibitem{b29} A. Brahms, ``Representation error for real numbers in binary computer arithmetic,'' IEEE Computer Group Repository, Paper R-67-85.
+
+\bibitem{b30} IEEE Criteria for Class IE Electric Systems, IEEE Standard 308, 1969.
+
+\bibitem{b31} Letter Symbols for Quantities, ANSI Standard Y10.5-1968.
+
+\bibitem{b32} R. Fardel, M. Nagel, F. Nuesch, T. Lippert, and A. Wokaun, ``Fabrication of organic light emitting diode pixels by laser-assisted forward transfer,'' \emph{Appl. Phys. Lett.}, vol. 91, no. 6, Aug. 2007, Art. no. 061103.~
+
+\bibitem{b33} J. Zhang and N. Tansu, ``Optical gain and laser characteristics of InGaN quantum wells on ternary InGaN substrates,'' \emph{IEEE Photon. J.}, vol. 5, no. 2, Apr. 2013, Art. no. 2600111
+
+\bibitem{b34} S. Azodolmolky~\emph{et al.}, Experimental demonstration of an impairment aware network planning and operation tool for transparent/translucent optical networks,''~\emph{J. Lightw. Technol.}, vol. 29, no. 4, pp. 439--448, Sep. 2011.
 
 \end{thebibliography}
 
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{a1.png}}]{First A. Author} (M'76--SM'81--F'87) and all authors may include 
+biographies. Biographies are often not included in conference-related
+papers. This author became a Member (M) of IEEE in 1976, a Senior
+Member (SM) in 1981, and a Fellow (F) in 1987. The first paragraph may
+contain a place and/or date of birth (list place, then date). Next,
+the author's educational background is listed. The degrees should be
+listed with type of degree in what field, which institution, city,
+state, and country, and year the degree was earned. The author's major
+field of study should be lower-cased. 
 
-
-
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{figures/Manish_Tandurkar.jpg}}]{Manish Tandurkar} is pursuing his Bachelor of Engineering in CSE at RV College of Engineering, Bangalore, India. He led the Google Trends data collection and ARIMA model implementation for this research. His expertise in machine learning and time series forecasting contributed significantly to demand pattern analysis.
+The second paragraph uses the pronoun of the person (he or she) and not the 
+author's last name. It lists military and work experience, including summer 
+and fellowship jobs. Job titles are capitalized. The current job must have a 
+location; previous positions may be listed 
+without one. Information concerning previous publications may be included. 
+Try not to list more than three books or published articles. The format for 
+listing publishers of a book within the biography is: title of book 
+(publisher name, year) similar to a reference. Current and previous research 
+interests end the paragraph. The third paragraph begins with the author's 
+title and last name (e.g., Dr.\ Smith, Prof.\ Jones, Mr.\ Kajor, Ms.\ Hunter). 
+List any memberships in professional societies other than the IEEE. Finally, 
+list any awards and work for IEEE committees and publications. If a 
+photograph is provided, it should be of good quality, and 
+professional-looking. Following are two examples of an author's biography.
 \end{IEEEbiography}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{figures/Manish_H_Parashar.jpeg}}]{Manish H Parashar} is pursuing his Bachelor of Engineering in CSE at RV College of Engineering, Bangalore, India. He developed the sentiment analysis framework and feature prioritization methodologies in this research. His focus on data science was instrumental in extracting demand signals from user reviews.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{a2.png}}]{Second B. Author} was born in Greenwich Village, New York, NY, USA in 
+1977. He received the B.S. and M.S. degrees in aerospace engineering from 
+the University of Virginia, Charlottesville, in 2001 and the Ph.D. degree in 
+mechanical engineering from Drexel University, Philadelphia, PA, in 2008.
+
+From 2001 to 2004, he was a Research Assistant with the Princeton Plasma 
+Physics Laboratory. Since 2009, he has been an Assistant Professor with the 
+Mechanical Engineering Department, Texas A{\&}M University, College Station. 
+He is the author of three books, more than 150 articles, and more than 70 
+inventions. His research interests include high-pressure and high-density 
+nonthermal plasma discharge processes and applications, microscale plasma 
+discharges, discharges in liquids, spectroscopic diagnostics, plasma 
+propulsion, and innovation plasma applications. He is an Associate Editor of 
+the journal \emph{Earth, Moon, Planets}, and holds two patents. 
+
+Dr. Author was a recipient of the International Association of Geomagnetism 
+and Aeronomy Young Scientist Award for Excellence in 2008, and the IEEE 
+Electromagnetic Compatibility Society Best Symposium Paper Award in 2011. 
 \end{IEEEbiography}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{figures/Nikhil_N_Bharadwaj.jpeg}}]{Nikhil N Bharadwaj} is pursuing his Bachelor of Engineering in CSE at RV College of Engineering, Bangalore, India. He designed the ensemble forecasting methodology and model evaluation framework for this research. His contributions in time series analysis were critical to establishing forecast accuracy benchmarks.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{a3.png}}]{Third C. Author, Jr.} (M'87) received the B.S. degree in mechanical 
+engineering from National Chung Cheng University, Chiayi, Taiwan, in 2004 
+and the M.S. degree in mechanical engineering from National Tsing Hua 
+University, Hsinchu, Taiwan, in 2006. He is currently pursuing the Ph.D. 
+degree in mechanical engineering at Texas A{\&}M University, College 
+Station, TX, USA.
+
+From 2008 to 2009, he was a Research Assistant with the Institute of 
+Physics, Academia Sinica, Tapei, Taiwan. His research interest includes the 
+development of surface processing and biological/medical treatment 
+techniques using nonthermal atmospheric pressure plasmas, fundamental study 
+of plasma sources, and fabrication of micro- or nanostructured surfaces. 
+
+Mr. Author's awards and honors include the Frew Fellowship (Australian 
+Academy of Science), the I. I. Rabi Prize (APS), the European Frequency and 
+Time Forum Award, the Carl Zeiss Research Award, the William F. Meggers 
+Award and the Adolph Lomb Medal (OSA).
 \end{IEEEbiography}
 
 \EOD
