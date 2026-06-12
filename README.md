@@ -1,1 +1,0 @@
-# EIPR Project Paper
