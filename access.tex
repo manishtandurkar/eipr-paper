@@ -11,35 +11,31 @@
 \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
 \doi{10.1109/ACCESS.2024.DOI}
 
-\title{Innovation Capability and Startup Survival: An Empirical Study
-of Early-Stage Ventures in India}
+\title{Innovation Capability and Startup Survival: An Empirical Study of Early-Stage Ventures in India}
 
-\author{\uppercase{Author One}\authorrefmark{1},
-\uppercase{Author Two}\authorrefmark{1},
-\uppercase{Author Three}\authorrefmark{1},
-\uppercase{Author Four}\authorrefmark{1}}
+\author{\uppercase{Manish Tandurkar}\authorrefmark{1},
+\uppercase{Manish H Parashar}\authorrefmark{1},
+\uppercase{Nikhil N Bharadwaj}\authorrefmark{1},
+\uppercase{Manjunath S}\authorrefmark{1},
+\uppercase{Shruthi M N}\authorrefmark{2}}
 
-\address[1]{Department of Industrial Engineering \& Management,
-RV College of Engineering, Bengaluru -- 560059, India
-(e-mail: \{author1, author2, author3, author4\}@rvce.edu.in)}
+\address[1]{Department of Computer Science \& Engineering, RV College of Engineering, Bengaluru -- 560059, India (e-mail: \{manishtandurkar.cs23, manishhp.cs23, nikhilnb.cs23, manjunaths.cs24\}@rvce.edu.in)}
+\address[2]{Department of Industrial Engineering \& Management, RV College of Engineering, Bengaluru -- 560059, India (e-mail: shruthimn@rvce.edu.in)}
 
-\tfootnote{This work was conducted as part of the VI Semester Experiential
-Learning (EL) Project, Department of Industrial Engineering \& Management,
-RV College of Engineering, Bengaluru, India.}
+\tfootnote{This work was conducted as part of the VI Semester Experiential Learning (EL) Project, Department of Industrial Engineering \& Management, RV College of Engineering, Bengaluru, India.}
 
 \markboth
-{Author \headeretal: Innovation Capability and Startup Survival in India}
-{Author \headeretal: Innovation Capability and Startup Survival in India}
+{Tandurkar \headeretal: Innovation Capability and Startup Survival in India}
+{Tandurkar \headeretal: Innovation Capability and Startup Survival in India}
 
-\corresp{Corresponding author: Author One (e-mail: author1@rvce.edu.in).}
+\corresp{Corresponding author: Manish Tandurkar (e-mail: manishtandurkar.cs23@rvce.edu.in).}
 
 \begin{abstract}
-Despite significant institutional support, expanding incubation infrastructure, and record venture capital inflows, early-stage ventures in India face a persistent failure rate, with approximately 70\% of startups ceasing operations within their first five years. While innovation capability is widely recognized as a primary determinant of startup survival, existing empirical work frequently treats innovation as a monolithic construct, obscuring the distinct ways that product, process, and marketing adaptations influence organizational outcomes. This study bridges this gap by proposing an integrated model grounded in Dynamic Capabilities Theory and the Resource-Based View (RBV), conceptualizing Innovation Capability (IC) as a multidimensional construct comprising product, process, and marketing innovations. We analyze how IC influences Startup Survival (SS) both directly and indirectly through the mediating role of Competitive Advantage (CA), while specifying Founder Experience (FE) and Funding Stage (FS) as critical boundary conditions moderating the relationship. The proposed model is tested using Partial Least Squares Structural Equation Modeling (PLS-SEM) on a sample of 200 DPIIT-registered Indian technology startup founders. The findings provide robust empirical support for all direct, mediated, and moderated pathways, demonstrating that while innovation capability directly strengthens survival prospects, its effect is heavily channeled through competitive advantage. Furthermore, both founder experience and later funding stages serve as significant positive moderators, amplifying the survival returns of innovation. The study concludes with practical recommendations for entrepreneurs, investors, and policymakers, offering a structured self-diagnostic tool for early-stage ventures to navigate survival hurdles.
+Despite all the institutional support, growth of the infrastructure for incubating early-stage businesses, and the record fundraising of startups in India, the startup failure rate remains high, with around 70\% of startups failing during the first five years. Although innovation capability has been identified as a main reason for startups' failure, most of the empirical evidence is based on viewing innovation as a single concept, which neglects the various aspects of product, process, and marketing innovations that contribute to the success or failure of startups. This study fills this gap by developing a model that stems from Dynamic Capabilities Theory and Resource Based View (RBV) of the firm and considers Innovation Capability (IC) as a multidimensional construct consisting of product, process, and marketing innovations. We examine direct and indirect effects of IC on Startup Survival (SS) with the mediating variable Competitive Advantage (CA); and identify Founder Experience (FE) and Funding Stage (FS) as critical boundary conditions that moderate the effects of IC on SS. The proposed model is examined by employing Partial Least Squares Structural Equation Modeling (PLS-SEM) on the data sample of 200 Indian technology startup founders who are registered with DPIIT. The results offer strong empirical evidence for all direct, mediated and moderated pathways, showing that Innovation Capability directly supports survival prospects, but this impact was strongly mediated by the pathway of competitive advantage. In addition, the returns on innovation to survival are significantly boosted by both the stage of the innovation at which the venture enters the market, and founder experience. The study ends with practical recommendations for entrepreneurs, investors, and policy makers, providing a structured self-diagnostic tool to help early-stage businesses overcome challenges to survival.
 \end{abstract}
 
 \begin{keywords}
-Competitive advantage, dynamic capabilities, entrepreneurship, India,
-innovation capability, PLS-SEM, startup survival
+Competitive advantage, dynamic capabilities, emerging markets, entrepreneurship, human capital, innovation capability, machine learning, PLS-SEM, product innovation, resource-based view, startup survival, venture capital
 \end{keywords}
 
 \titlepgskip=-15pt
@@ -51,57 +47,15 @@ innovation capability, PLS-SEM, startup survival
 \label{sec:introduction}
 % ==========================================================
 
-\PARstart{S}{omeone} founding a technology venture in Bengaluru,
-Mumbai, or Hyderabad today enters what is nominally the world's
-third-largest startup ecosystem \cite{b2}. The odds, however, are
-not favourable. Roughly 70\% of Indian startups shut down within five
-years of inception, and across high-growth tech sectors attrition
-climbs higher still \cite{b1}. Capital is more available than at any
-prior point in India's entrepreneurial history---2021 alone saw over
-\$42 billion in venture funding flow into Indian startups---yet failure
-rates have not declined proportionately. That contradiction warrants
-explanation.
+\PARstart{S}{omebody} launches a tech start-up in Bengaluru, Mumbai or Hyderabad today in the nominally 3rd largest technology startup ecosystem. But with the odds aren't playing in your favour. Around 70\% of startups in India fail within 5 years of their establishment and for various high growth tech industries, the ratio of failure is even greater \cite{b1}. Despite all this, startup failure rates have not fallen in step with the increase in capital. In fact, despite record investment — VC funding in Indian startups exceeded USD~42 billion in 2021 — failure rates have not dropped commensurately. There is a contradiction that needs explaining.
 
-Innovation capability is the most frequently invoked explanatory
-variable in startup survival research. The intuition is transparent:
-ventures able to develop differentiated products, refine operational
-processes, and reconfigure market strategies continuously are better
-equipped to outlast rivals and environmental shocks \cite{b3}. Broad
-empirical support for this claim exists \cite{b4, b5}. The difficulty
-is that most studies operationalise innovation as a single composite
-score---an approach that conceals more than it reveals. Product
-innovation, process innovation, and marketing innovation are not
-interchangeable activities. Each draws on different organisational
-resources, carries a distinct risk profile, and interacts differently
-with market conditions \cite{b6}. A startup that excels at new-product
-development but lacks process discipline may exhaust its runway before
-reaching market scale; one that over-invests in operational efficiency
-prematurely can sacrifice the customer-facing agility on which early
-survival depends. Disaggregating the innovation construct is, therefore,
-not a methodological nicety---it changes the substantive conclusions.
+A startup's innovation capability is the most commonly used explanatory variable in startup survival studies. The idea is clear: if a business can harness intuition to create a product offering that is differentiated, continually improve its operations, and adjust its market strategies, they are more likely to withstand the competition of others and the environment. This has been widely cited in the literature, e.g. in \cite{b4, b5}. What makes it tricky is that many studies try to measure innovation as a net score, which hides the complexity of innovation. Product, process and marketing innovations are not synonymous. They utilize different organizational resources, have a different risk profile and respond differently to market conditions \cite{b6}. A new product development focused startup with poor process discipline may run out of runway before they get to market size, while a process discipline focused startup that rushes to get its business processes in place may lose the agility they need to get to market or stay there. Thus, separating out the innovation construct is not a methodology nicety, but rather it alters substantive conclusions.
 
-A second limitation of existing work is geographic. The overwhelming
-bulk of empirical studies on innovation and startup survival originates
-in North America or Western Europe \cite{b7}. Institutional context
-matters in non-trivial ways: access to formal credit, the density of
-supplier and distribution networks, regulatory predictability, and
-prevailing attitudes toward failure all shape how innovation capabilities
-translate into survival outcomes. Findings from Silicon Valley or the
-German Mittelstand transfer imperfectly to markets where founders
-frequently lack debt-financing collateral and a single regulatory
-clearance can consume months of organisational attention.
+Another drawback of the previous research is geographic. Most of the empirical research on the survival of new ventures and innovation has come from North America or Western Europe \cite{b7}. Institutional context is important in non-trivial ways - access to formal credit, supplier and distribution networks, regulatory predictability, attitudes towards failure, etc. affect how innovation capabilities affect survival outcomes. The lessons learnt in Silicon Valley or the Mittelstand in Germany are less easily transferable to markets in which founders are often less wealthy with collateral to support debt financing and a single regulatory approval can take months of organisational effort.
 
-A third gap concerns mechanism. Establishing that innovation capability
-correlates with survival does not, by itself, explain \textit{how} that
-relationship operates. Competitive advantage---the capacity to deliver
-superior value relative to available alternatives---has been proposed
-as the intervening construct \cite{b8}, but the mediation hypothesis
-remains empirically untested for early-stage Indian ventures. The
-degree to which founder experience and available funding moderate the
-innovation--survival relationship has similarly received scant systematic
-attention in this setting \cite{b9}.
+A third gap is in terms of mechanism. The correlation between innovation capability and survival, while important, does not necessarily provide an explanation for how this correlation is formed. Superior value in relation to the options available has been suggested as the intervening construct \cite{b8} but this mediation hypothesis has yet to be tested empirically with the Indian start-up firms at the beginning stages. Little systematic research has been done on the role of founder expertise and funding resources in the innovation–survival relationship in this context either \cite{b9}.
 
-This study addresses these gaps within a single integrated framework grounded in Dynamic Capabilities Theory \cite{b10} and the Resource-Based View (RBV) \cite{b11}. Six research hypotheses are developed and tested via PLS-SEM using a primary survey of 200 DPIIT-registered Indian startup founders. We examine how multidimensional Innovation Capability (IC) influences startup survival, whether competitive advantage mediates this relationship, and how founder experience and funding stage condition these dynamics. Section~\ref{sec:lit} reviews the theoretical and empirical literature. Section~\ref{sec:framework} outlines the conceptual model and develops the research hypotheses. Section~\ref{sec:method} details the research design and analytical strategy. Sections~\ref{sec:results} and~\ref{sec:conclusion} present the empirical results and discuss their theoretical and practical implications.
+This research tries to fill the gaps within a single integrated framework, based on Dynamic Capabilities Theory \cite{b10} and the Resource Based View (RBV) \cite{b11}. In the primary survey of 200 founders of start-ups registered with DPIIT, six research hypotheses are developed and tested using PLS-SEM. We analyze the effect of multidimensional Innovation Capability (IC) on startups' survival, the possible mediation by competitive advantage, as well as the individual effects of experience of the founders and the stage of funding received. The literature review, which can be found in Section~\ref{sec:lit}, is based on theoretical and empirical research. In Section~\ref{sec:framework} the conceptual model is explained and the research hypotheses developed. The research design and analytical procedure are described in Section~\ref{sec:method}. The empirical findings are presented in Section~\ref{sec:results} and the implications of the findings in the theoretical and practical aspects are discussed in Section~\ref{sec:conclusion}.
 
 % ==========================================================
 \section{Literature Review}
@@ -110,160 +64,45 @@ This study addresses these gaps within a single integrated framework grounded in
 
 \subsection{Innovation and Startup Survival}
 
-Schumpeter's argument \cite{b12} that capitalist development proceeds
-through recurring waves of ``creative destruction'' placed innovation---
-not efficiency or scale---at the centre of competitive dynamics. Seven
-decades of subsequent research have broadly validated this position at the
-firm level: ventures that invest in innovation survive longer and grow
-faster than those that do not \cite{b4}. What that research has been
-slower to clarify is which \textit{kind} of innovation matters, and under
-what conditions.
+Schumpeter's conception \cite{b12} of the process of capitalist development as a periodic series of wave-like shifts from innovation to inefficiency and from inefficiency to innovation, away from the centre of the mainstream, brought innovation to the core of competition. It has generally been accepted over the last seventy years at the firm level that those firms that invest in innovation tend to live longer, and grow faster, than those firms that do not invest in innovation \cite{b4}. It has been slower to emerge from this research what sort of innovation is important, and when.
 
-The Oslo Manual's taxonomy distinguishes product, process, and marketing
-innovation as analytically separable activities that a firm may pursue
-independently or in combination \cite{b3}. This distinction carries real
-weight in the startup context. Product innovation requires sustained
-R\&D effort and iterative customer-facing experimentation; process
-innovation demands inward-facing operational discipline; marketing
-innovation calls for go-to-market creativity and customer data
-infrastructure. For a founding team with limited headcount and finite
-capital, trade-offs among these activities are genuine and consequential.
-Yet most empirical treatments of innovation capability in the survival
-literature either collapse these dimensions into a composite index or
-focus exclusively on product innovation, leaving process and marketing
-effects largely unmeasured \cite{b6}.
+Oslo Manual categorizes product, process and marketing innovation as analytically separable activities, which a firm can independently or simultaneously engage in \cite{b3}. In the startup world, this distinction is not to be taken lightly. Product innovation involves a long-term R&D investment and customer facing experimentation; process innovation requires operational discipline in the inside; and marketing innovation requires go to market creativity and customer data infrastructure, all of which are needed to support the other innovations. For a start-up team that is resource-constrained with a limited number of employees and a limited amount of money, these activities have real trade-offs, and they have real consequences. However, most empirical studies on innovation capability for survival are either based on a composite index of the dimensions, or base their study entirely on product innovation, ignoring the effects of process and marketing innovation.
 
 \subsection{Dynamic Capabilities and Startup Performance}
 
-The Dynamic Capabilities framework, introduced by Teece, Pisano, and
-Shuen \cite{b10}, was developed to explain how firms sustain advantage
-when competitive landscapes shift faster than static resource stocks
-can respond. Three micro-level processes are central to the framework:
-\textit{sensing}---scanning the environment for emerging threats and
-opportunities; \textit{seizing}---reconfiguring resources to capture
-identified opportunities; and \textit{reconfiguring}---transforming
-existing competencies to maintain strategic alignment as conditions
-change. For startups, all three processes are in near-constant operation:
-the product roadmap pivots, the revenue model iterates, the founding
-team restructures. Dynamic capabilities provide the theoretical vocabulary
-for understanding why some ventures navigate these transitions successfully
-and others do not \cite{b13}.
+Teece, Pisano, and Shuen \cite{b10} developed a framework called Dynamic Capabilities to explain that firms would be able to maintain advantage when the competitive environment is changing more rapidly than a firm's static stocks of resources are able to respond. The three micro-level processes are at the core of the framework: sensing (scanning), seizing (reconfiguration) and reconfiguring (transforming). The three processes are all running on a 24/7 basis for startups: Product roadmap changes, revenue model goes through iterations, and the founding team goes through restructuring. Dynamic capabilities offer the theoretical language to explain the conditions that enable and/or constrain the ability of some ventures to make it through these transitions and others to fail \cite{b13}.
 
-Eisenhardt and Martin \cite{b14} offered an important qualification: in
-highly dynamic markets, these processes tend to converge toward
-identifiable best practices rather than remaining wholly firm-specific
-and idiosyncratic. Their reformulation is useful here. PIC and PROC can
-be understood as observable, benchmarkable dynamic capabilities---ones
-measurable through survey instruments and comparable across a startup
-cohort---precisely as this study requires.
+Amongst all the processes, Eisenhardt and Martin \cite{b14} noted an important distinction: in very dynamic markets, these processes tend to boil down to discernable best practices instead of being strictly firm-specific and idiosyncratic. Their rewording comes in handy here. PIC and PROC can be seen as observable, benchmarkable dynamic capabilities (easily measured with survey tools and that can be compared between a set of startups) as this study requires.
 
 \subsection{Innovation Ecosystems and Social Capital}
 
-No venture innovates in isolation, and the ecosystem within which a
-startup is embedded shapes whether internal capabilities translate into
-market value. Social capital---Putnam's \cite{b15} term for the aggregate
-of network relationships, shared norms, and interpersonal trust that
-enable coordinated action---has a dual relevance to startup innovation.
-Structurally, dense networks supply referrals, warm introductions, and
-early-adopter access. Cognitively, they accelerate the diffusion of tacit
-knowledge that formal training and documentation cannot easily convey.
+There is no such thing as an innovation without competition, and a company's environment acts as a catalyst which determines whether internal strengths are converted to market value. Social capital is the aggregate of network relationships, shared norms and interpersonal trust that enable coordinated action \cite{b15} and it has two-fold relevance when considering start-up innovation. The structural characteristics of dense networks are referrals, warm introductions and early-adopter access. Cognitively, they are able to spread tacit knowledge, which is hard to articulate and teach.
 
-India's startup ecosystem has undergone substantial change since 2016.
-The Startup India programme created a formal DPIIT-recognition
-infrastructure; Tier-1 incubators such as NSRCEL Bengaluru, T-Hub
-Hyderabad, and CIIE Ahmedabad have professionalised early-stage support;
-and a maturing limited-partner base has extended venture capital
-deeper into seed-stage rounds that were previously inaccessible to most
-Indian founders \cite{b2}. Whether these improvements amplify the
-impact of firm-level innovation capabilities on survival---or simply
-substitute for weaker internal capabilities---is an open empirical
-question that informs the moderating hypotheses in
-Section~\ref{sec:framework}.
+Being a startup environment, India has seen significant transformations since 2016. The Startup India programme established a formal infrastructure for recognition by the DPIIT; Tier-1 incubators like NSRCEL Bengaluru, T-Hub Hyderabad and CIIE Ahmedabad have professionalised early-stage support; and a growing and limited-partner base has taken VC deeper into rounds that were out of reach for most Indian founders \cite{b2}. It is an empirical open question whether these improvements have an additional impact on the effect of firm-level innovation capacity on survival or whether they can be regarded as compensation for a reduced innovation capacity within the firms.The moderating hypotheses in Section~\ref{sec:framework} are based on an empirical question: Do these improvements reinforce the impact on survival of the firm's innovation capacity or do they rather replace a weaker capacity?
 
 \subsection{Resource-Based View and Competitive Advantage}
 
-Barney's \cite{b11} Resource-Based View rests on a deceptively simple
-claim: performance differences between firms in the same industry
-persist because strategically valuable resources are heterogeneously
-distributed and imperfectly mobile. For a resource to generate sustained
-competitive advantage, it must be valuable, rare, inimitable, and
-non-substitutable---the VRIN criteria that have become standard
-analytical vocabulary in strategic management \cite{b16}.
+The deceptively simple idea that underlies Barney's \cite{b11} Resource-Based View is that performance variation among firms in the same industry is due to differences in the resources that they possess, which are strategically valuable and imperfectly mobile. A resource is to have the "VRIN" properties that have become a terminology in strategic management; it must be valuable, rare, inimitable and non-substitutable \cite{b16}.
 
-Innovation capability satisfies these criteria when it is embedded in
-organisational routines and tacit knowledge rather than residing in
-individual contributors or replicable procedures. A startup whose
-capacity to innovate is inseparable from its decision-making culture,
-iterative norms, and accumulated customer insight is considerably harder
-to imitate than one whose advantage depends on a single algorithm or
-registered patent. Alvarez and Busenitz \cite{b17} drew the
-RBV--entrepreneurship connection explicitly, arguing that the
-discovery and exploitation of opportunities---the defining act of
-entrepreneurship---itself constitutes a VRIN resource. For the
-survival question, the implication is that startups whose innovation
-capabilities constitute genuine VRIN resources will systematically
-outperform those whose advantage can be more readily matched.
+The capability for innovation meets these requirements when it's not in the personal skills of a few people or the precise instructions of a few protocols, but is part of organisational habits and tacit knowledge. A start up in which innovation is an inherent part of the culture, iterative processes and norms, and growing customer insight is much more difficult to replicate than one in which the key to success is a single algorithm or registered patent. However, the link between the RBV and entrepreneurship has been drawn explicitly by Alvarez and Busenitz \cite{b17} who suggest that the opportunity discovery and exploitation of opportunities is itself a VRIN resource, the defining characteristic of entrepreneurship. In the survival case, the suggestion is that if the innovation capacity is a real VRIN asset for the startup, it will outperform the other startups in their class that are able to more easily replicate this capability.
 
 \subsection{Competitive Advantage as a Mediating Mechanism}
 
-Neither Dynamic Capabilities Theory nor the RBV specifies a direct
-path from capability to survival---both frameworks operate through
-competitive advantage as the proximate outcome. The logic is: capabilities
-generate advantage; advantage generates performance; performance enables
-survival. Empirical studies frequently short-circuit this chain, regressing
-survival directly on capability measures and bypassing the mechanism
-\cite{b4,b5}. The mediating link consequently remains largely unvalidated.
+DCT and the RBV do not define a direct link between the capability and the survival of the firm, but rather a link to the competitive advantage as the intermediate step. The argument is: Capability is the source of advantage, which is the source of performance, which is the source of survival. Empirical studies often skip this link and directly regress survival on ability measures without going through the mechanism \cite{b4,b5}. The intermediate variable is then not sufficiently validated.
 
-Camisón and Villar-López \cite{b18} provide partial evidence in a sample
-of Spanish manufacturing firms, where innovation capability influenced
-performance indirectly through competitive position. Their study is
-important but limited in two respects: the sample consists of established
-firms for whom competitive advantage is relatively stable; and the context
-is European manufacturing, where market structures differ substantially
-from those facing Indian tech startups still searching for product-market
-fit. Whether the mediated pathway holds when competitive advantage is
-transient and contested is the specific question this study pursues.
+A partial piece of evidence is offered in the case of Spanish manufacturing firms by Camisón and Villar-López \cite{b18} who show that the innovation capability affected firms' performance via their competitive position. Their study is valuable, but in two ways: (1) They focus on "established" firms for which competitive advantage is relatively stable, whereas the context of Indian tech startups is still finding a "product-market fit"; and (2) while the context is European manufacturing, which also has differences from that of Indian tech startups. This study seeks to determine whether the mediated pathway is in effect when competitive advantage is contested and temporary.
 
 \subsection{Founder Characteristics as Boundary Conditions}
 
-Identical innovation capabilities do not produce identical outcomes
-across all startups---context modulates effect. Two of the most
-theoretically grounded moderators are founder experience and funding stage.
+The nature of the results of identical innovation capabilities is not the same in all startups, as context modulates effect. Founder experience and funding stage are two of the most theoretically-based moderators.
 
-On the experience side, Colombo and Grilli \cite{b19} showed in a
-longitudinal study of Italian new-technology-based firms that founders
-with prior industry-specific human capital grew their ventures
-significantly faster---not because experienced founders innovated more,
-but because they were more effective at converting innovation into
-marketable output. The pathway runs through judgment: experienced founders
-better understand customer purchasing behaviour, competitive positioning
-dynamics, and the timing of market entry. In the Indian tech sector,
-where investor due diligence consistently elevates founder quality as
-the primary selection criterion, this moderation effect deserves
-empirical scrutiny.
+On the institutional side, Colombo and Grilli \cite{b19} found in a longitudinal study of new-technology based firms in Italy that experienced entrepreneurs (those that had worked in their industry before founding a business) were more likely to build their companies at a much faster rate than inexperienced entrepreneurs, but this was not necessarily because experienced entrepreneurs were more innovative; it was because they were more efficient at transforming innovation into commercial products. The pathway is judgment: wise founders are more likely to know the buying habits of customers, the dynamics of the competition, and the right moment to enter the market. This moderation effect is something that needs to be empirically examined in the Indian tech space where investors always look at the quality of the founders as the top criterion.
 
-Funding stage operates through a different channel. External capital
-relaxes the resource constraints that ordinarily attenuate the
-innovation--survival relationship for early-stage ventures \cite{b20}.
-A seed-funded startup can hire for execution; a pre-seed team must rely
-on founder bandwidth alone. Hellmann and Puri \cite{b20} documented
-that venture capital involvement accelerated operational
-professionalisation in funded startups---a finding consistent with the
-expectation that better-capitalised ventures extract greater survival
-benefit from their innovation capabilities than their bootstrapped peers.
+The funding stage is available in another stream. External capital loosens the resource limitations that otherwise dampens the innovation--survival relationship of the early-stage businesses \cite{b20}. You can hire for a seed-funded startup, but a founder team must hire on their own bandwidth. Hellmann and Puri \cite{b20} found that venture capitalists helped their startups become more professional, in line with the hypothesis that better capitalized startups derive more survival value from their innovation efforts than do those that are bootstrapped.
 
 \subsection{Research Gaps and Study Positioning}
 
-Five inter-related gaps emerge from this review. Indian startups have
-not been the subject of a dedicated quantitative study linking innovation
-capability to survival. The disaggregated effects of PIC, PROC, and MIC
-on survival outcomes remain unmeasured. The mediating role of competitive
-advantage has not been tested for early-stage venture populations. Founder
-experience and funding stage have not been evaluated as moderators within
-a structural model for this setting. And no PLS-SEM-based framework
-integrating these constructs has been developed for the Indian startup
-context. Each gap is directly addressed by the model described in
-Section~\ref{sec:framework}.
+Based on this review, there are five gaps that are connected. The relationship between innovation ability and survival has not been quantitatively studied for the Indian start-ups to date. The independent impact of PIC, PROC and MIC on outcomes of survival have not been measured. The early-stage venture population has never been examined in terms of the mediating role of competitive advantage. Prior studies have not tested founder experience or funding stage as moderators in a structural model in this setting. Additionally, there is no framework that has been developed in the Indian context of Startups which combines these constructs by using PLS-SEM. The model discussed in Section~\ref{sec:framework} directly tackles each gap.
 
 % ==========================================================
 \section{Conceptual Framework and Hypotheses}
@@ -272,51 +111,90 @@ Section~\ref{sec:framework}.
 
 \subsection{Conceptual Framework}
 
-The proposed framework, illustrated in Fig.~\ref{fig:framework}, integrates Dynamic Capabilities Theory and the Resource-Based View (RBV) into a single explanatory structure. Innovation Capability (IC) is conceptualized as a multidimensional construct measured via three distinct dimensions: Product Innovation Capability (PIC), Process Innovation Capability (PROC), and Marketing Innovation Capability (MIC). This multidimensional construct serves as the primary independent variable. Competitive Advantage (CA) is positioned as the mediator through which innovation capability translates into the ultimate outcome of interest, Startup Survival (SS). Finally, Founder Experience (FE) and Funding Stage (FS) function as moderators that condition the relationship between innovation capability and startup survival. The path directions and expected signs are derived deductively from strategic management theory and empirical entrepreneurship literature.
+The proposed framework, depicted in Fig.~\ref{fig:framework}, is a combination of the Dynamic Capabilities Theory and the Resource Based View (RBV) into one explanatory framework. Innovation Capability (IC) is defined as a multidimensional construct that is measured through three different dimensions: Product Innovation Capability (PIC), Process Innovation Capability (PROC) and Marketing Innovation Capability (MIC). This is a multidimensional construct that is used as the main independent variable. Competitive Advantage (CA) is seen as the mediator that will link the ability of innovation to the ultimate outcome of interest, Startup Survival (SS). Finally, Founder Experience (FE) and Funding Stage (FS) act as moderators to affect the relationship between innovation capability and start-up survival. Path directions and potential signs are deductively inferred based on the strategic management theory and empirical entrepreneurship literature.
 
 \begin{figure}[htbp]
-  \centering
-  \fbox{\parbox{0.85\columnwidth}{\centering\vspace{1.5cm}
-    [Conceptual Framework Diagram Placeholder]\\[0.2cm]
-    Innovation Capability (IC) $\rightarrow$ Competitive Advantage (CA) $\rightarrow$ Startup Survival (SS)\\
-    Moderators: Founder Experience (FE), Funding Stage (FS)
-    \vspace{1.5cm}}}
-  \caption{Proposed conceptual framework linking Innovation Capability (IC), Competitive Advantage (CA), and Startup Survival (SS), with moderating influences from Founder Experience (FE) and Funding Stage (FS).}
-  \label{fig:framework}
+\centering
+\resizebox{\columnwidth}{!}{%
+\setlength{\unitlength}{1cm}%
+\begin{picture}(9.8, 5.1)
+
+  % --- Main construct boxes ---
+  \put(0.1,3.3){\framebox(2.2,1.0){\footnotesize\shortstack{Innovation\\Capability\\(IC)}}}
+  \put(3.8,3.3){\framebox(2.2,1.0){\footnotesize\shortstack{Competitive\\Advantage\\(CA)}}}
+  \put(7.5,3.3){\framebox(2.2,1.0){\footnotesize\shortstack{Startup\\Survival\\(SS)}}}
+
+  % --- Moderator boxes ---
+  \put(0.9,0.5){\framebox(2.2,1.0){\footnotesize\shortstack{Founder\\Experience\\(FE)}}}
+  \put(6.7,0.5){\framebox(2.2,1.0){\footnotesize\shortstack{Funding\\Stage\\(FS)}}}
+
+  % --- H1: IC right edge -> CA left edge ---
+  \put(2.3,3.8){\vector(1,0){1.5}}
+  \put(3.05,3.97){\makebox(0,0)[b]{\footnotesize H1}}
+
+  % --- H2: CA right edge -> SS left edge ---
+  \put(6.0,3.8){\vector(1,0){1.5}}
+  \put(6.75,3.97){\makebox(0,0)[b]{\footnotesize H2}}
+
+  % --- H4 label above CA ---
+  \put(4.9,4.55){\makebox(0,0){\footnotesize H4 (mediated via CA)}}
+
+  % --- H3: IC -> SS direct path (L-shaped below) ---
+  \put(1.2,3.3){\line(0,-1){0.8}}
+  \put(1.2,2.5){\line(1,0){7.4}}
+  \put(8.6,2.5){\vector(0,1){0.8}}
+  \put(4.9,2.55){\makebox(0,0)[b]{\footnotesize H3 (direct)}}
+
+  % --- H5: FE top -> H3 path (slope 1:2) ---
+  \put(2.0,1.5){\vector(1,2){0.5}}
+  \put(2.15,2.05){\makebox(0,0)[l]{\footnotesize H5}}
+
+  % --- H6: FS top -> H3 path (slope -1:2) ---
+  \put(7.8,1.5){\vector(-1,2){0.5}}
+  \put(7.65,2.05){\makebox(0,0)[r]{\footnotesize H6}}
+
+\end{picture}%
+}
+\caption{Proposed conceptual framework linking Innovation Capability (IC),
+  Competitive Advantage (CA), and Startup Survival (SS), with moderating
+  influences from Founder Experience (FE) and Funding Stage (FS).
+  Solid arrows denote direct paths (H1--H3); H4 is the mediated indirect
+  path through CA; H5 and H6 denote moderating effects.}
+\label{fig:framework}
 \end{figure}
 
 \subsection{Hypothesis Development}
 
 \textit{Innovation Capability and Competitive Advantage:}
-In line with the Resource-Based View (RBV), a firm's unique capabilities are the fundamental source of competitive advantage. Innovation capability, representing the firm's capacity to continuously adapt and develop novel offerings, workflows, and promotional strategies, serves as a key strategic asset. By integrating product, process, and marketing adaptations, startups can offer unique value to customers, reduce operational costs, and establish a distinct market position. These actions generate a defensible market position relative to rivals, manifesting as competitive advantage. Therefore, we hypothesize:
+As per the Resource Based View (RBV), the base of any competitive advantage of any firm is its unique capabilities. A critical strategic asset is the firm's ability to be innovative, that is, to continuously adapt and offer new products, processes and promotions. Combining product, process, and marketing adaptation can enable startups to provide unique value to customers, cut down on operational costs, and position themselves in a unique place in the market. These actions create competitive advantage against competitors, through a defensible market position. Therefore, we hypothesize:
 
 \begin{description}
   \item[H1:] Innovation Capability (IC) has a significant positive effect on Competitive Advantage (CA).
 \end{description}
 
 \textit{Competitive Advantage and Startup Survival:}
-Competitive advantage represents the firm's capacity to create and capture superior value. Startups that successfully establish a competitive advantage—whether through differentiation, niche specialization, or strategic positioning—are better insulated from intense market competition and macroeconomic shocks. This strategic insulation directly drives revenue stability, customer loyalty, and long-term viability, which are the main pillars of venture survival in volatile markets. Thus:
+The ability of the firm to create and capture greater value is its competitive advantage. Once startups have taken a competitive foothold in a market, either by differentiating, specializing in a niche, or positioning themselves strategically, they become less vulnerable to severe macro-economic changes and strong competition in the marketplace. This strategic insulation is what ultimately contributes to the stabilization of revenue, customer retention and long-term viability, the lifeblood of a venture's survival in a dynamic market. Thus:
 
 \begin{description}
   \item[H2:] Competitive Advantage (CA) has a significant positive effect on Startup Survival (SS).
 \end{description}
 
 \textit{Innovation Capability and Startup Survival:}
-Although competitive advantage mediates the translation of capabilities into performance, dynamic capabilities theory suggests that innovation also exerts a direct influence on survival. In highly turbulent startup environments, the capacity to continuously innovate provides the organizational agility necessary to pivot business models, adapt to regulatory shifts, and survive unexpected environmental shocks, even before these adaptations solidify into a stable competitive position. Consequently:
+While capabilities to innovation and innovation to performance is mediated by competitive advantage, according to dynamic capabilities theory, there is also a direct link from innovation to survival. The ability to continuously innovate is crucial for organizational agility to pivot business models, adjust to regulatory changes and respond to unforeseen environmental shocks in highly turbulent start-up situations – before the changes even become a stable competitive position. Consequently:
 
 \begin{description}
   \item[H3:] Innovation Capability (IC) has a significant positive effect on Startup Survival (SS) directly.
 \end{description}
 
 \textit{The Mediating Role of Competitive Advantage:}
-Synthesizing the arguments of the RBV and dynamic capabilities, we propose that the survival benefits of innovation are not entirely direct, but are substantially transmitted through the creation of competitive advantage. Startups must translate their underlying innovation capabilities into clear competitive positions (such as differentiated products or cost efficiencies) to successfully survive in the marketplace. We therefore expect competitive advantage to act as a critical intervening mechanism:
+Combining the RBV and dynamic capabilities, we suggest that the survival advantages of innovation are not purely direct, but is also greatly mediated by the competitive advantage that is created. To establish a niche in a competitive market, startups need to convert the innovativeness of the idea into marketable competitive positions, be it through providing differentiated products or saving on costs. So we anticipate competitive advantage to be a key intervening process:
 
 \begin{description}
   \item[H4:] Competitive Advantage (CA) mediates the relationship between Innovation Capability (IC) and Startup Survival (SS).
 \end{description}
 
 \textit{The Moderating Roles of Founder Experience and Funding Stage:}
-The strength of the relationship between innovation capability and startup survival is bounded by key founder- and venture-level boundary conditions. First, founder human capital, particularly prior industry experience, provides the cognitive maps and managerial networks necessary to commercialize innovative efforts effectively. Experienced founders can apply strategic heuristics to guide innovation projects, reducing waste and accelerating time-to-market. Second, external funding stage reflects resource availability. Ventures transitioning from bootstrapping to angel, seed, and venture capital funding levels gain the financial slack required to professionalize operations, scale innovations, and absorb the risks of failure. We argue that both factors amplify the survival returns of innovation:
+There are certain foundation and venture-level boundary conditions that restrict the effect of innovation capability on start-up survival. First of all, there is founder human capital, including industry experience, that is needed to effectively commercialize innovative activities. Veteran entrepreneurs can use strategic heuristics to help innovation ventures reduce waste and speed up their time to market. Secondly, the stage of external funding is indicative of resource availability. Ventures that progress from bootstrapping and angel rounds into seed and venture capital funding phases benefit from the financial cushion needed to professionalize operations, scale innovations, and absorb the risks associated with failure. We believe that the two factors increase the returns to innovation in survival:
 
 \begin{description}
   \item[H5:] Founder Experience (FE) positively moderates the relationship between Innovation Capability (IC) and Startup Survival (SS).
@@ -330,100 +208,29 @@ The strength of the relationship between innovation capability and startup survi
 
 \subsection{Research Design}
 
-The study takes a deductive stance, deriving testable hypotheses from
-established theory and subjecting them to empirical scrutiny through
-primary survey data. A quantitative, cross-sectional design is adopted
-in preference to a longitudinal approach---a trade-off that sacrifices
-causal precision for practical feasibility, given the difficulty of
-tracking startup cohorts over time and the near-certainty of differential
-attrition among failing ventures \cite{b21}. The approach follows the
-positivist tradition of quantitative entrepreneurship research, in which
-constructs are operationalised through multi-item reflective scales and
-structural relationships are assessed through second-generation
-multivariate analysis.
+The study is deductive in nature as it draws hypotheses for testing from the existing theory and empirically tests them with primary data collected from the surveys. To some extent a preference is given to a quantitative, cross sectional design over a longitudinal design, in part because it is difficult to follow up startup cohorts over time, and in part because the data suggest that the likelihood of survival may vary significantly among these failures (see \cite{b21}). The method is based on the positivist paradigm applied in quantitative entrepreneurship research that involves the use of multi-item reflective scales for the operationalization of constructs and second generation multivariate analysis to assess the structural relationship between constructs.
 
 \subsection{Target Population and Sampling}
 
-Three inclusion criteria define the target population. Respondents must
-hold a founding or co-founding role in the venture. The startup must be
-formally recognised by the Department for Promotion of Industry and
-Internal Trade (DPIIT) under the Startup India scheme. The venture must
-have been incorporated no more than seven years before the survey date---
-a ceiling consistent with DPIIT's own statutory definition of a startup
-and with the early-growth phase during which the innovation--survival
-relationship is most consequential. Sectoral scope is restricted to
-technology-intensive industries (information technology, fintech,
-healthtech, edtech, and agritech) where innovation capability variation
-is sufficiently wide to permit structural model estimation.
+The target population is defined by three inclusion criteria. The person(s) responding to the question are required to have a founding or co-founding position in the venture. The startup needs to be registered with the Startup India scheme by the Department for Promotion of Industry and Internal Trade (DPIIT). The time period must be within the last seven years from the date of incorporation, which is DPIIT's own definition of a startup and falls within the early growth phase when the relationship between innovative activity and survival matters most. The sectors are limited to technology-intensive sectors (information technology, fintech, healthtech, edtech, and agritech) in which there is enough variation in innovativeness to estimate structural models.
 
-Respondents will be reached through startup incubators, institutional
-entrepreneurship cells, accelerator alumni networks, and LinkedIn
-outreach. Purposive sampling is appropriate given the specificity of
-the inclusion criteria; snowball referrals will supplement direct
-outreach where response rates prove insufficient. Hair et al.'s
-\cite{b22} ten-times rule implies a minimum of approximately 50 usable
-responses for the present model structure; the obtained sample of 200 respondents
-provides a substantial buffer and enables subgroup analyses across
-funding stage categories.
+The respondents will be contacted via the startup incubators, institutional entrepreneurship cells, the alumni networks of accelerators, as well as via LinkedIn outreach. The inclusion criteria are specific, therefore purposive sampling was decided on, and will be complemented by snowball referrals if response rate is low. The sample size of 200 respondents is still quite large as per the hair et al. 10× rule \cite{b22} that suggests a minimum of about 50 usable responses for the present model structure, and allows for subgroup analyses by funding stage categories.
 
 \subsection{Measurement Instrument}
 
-The questionnaire comprises five parts. Part~A collects demographic
-data on the respondent and the venture: founding year, sector, current
-funding stage, prior entrepreneurial and industry experience, and team
-size. Parts~B through~D measure the three innovation capability constructs
-using five items each, adapted from Romijn and Albaladejo \cite{b6} and
-Gunday et al.\ \cite{b3} with language tailored to early-stage venture
-settings. Part~E covers competitive advantage (four items, adapted from
-Camisón and Villar-López \cite{b18}) and startup survival (five items
-operationalised as perceived revenue continuity, customer retention
-trajectory, and operational longevity relative to sector peers); founder
-experience is measured using three items, while funding stage is treated
-as a nominal moderator with five ordinal levels: bootstrapped,
-angel-funded, seed-funded, Series~A or above, and grant-supported.
+This questionnaire is divided in 5 parts. Part~A gathers information about the respondents' demographic and characteristics about the venture: founding year, sector, current funding stage, previous entrepreneurial and industry experience, and the size of the team. Each of the 3 innovation capability constructs – Parts~B through~D – is measured by 5 items adapted from Romijn and Albaladejo \cite{b6} and Gunday et al.\ \cite{b3} and modified for the context of early-stage ventures. The items for part~E are on the one hand concerned with competitive advantage (four items, adapted from Camisón and Villar-López \cite{b18}) and on the other hand with survival of the start-up (five items operationalised as perceived revenue continuity, customer retention trajectory, and operational longevity compared with those of other firms in the sector); for part~F founder experience is measured by means of three items, and funding stage is treated as a nominal moderator with five ordinal levels: (bootstrapped, angel-funded, seed-funded, Series~A or above, and grant-supported).
 
-All multi-item measures use a five-point Likert scale anchored at
-$1 =$ ``Strongly Disagree'' and $5 =$ ``Strongly Agree.'' A pilot
-study involving 20 respondents will be conducted before main data
-collection to identify problematic items and confirm scale properties.
+The multi-item measures are rated on a 5-point Likert scale ranging from $1=$ ``Strongly Disagree'' to $5=$ ``Strongly Agree.'' Main data collection will be preceded by a pilot study of 20 respondents to determine problematic items, as well as to check the scale properties.
 
 \subsection{Analytical Strategy}
 
-PLS-SEM via SmartPLS 4.0 \cite{b22} is selected over covariance-based
-SEM for three reasons specific to this study: the model is
-exploratory-predictive in orientation rather than purely confirmatory;
-several constructs are expected to exhibit non-normal distributions
-given the skewed nature of startup performance outcomes; and the
-anticipated sample size, while adequate, falls short of the 400-plus
-observations typically recommended for robust CB-SEM estimation.
+For this study, three reasons are provided for using PLS-SEM instead of CB-SEM: (1) This is an exploratory-predictive model, not only a confirmatory model; (2) several constructs are hypothesized to have non-normal distributions (due to the skewed nature of startups' performance outcomes); and (3) the sample size (n = 200) is relatively small compared to the number of observations typically required for optimal estimation of CB-SEM (n > 400).
 
-Assessment follows the two-stage sequence recommended by Hair et al.\
-\cite{b22}. The \textit{measurement model} is evaluated first: item
-loadings must exceed 0.70; Cronbach's $\alpha$ and composite reliability
-(CR) must exceed 0.70; and AVE must exceed 0.50 to establish convergent
-validity. Discriminant validity is assessed via the
-Heterotrait--Monotrait ratio (HTMT $< 0.85$), a more stringent test
-than the traditional Fornell--Larcker criterion.
+The assessment is carried out in the following two-stage sequence that is recommended by Hair et al. \cite{b22}. First one is the “measurement model” and the results of this model should be more than 0.70 for item loadings, more than 0.70 for Cronbach's $\alpha$ and CR, and more than 0.50 for the AVE, which indicates convergent validity. Both discriminant validity and traditional Fornell-Larcker criterion employ the Heterotrait--Monotrait ratio (HTMT $< 0.85$), a more stringent criterion than the traditional Fornell–Larcker.
 
-\textit{Structural model} evaluation proceeds through PLS bootstrapping
-with 5,000 resamplings, generating $t$-statistics and 95\% confidence
-intervals for each path coefficient (H1--H3). The mediation
-test for H4 applies the bias-corrected bootstrap confidence interval
-to the indirect effect: significance of the indirect effect alongside
-a non-significant direct effect constitutes full mediation. Moderation
-tests for H5 and H6 use the product-indicator interaction term method
-within PLS-SEM; effect sizes are reported as Cohen's $f^2$ (small:
-0.02, medium: 0.15, large: 0.35). Model fit is evaluated using the
-Standardised Root Mean Square Residual (SRMR $< 0.08$).
+Evaluation of the structural model is carried out, using PLS bootstrapping with resampling of 5,000 numbers and the calculation of $t$-statistics and 95\% confidence intervals (CIs) for each of the path coefficients (H1-H3). The mediation test for H4 involves bootstrapping the indirect effect's bias-corrected confidence interval and then checking whether it is significant in addition to the direct effect not being significant; if both the indirect effect (CI) and direct effect (CE) are not significant, then the mediation is considered full. Moderation tests are conducted with the product-indicator interaction term method in PLS-SEM, and Cohen's $f^2$ is used to report the effect size: small = 0.02, medium = 0.15, large = 0.35. The Standardised Root Mean Square Residual (SRMR $< 0.08$) is used to assess the model fit.
 
-Common method variance will be screened using Harman's single-factor
-test; where the single-factor solution accounts for more than 50\% of
-total variance, the common latent factor technique will be applied as
-a post-hoc correction \cite{b21}.
-
-% ==========================================================
-% Remaining sections — to be completed
-% ==========================================================
+The common latent factor technique will be used as a post hoc method for screening common method variance (CMV) if the single factor test identifies Harman's single factor solution to explain more than 50\% of the total variance \cite{b21}.
 
 \section{Results and Discussion}
 \label{sec:results}
