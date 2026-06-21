@@ -558,7 +558,9 @@ H6: FS $\times$ IC $\rightarrow$ SS (Moderation)
 
 \subsection{Predictive Machine Learning Evaluation}
 
-To complement the explanatory focus of the PLS-SEM analysis, three predictive models were trained on an 80/20 train/test split. These models were designed to predict continuous Startup Survival scores using startup operational indicators. Table~\ref{tab:ml_results} presents the comparative performance metrics of the models.
+To supplement the explanatory power of the PLS-SEM model, predictive machine learning models are developed to predict the Startup Survival score based on startup operational and innovation-based indicators. Machine learning techniques offer further predictive insights to determine how well startups are likely to perform by predicting startup performance outcomes, whereas, PLS-SEM explains the causal relationships between Innovation Capability, Competitive Advantage and Startup Survival.
+
+Three supervised regression models—Linear Regression, Random Forest Regressor and Gradient Boosting Regressor—were tested using an 80:20 train-test split. The coefficient of determination ($R^2$), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) were used to evaluate model performance.
 
 \begin{table}[htbp]
 \caption{Predictive Machine Learning Model Performance}
@@ -566,22 +568,44 @@ To complement the explanatory focus of the PLS-SEM analysis, three predictive mo
 \centering
 \begin{tabular}{lccc}
 \hline
-\textbf{Model Type} & \textbf{$R^2$ Score} & \textbf{RMSE} & \textbf{MAE} \\ \hline
+\textbf{Model Type} & \textbf{$R^2$ Score} & \textbf{RMSE} & \textbf{MAE} \\
+\hline
 Linear Regression & 0.654 & 0.393 & 0.347 \\
 Random Forest Regressor & 0.695 & 0.369 & 0.295 \\
-Gradient Boosting Regressor & \textbf{0.707} & \textbf{0.362} & \textbf{0.313} \\ \hline
+Gradient Boosting Regressor & \textbf{0.707} & \textbf{0.362} & \textbf{0.313} \\
+\hline
 \end{tabular}
 \end{table}
 
-The Gradient Boosting Regressor outperformed the other models, yielding the highest predictive power ($R^2 = 0.707$) and the lowest error metrics ($RMSE = 0.362$, $MAE = 0.313$). This indicates that the Gradient Boosting model is highly capable of capturing the complex, non-linear interactions and boundary conditions identified in our structural model. Consequently, this model was selected and serialized to serve as the prediction engine for our interactive self-diagnostic dashboard.
+The Gradient Boosting Regressor model gave the best prediction accuracy of 0.707 in terms of the $R^2$ value, which accounts for around 70.7\% of the variance in Startup Survival. The results of this model indicate that there are complex and potentially non-linear relationships between innovation capabilities, competitive advantage factors, founder attributes and funding conditions, which affect startup survival.
+
+The machine learning part complements the explanatory nature of the structural model by providing the machine learning part a useful prediction mechanism. Therefore, the Gradient Boosting model was chosen to be used as the prediction engine of the proposed startup self-assessment dashboard.
 
 \subsection{Theoretical Implications}
 
-The structural path results provide robust empirical validation of Dynamic Capabilities Theory and the Resource-Based View (RBV) within the emerging market context. From the RBV perspective, our findings show that Innovation Capability acts as a valuable, rare, and inimitable (VRIN) asset that generates a competitive advantage. In alignment with Dynamic Capabilities Theory, the significant direct and moderated pathways show that early-stage survival is a dynamic process of sensing and seizing opportunities, where founder experience and funding stage act as essential boundary conditions that dictate the efficiency of capability deployment.
+This study adds to entrepreneurship and innovation literature by both the Dynamic Capabilities Theory and Resource Based View, in the context of Indian technology startups.
+
+This strong relationship of Innovation Capability and Competitive Advantage validates the Resource Based View that states that valuable, rare, inimitable and non-substitutable resources bestow sustainable competitive advantage. By combining product, process and marketing innovations, startups can achieve a differentiation from their competitors and build up defensible market positions.
+
+The findings further validate Dynamic Capabilities Theory, as they indicate that a company's innovation capability supports the capability of a startup to sense opportunities, seize market opportunities and reconfigure the organizational resources in response to the uncertainty of the environment. In a highly dynamic and competitive market, these adaptive capabilities directly impact Start-up Survival.
+
+Moreover, the empirical findings suggest that the theoretical argument of 'innovation as a source of value creation' is supported; namely, that innovation's value comes through the mediation of Competitive Advantage. Moderating effect of Founder Experience and Funding Stage further emphasize the relevance of contextual factors in understanding the effectiveness of innovation deployment.
+
+Additionally, the use of PLS-SEM and the Machine Learning creates a methodological advantage by adding both explanatory and predictive views in one analytical framework.
 
 \subsection{Practical Implications for the Indian Startup Ecosystem}
 
-For entrepreneurs in the Indian startup ecosystem, our findings suggest that focusing solely on technological development is insufficient; equal attention must be paid to process and marketing innovations to establish a defensible market positioning. Founders must prioritize achieving a distinct market position rather than relying solely on technological novelty. For venture capital and angel investors, the significant moderating effects suggest that when evaluating startup innovation, equal weight must be given to founder human capital and capital deployment efficiency. Finally, for policymakers managing initiatives like the Startup India scheme, institutional support should not only focus on funding but also on building robust mentoring and incubator networks that enrich founders' experience and help them navigate early-stage survival hurdles.
+The results have several implications for entrepreneurs, investors, incubators and policy makers.
+
+The outcomes suggest that rather than investing only in product and process innovations, entrepreneurs need to balance these investments to create sustainable startup success and achieve marketing innovation. Innovation efforts should be linked to customer needs and strategic market positioning to ensure optimal chances of survival.
+
+The findings imply that assessing only an innovation ability is not enough for investors. Investors should take into account the founder's experience and funding readiness when making investment decisions as it can have a significant impact on the effectiveness of the innovation activities.
+
+These insights can be applied to create programs and services for startup entrepreneurs to enhance their commercialization, strategic decision-making, and innovation management capabilities, which can be offered in a startup incubator or accelerator programme.
+
+Programs like Startup India should go hand-in-hand with financial support for Startups and ecosystem development initiatives like mentorship network, innovation support infrastructure, industry-academy interface and IP awareness programmes for policymakers. These can enhance innovation capacities and survival rates of startups throughout the whole innovation ecosystem.
+
+Last but not least, the proposed predictive dashboard offers a tangible decision support system, allowing startup founders to evaluate their organizational strengths and weaknesses, predict the chances of survival and identify strategic improvement opportunities. Thus, the framework provides for both academic knowledge and practical skills in start-up management.
 
 \section{Conclusion}
 \label{sec:conclusion}
