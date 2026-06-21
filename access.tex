@@ -242,7 +242,7 @@ We present the empirical findings from our structural model analysis and predict
 \textbf{Demography of the sample:}
 Demographic data for the survey sample was examined before measurement and structural model evaluations to determine representativeness and validity. The final sample is made up of 200 early-stage technology startup companies registered with Department for Promotion of Industry and Internal Trade (DPIIT) under the Startup India initiative. The survey was only performed with startup founders, co-founders, or key executive decision makers as a way to ensure the reliability of the responses. The data collection was done with a cross sectional survey method and purposive and snowball sampling techniques with start-ups incorporated in the past seven years. The survey was made available via technology incubators, national entrepreneurship networks, and professional websites and online platforms.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Demographic Profile of the Sample ($N = 200$)}
 \label{tab:demographic_profile}
 \centering
@@ -275,7 +275,7 @@ Founder Age & 25--34 Years & 50 & 25.0 \\
 \hline
 
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Venture Characteristics and Sectoral composition:}
 The detailed analysis of the characteristics of the ventures indicates a very young and technology oriented group. In terms of venture age, most of the sample is in their first year of operation, constituting a significant majority (66.5\%). Twenty-three and a half percent of the sample (23.5\%) are startups 1--3 years old, and 10.0\% are 3--7 years old. It is a very appropriate distribution to be used in analyzing the dynamics of survival because it is a distribution of ventures in the most precarious phase of their developmental life, that is, the most susceptible to the liability of newness. When distributed by sector, the sample is dominated by the Tech/Software sector (50.0\%), followed by HealthTech (33.5\%) and FinTech or other technology-enabled services (16.5\%). This is a sectoral breakdown because the drivers of the Indian technology startup ecosystem is majority growth tech startups, which makes the results representative of high-growth tech startups.
@@ -331,7 +331,7 @@ Cronbach's alpha and Composite Reliability are considered to be satisfactory if 
 
 where $\lambda_i$ is the standardized factor loading of indicator $i$ and $K$ is the number of indicators. The minimum value for the $\text{AVE}$ must be at least $0.50$ or more, which means that the variance of the indicators for the latent construct is greater than $50\%$.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Construct Reliability and Convergent Validity ($N = 200$)}
 \label{tab:reliability_validity}
 \centering
@@ -359,7 +359,7 @@ Startup Survival (SS)
 & 0.885 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Convergent Validity Results:}
 According to the results presented in Table II all constructs are significantly higher than the academic threshold. The results of this indicator showed that Innovation Capability (IC) had high internal consistency and convergent validity ($\alpha = 0.934$; $\text{CR} = 0.958$; $\text{AVE} = 0.883$). Similarly, Competitive Advantage (CA) showed strong metric properties ($\alpha = 0.904$, $\text{CR} = 0.940$, $\text{AVE} = 0.839$). The reliability and validity of Startup Survival (SS) were also remarkable with $\alpha = 0.935$, $\text{CR} = 0.959$ and $\text{AVE} = 0.885$. The reflective indicators have high AVE values (all $> 0.80$), indicating that they have a strong representativeness for their underlying latent variables.
@@ -420,6 +420,8 @@ The standardized scores of the innovation capability ($IC_s$) are represented by
 
 The Structural Relationship between the independent variable ($IV_x$) and the dependent variable ($SS_s$) with direct and indirect pathways and moderating interaction is set as:
 
+\begin{figure*}[!t]
+\normalsize
 \begin{equation}
 \begin{aligned}
 SS_s
@@ -439,10 +441,12 @@ SS_s
 \epsilon_{SS}
 \end{aligned}
 \end{equation}
+\hrulefill
+\end{figure*}
 
 where $\beta_{IC \to SS}$, $\beta_{CA \to SS}$, and $\beta_{IC \times FE}$, $\beta_{IC \times FS}$, are the direct path coefficients, $FE_s$ and $FS_s$ are the scores in the standardized scale for founder experience and funding stage respectively, and $\epsilon_{SS}$ is the residual variance.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Direct Path Analysis Results ($N = 200$, Bootstrap Resamples = $5000$)}
 \label{tab:path_analysis}
 \centering
@@ -474,7 +478,7 @@ H3: IC $\rightarrow$ SS (Direct)
 & Supported \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Direct Path Findings:}
 
@@ -521,7 +525,7 @@ To assess the moderating effect of the Funding Stage ($FS$) of the venture on th
 
 This finding reinforces the findings that investing in more advanced stages of funding (seed, Series A, B) does increase the survival returns of innovation capabilities. Easing resource constraints like those of start-ups. Funded startups have the capital runway and opportune slack to create their product and marketing innovations more professional, hire specialized people, and expand. Besides, external funding cushions against the commercialization failures so characteristic of the highly novel innovations that startups must face in their commercialization process.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Mediation and Moderation Path Analysis Summary}
 \label{tab:mediation_moderation}
 \centering
@@ -553,7 +557,7 @@ H6: FS $\times$ IC $\rightarrow$ SS (Moderation)
 & Supported (Positive Moderation) \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 
 \subsection{Predictive Machine Learning Evaluation}
@@ -562,7 +566,7 @@ To supplement the explanatory power of the PLS-SEM model, predictive machine lea
 
 Three supervised regression models—Linear Regression, Random Forest Regressor and Gradient Boosting Regressor—were tested using an 80:20 train-test split. The coefficient of determination ($R^2$), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) were used to evaluate model performance.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Predictive Machine Learning Model Performance}
 \label{tab:ml_results}
 \centering
@@ -575,7 +579,7 @@ Random Forest Regressor & 0.695 & 0.369 & 0.295 \\
 Gradient Boosting Regressor & \textbf{0.707} & \textbf{0.362} & \textbf{0.313} \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 The Gradient Boosting Regressor model gave the best prediction accuracy of 0.707 in terms of the $R^2$ value, which accounts for around 70.7\% of the variance in Startup Survival. The results of this model indicate that there are complex and potentially non-linear relationships between innovation capabilities, competitive advantage factors, founder attributes and funding conditions, which affect startup survival.
 
@@ -625,16 +629,6 @@ This study investigated how multidimensional innovation capability (product, pro
 \textbf{Limitations:} The cross-sectional design limits causal inference; sample restriction to DPIIT-registered tech startups reduces generalizability to informal ventures and non-tech sectors; self-reported measures introduce common method variance; geographic concentration in Tier-1/2 cities may not represent rural or smaller-city startups.
 
 \textbf{Future Directions:} Longitudinal cohort studies tracking actual survival/failure over 5--10 years; comparative institutional analysis across emerging markets (Singapore, Kenya, Brazil); qualitative research on founder decision-making; analysis of innovation portfolio combinations and optimal sequencing; outcome-focused research linking innovation types to specific survival milestones.
-
-\appendices
-
-\section*{Acknowledgment}
-
-The authors thank the faculty of the Department of Industrial Engineering
-\& Management, RV College of Engineering, for their guidance throughout
-the Experiential Learning project.
-
-\section*{References}
 
 \begin{thebibliography}{00}
 
@@ -720,23 +714,6 @@ critical review of the literature and recommended remedies,''
 \bibitem{b22} J. F. Hair, G. T. M. Hult, C. M. Ringle, and
 M. Sarstedt, \emph{A Primer on Partial Least Squares Structural Equation
 Modeling (PLS-SEM),} 3rd~ed. Thousand Oaks, CA, USA: SAGE, 2022.
-
-\bibitem{b23} S. Zahra, H. J. Sapienza, and P. Davidsson, ``Entrepreneurship
-and dynamic capabilities: A review, model and research agenda,''
-\emph{J. Manage. Stud.}, vol.~43, no.~4, pp.~917--955, 2006.
-
-\bibitem{b24} R. E. Hoskisson, M. A. Hitt, R. A. Johnson, and D. D. Grossman,
-``Conflicting voices: The effects of institutional ownership heterogeneity
-and internal governance on corporate innovation strategies,''
-\emph{Acad. Manage. J.}, vol.~45, no.~4, pp.~697--716, 2002.
-
-\bibitem{b25} D. F. Amoako-Gyampah and K. Boal, ``Operations strategy in
-dynamic environments: Examining the drivers of competitive advantage,''
-\emph{Int. J. Oper. Prod. Manag.}, vol.~31, no.~8, pp.~843--869, 2011.
-
-\bibitem{b26} T. Gur and L. Zahra, ``Improving visibility of the Indian
-startup ecosystem,'' \emph{Eur. J. Int. Manag.}, vol.~12, no.~3,
-pp.~295--311, 2018.
 
 \end{thebibliography}
 
